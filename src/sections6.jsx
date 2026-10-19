@@ -28,9 +28,9 @@ export function Thinking() {
   return (
     <section id="thinking" className="sec sec--paper" aria-labelledby="think-h">
       <div className="wrap">
-        <SplitWords as="h2" id="think-h" className="h2" text="How he thinks, shown, not claimed." />
+        <SplitWords as="h2" id="think-h" className="h2" text="How I think, shown, not claimed." />
         <Reveal as="p" className="lede" delay={0.15}>
-          Seven moves he makes on every problem, seven bets that follow from them, and the daily gaps where the official number and the real incentive part ways. Each bet has a kill test, and none is a result.
+          Seven moves I make on every problem, seven bets that follow from them, and the daily gaps where the official number and the real incentive part ways. Each bet has a kill test, and none is a result.
         </Reveal>
 
         <ol className="moves" role="list">

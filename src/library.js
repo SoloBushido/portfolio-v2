@@ -1,4 +1,4 @@
-// The 32 proposals from Karthik's earlier portfolio. Proposals, not delivered projects: each has a finding and a target.
+// The 32 proposals from my earlier portfolio. Proposals, not delivered projects: each has a finding and a target.
 export const library = [
   {
     "n": 1,

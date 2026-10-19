@@ -1,5 +1,5 @@
 // Material for decision makers: what carries over to other functions, how to start without paperwork, time-zone cover.
-// Every claim comes from the résumé or Karthik's earlier portfolio. Items in [square brackets] are for Karthik to confirm or fill.
+// Every claim comes from my résumé or my earlier portfolio.
 
 export const lenses = [
   {
@@ -99,8 +99,8 @@ export const lenses = [
     fig: '30+',
     figLabel: 'games shipped across hybrid-puzzle, idle, rewarded and narrative titles',
     carries: [
-      'Leads 50+ at BooBoo Games; moved the merged studio to an AI-first model.',
-      'Built the creative, playable-ad and UA engine on his own.',
+      'Lead 50+ at BooBoo Games; moved the merged studio to an AI-first model.',
+      'Built the creative, playable-ad and UA engine on my own.',
       '5+ 3D PC games and 10+ mobile games built personally.',
     ],
     isNew: ['Your genre and audience.', 'Your live data, once seen.'],
@@ -112,20 +112,20 @@ export const lenses = [
 export const ladder = [
   { when: 'Weeks 1 to 8', h: 'Start remotely, as a paid pilot', p: 'On contract, or through an employer-of-record, a service that legally employs a person in their own country on your behalf. No immigration process is needed for this stage. A target number is agreed before any work starts, and the verdict is written down.' },
   { when: 'Months 3 to 6', h: 'Extend, with evidence', p: 'If the number moved, the work continues remotely. Everyone has seen the work before any paperwork is considered.' },
-  { when: 'When both sides are sure', h: 'Relocate, only if the role needs it', p: 'Pathways differ by country and role, and your immigration counsel confirms what applies. Karthik prepares the documents and timeline in advance.' },
+  { when: 'When both sides are sure', h: 'Relocate, only if the role needs it', p: 'Pathways differ by country and role, and your immigration counsel confirms what applies. I prepare the documents and timeline in advance.' },
 ];
 
 export const brief = {
   title: 'Karthik Bindumon',
-  line: 'Operator and behaviour-change designer, Mumbai.',
+  line: 'AI-first producer, Mumbai.',
   facts: [
     'Led 50+ people and shipped 30+ products; moved a merged studio to AI-first workflows.',
     'Held cost per install under $1.50 through data-driven iteration.',
     'Built workflows so one person can carry a project end to end: 100+ levels in a day, 6 ports in 5 days.',
     'Co-founded three studios; validated one with 50+ sales calls a day before building.',
-    'Writes falsifiable bets with kill tests before building anything: seven on the site, each a hypothesis with a way to prove it wrong.',
+    'Write falsifiable bets with kill tests before building anything: seven on the site, each a hypothesis with a way to prove it wrong.',
   ],
-  start: 'Starts remotely as a paid 4 to 8 week pilot, with the target number agreed first, so no immigration process is needed for the first stage.',
+  start: 'I start remotely as a paid 4 to 8 week pilot, with the target number agreed first, so no immigration process is needed for the first stage.',
   contact: 'karthik.mbindumon@gmail.com',
   url: 'https://solobushido.github.io/portfolio/',
 };

@@ -106,7 +106,7 @@ export function Library() {
             </li>
           ))}
         </ul>
-        {shown.length === 0 && <p className="lib__none">No pilot matches that yet. Write to Karthik with your industry and he will say how it would run.</p>}
+        {shown.length === 0 && <p className="lib__none">No pilot matches that yet. Write to me with your industry and I will say how it would run.</p>}
       </div>
     </section>
   );

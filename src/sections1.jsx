@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform, useMotionValue, useSpring, useMotionTemplate, useMotionValueEvent, useReducedMotion } from 'motion/react';
-import { ribbon, mirror, proof, fit, HEADLINE } from './content.js';
+import { ribbon, mirror, proof, fit, hold, HEADLINE } from './content.js';
 import { EASE, STILL, SplitWords, Reveal, Pill, Marquee, Count, useSpot, useFine, scrollToId, useSceneProgress } from './ui.jsx';
 
 /* ---------- navigation island ---------- */
@@ -163,12 +163,12 @@ export function Hero() {
       <div className="hero__foot">
         <Reveal delay={1.35} y={16} className="hero__lead">
           <p>
-            Leads the team. Builds the workflows. Ships the product.
+            I lead the team, build the workflows and ship the product. Then I put the numbers in writing.
           </p>
         </Reveal>
         <Reveal delay={1.5} y={16} className="hero__actions">
           <Pill href="#fit" onClick={(e) => { e.preventDefault(); scrollToId('fit'); }}>
-            Where he fits
+            Where I fit
           </Pill>
           <a className="textlink" href="#work" onClick={(e) => { e.preventDefault(); scrollToId('work'); }}>
             See the work
@@ -181,15 +181,15 @@ export function Hero() {
   );
 }
 
-/* ---------- where to place him ---------- */
+/* ---------- where I fit ---------- */
 
 export function Fit() {
   return (
     <section id="fit" className="sec sec--paper" aria-labelledby="fit-h">
       <div className="wrap">
-        <SplitWords as="h2" id="fit-h" className="h2" text="Where to place him." />
+        <SplitWords as="h2" id="fit-h" className="h2" text="Where I fit." />
         <Reveal as="p" className="lede" delay={0.15}>
-          One role and three strengths, so you can file him in a single line.
+          One role and three strengths, so you can file me in a single line.
         </Reveal>
         <ol className="fit" role="list">
           {fit.map((r, i) => (
@@ -202,6 +202,30 @@ export function Fit() {
                   <li key={m}>{m}</li>
                 ))}
               </ul>
+            </Reveal>
+          ))}
+        </ol>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- what you can hold me to ---------- */
+
+export function Hold() {
+  return (
+    <section id="hold" className="sec sec--paper" aria-labelledby="hold-h">
+      <div className="wrap">
+        <SplitWords as="h2" id="hold-h" className="h2" text="What you can hold me to." />
+        <Reveal as="p" className="lede" delay={0.15}>
+          Six commitments I put in writing on every project, so you can see where I stand against the number at any point.
+        </Reveal>
+        <ol className="hold" role="list">
+          {hold.map((h, i) => (
+            <Reveal as="li" key={h.n} className="hold__item" delay={(i % 3) * 0.07}>
+              <span className="hold__n" aria-hidden="true">{h.n}</span>
+              <h3 className="hold__t">{h.t}</h3>
+              <p className="hold__p">{h.p}</p>
             </Reveal>
           ))}
         </ol>

@@ -1,4 +1,4 @@
-// Material carried over from Karthik's earlier portfolio. Concept studies: targets only, no results claimed.
+// Material carried over from my earlier portfolio. Concept studies: targets only, no results claimed.
 
 export const demos = [
   { glyph: 'check', name: 'Threshold', for: 'Hospitals', text: 'Step on the tile and follow the lit path to the dispenser.', href: 'case-files/#toy-threshold' },

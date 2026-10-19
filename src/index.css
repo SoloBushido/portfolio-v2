@@ -630,3 +630,12 @@ main > .sec { counter-increment: sec; }
 .sec--paper .method__step { box-shadow: inset 0 1px 0 var(--line-i); }
 .sec--dark .ladder__p { color: var(--soft-p); }
 .sec--dark .ladder__step { box-shadow: inset 0 1px 0 var(--line-p); }
+
+/* ---------- what you can hold me to ---------- */
+.hold { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 clamp(24px, 3.4vw, 56px); border-top: 1px solid currentColor; }
+.hold__item { padding: clamp(24px, 2.8vw, 40px) 0; border-bottom: 1px solid var(--line-i); }
+.hold__n { display: block; font: 400 clamp(2.6rem, 4.4vw, 4.2rem) / 1 var(--display); color: var(--seal); letter-spacing: -0.03em; margin-bottom: 16px; }
+.hold__t { font: 400 clamp(1.5rem, 2.1vw, 2rem) / 1.1 var(--display); letter-spacing: -0.015em; text-wrap: balance; margin-bottom: 10px; }
+.hold__p { color: var(--soft-i); text-wrap: pretty; max-width: 26em; }
+@media (max-width: 900px) { .hold { grid-template-columns: minmax(0, 1fr); } }
+@media (min-width: 901px) and (max-width: 1200px) { .hold { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
