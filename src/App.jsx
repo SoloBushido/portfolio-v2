@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react';
 import { AnimatePresence, motion, useScroll } from 'motion/react';
 import { Cursor } from './ui.jsx';
-import { Nav, Hero, Mirror, Proof } from './sections1.jsx';
+import { Nav, Hero, Fit, Proof } from './sections1.jsx';
 import { Work, Sheet, Pipeline, Positions, Craft } from './sections2.jsx';
 import { Diagnostic, Ways, Method, Faq, Record, Contact } from './sections3.jsx';
 import { Demos, Library, Papers } from './sections4.jsx';
@@ -21,7 +21,7 @@ export default function App() {
       <Nav />
       <main id="main" tabIndex={-1}>
         <Hero />
-        <Mirror />
+        <Fit />
         <Proof />
         <Lenses />
         <Work onOpen={open} />

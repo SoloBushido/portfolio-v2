@@ -3,7 +3,16 @@
 export const EMAIL = 'karthik.mbindumon@gmail.com';
 
 // The line that opens and closes the page. Change it here and everywhere follows.
-export const HEADLINE = ['Products shipped.', 'Behaviour changed.'];
+export const HEADLINE = ['Producer, AI-first.', 'Teams of fifty, or one.'];
+
+// Where a hiring manager files him. One primary role, three strengths, one honest limit.
+export const fit = [
+  { k: 'The role', t: 'Producer', line: 'Takes a product from first idea to live operations, and runs the people, the schedule and the release on the way.', maps: ['Producer', 'Head of Production', 'Product Lead', 'Programme Manager'] },
+  { k: 'Also strong', t: 'Growth and acquisition', line: 'Finds cheap customers by testing creatives and offers, with his own tools and dashboard.', maps: ['Growth Lead', 'UA Manager', 'Performance Marketing'] },
+  { k: 'Also strong', t: 'AI workflow lead', line: 'Rebuilds how a team works, so AI does the repeated stages and people keep the judgement.', maps: ['AI Operations', 'Automation Lead', 'AI Enablement'] },
+  { k: 'Also strong', t: 'Behaviour and game design', line: 'Designs the experience around why people act: onboarding, engagement and retention.', maps: ['Game Designer', 'Product Designer', 'Gamification'] },
+];
+export const fitNot = 'What he is not: a machine-learning researcher. He puts existing AI tools to work and runs the people around them.';
 
 export const ribbon = [
   'BooBoo Games',

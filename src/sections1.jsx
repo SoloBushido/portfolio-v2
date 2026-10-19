@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform, useMotionValue, useSpring, useMotionTemplate, useMotionValueEvent, useReducedMotion } from 'motion/react';
-import { ribbon, mirror, proof, HEADLINE } from './content.js';
+import { ribbon, mirror, proof, fit, fitNot, HEADLINE } from './content.js';
 import { EASE, STILL, SplitWords, Reveal, Pill, Marquee, Count, useSpot, useFine, scrollToId, useSceneProgress } from './ui.jsx';
 
 /* ---------- navigation island ---------- */
@@ -123,10 +123,9 @@ export function Hero() {
 
   return (
     <section id="top" className="hero" aria-labelledby="hero-h">
-      <p className="hero__vert" aria-hidden="true">Producer · Behaviour-change designer · Mumbai</p>
       <div className="hero__id">
         <span translate="no">Karthik Bindumon</span>
-        <span>Producer and behaviour-change designer, Mumbai</span>
+        <span>Mumbai</span>
       </div>
 
       <motion.div className="hero__stage" style={reduce ? undefined : { y: lift }}>
@@ -155,12 +154,12 @@ export function Hero() {
       <div className="hero__foot">
         <Reveal delay={1.35} y={16} className="hero__lead">
           <p>
-            50+ people led, 30+ products shipped, and whole workflows rebuilt around AI.
+            Takes a product from idea to live, with the people and the AI workflows to get it there.
           </p>
         </Reveal>
         <Reveal delay={1.5} y={16} className="hero__actions">
-          <Pill href="#contact" onClick={(e) => { e.preventDefault(); scrollToId('contact'); }}>
-            Start a conversation
+          <Pill href="#fit" onClick={(e) => { e.preventDefault(); scrollToId('fit'); }}>
+            Where he fits
           </Pill>
           <a className="textlink" href="#work" onClick={(e) => { e.preventDefault(); scrollToId('work'); }}>
             See the work
@@ -169,6 +168,36 @@ export function Hero() {
       </div>
 
       <Marquee className="hero__ribbon" items={ribbon} />
+    </section>
+  );
+}
+
+/* ---------- where to place him ---------- */
+
+export function Fit() {
+  return (
+    <section id="fit" className="sec sec--paper" aria-labelledby="fit-h">
+      <div className="wrap">
+        <SplitWords as="h2" id="fit-h" className="h2" text="Where to place him." />
+        <Reveal as="p" className="lede" delay={0.15}>
+          One role, three strengths, one limit. So you can file him in a single line.
+        </Reveal>
+        <ol className="fit" role="list">
+          {fit.map((r, i) => (
+            <Reveal as="li" key={r.t} className={`fit__row ${i === 0 ? 'fit__row--lead' : ''}`} delay={i * 0.07}>
+              <span className="fit__k">{r.k}</span>
+              <h3 className="fit__t">{r.t}</h3>
+              <p className="fit__p">{r.line}</p>
+              <ul className="tags fit__maps" role="list" aria-label="Job titles it maps to">
+                {r.maps.map((m) => (
+                  <li key={m}>{m}</li>
+                ))}
+              </ul>
+            </Reveal>
+          ))}
+        </ol>
+        <Reveal as="p" className="fit__not">{fitNot}</Reveal>
+      </div>
     </section>
   );
 }
