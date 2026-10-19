@@ -90,7 +90,7 @@ function WayCard({ w, i }) {
 
 export function Ways() {
   return (
-    <section id="ways" className="sec sec--dark" aria-labelledby="ways-h">
+    <section id="ways" className="sec sec--paper" aria-labelledby="ways-h">
       <div className="wrap">
         <SplitWords as="h2" id="ways-h" className="h2" text="Four ways to work together." />
         <Reveal as="p" className="lede" delay={0.15}>
@@ -110,7 +110,7 @@ export function Ways() {
 
 export function Method() {
   return (
-    <section id="method" className="sec sec--dark sec--flush" aria-labelledby="method-h">
+    <section id="method" className="sec sec--paper sec--flush" aria-labelledby="method-h">
       <div className="wrap">
         <SplitWords as="h2" id="method-h" className="h2 h2--sm" text="How a pilot runs, from first look to verdict." />
         <ol className="method" role="list">

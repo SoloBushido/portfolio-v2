@@ -75,7 +75,7 @@ export function Lenses() {
 
 export function StartEasy() {
   return (
-    <section id="start" className="sec sec--paper" aria-labelledby="start-h">
+    <section id="start" className="sec sec--dark" aria-labelledby="start-h">
       <div className="wrap">
         <SplitWords as="h2" id="start-h" className="h2" text="Start in a week, not a quarter." />
         <Reveal as="p" className="lede" delay={0.15}>
@@ -100,8 +100,16 @@ export function StartEasy() {
 export function ShareButton() {
   const [show, setShow] = useState(false);
   const [open, setOpen] = useState(false);
+  const last = useRef(0);
   const { scrollY } = useScroll();
-  useMotionValueEvent(scrollY, 'change', (v) => setShow(v > 900));
+  useMotionValueEvent(scrollY, 'change', (v) => {
+    const up = v < last.current - 4;
+    const down = v > last.current + 4;
+    if (v < 900) setShow(false);
+    else if (up) setShow(true);
+    else if (down) setShow(false);
+    last.current = v;
+  });
   return (
     <>
       <AnimatePresence>

@@ -12,7 +12,7 @@
   --sans: 'Zen Kaku Gothic New', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', system-ui, sans-serif;
 
   --pad: clamp(20px, 4.4vw, 72px);
-  --sec: clamp(104px, 13vw, 200px);
+  --sec: clamp(84px, 9.5vw, 148px);
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
   --soft-p: color-mix(in srgb, var(--paper) 72%, var(--ink));
   --soft-i: color-mix(in srgb, var(--ink) 72%, var(--paper));
@@ -573,19 +573,20 @@ li[data-on='true'] .pipe__dot { transform: scale(1.5); }
 
 /* ---------- polish layer: Japanese visual communication ----------
    Flat planes, hairlines, one red disc as the recurring mark, a kanji index for every section. */
-@font-face { font-family: 'KB Numerals'; font-style: normal; font-weight: 500; font-display: swap; src: url(/fonts/ZenKakuGothicNew-numerals-500.woff2) format('woff2'); unicode-range: U+4e00, U+4e03, U+4e09, U+4e5d, U+4e8c, U+4e94, U+516b, U+516d, U+5341, U+56db; }
+@font-face { font-family: 'KB Numerals'; font-style: normal; font-weight: 500; font-display: swap; src: url(/fonts/ZenKakuGothicNew-numerals-500.woff2) format('woff2'); unicode-range: U+4e03, U+4e5d, U+4f0d, U+516b, U+516d, U+53c2, U+56db, U+58f1, U+5f10, U+62fe; }
 
 main { counter-reset: sec; }
 main > .sec { counter-increment: sec; }
 .sec > .wrap::before { height: 0; border-top: 1px solid currentColor; border-bottom: 0; opacity: 0.4; }
-.sec::after {
-  content: counter(sec, cjk-ideographic);
-  position: absolute; z-index: 2; right: var(--pad); top: calc(var(--sec) - 26px);
+.sec > .wrap { position: relative; }
+.sec > .wrap::after {
+  content: counter(sec, japanese-formal);
+  position: absolute; z-index: 2; right: 0; top: -26px;
   display: grid; place-items: center; width: 52px; aspect-ratio: 1; border-radius: 50%;
   background: var(--seal); color: var(--paper);
   font: 500 1.125rem / 1 'KB Numerals', var(--sans); letter-spacing: 0;
 }
-.sec--flush::after { display: none; }
+.sec--flush > .wrap::after { display: none; }
 
 /* the dark sections lose the glow: a flat plane reads as printed, not rendered */
 .sec--dark::before { background: none; }
@@ -609,7 +610,7 @@ main > .sec { counter-increment: sec; }
 .beam::after { content: ''; position: absolute; aspect-ratio: 1; width: 160px; background: linear-gradient(to left, var(--seal), rgba(201, 42, 25, 0) 70%); offset-anchor: 90% 50%; offset-path: rect(0 auto auto 0 round 3px); animation: beam 11s linear infinite; }
 @keyframes beam { to { offset-distance: 100%; } }
 
-@media (max-width: 640px) { .sec::after { width: 42px; top: calc(var(--sec) - 20px); font-size: 1rem; } }
+@media (max-width: 640px) { .sec > .wrap::after { width: 42px; top: -20px; font-size: 1rem; } }
 @media (prefers-reduced-motion: reduce) { .beam::after { animation: none; } }
 
 /* ---------- where to place him ---------- */
@@ -626,3 +627,7 @@ main > .sec { counter-increment: sec; }
 
 .more { padding: clamp(40px, 5vw, 72px) max(var(--pad), calc((100% - 52em) / 2)); font: italic 400 clamp(1.05rem, 1.3vw, 1.2rem) / 1.55 var(--text); background: var(--paper); color: var(--soft-i); text-align: center; }
 .more .textlink { font-style: normal; }
+.sec--paper .way__for, .sec--paper .method__text { color: var(--soft-i); }
+.sec--paper .method__step { box-shadow: inset 0 1px 0 var(--line-i); }
+.sec--dark .ladder__p { color: var(--soft-p); }
+.sec--dark .ladder__step { box-shadow: inset 0 1px 0 var(--line-p); }

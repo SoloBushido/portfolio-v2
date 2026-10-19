@@ -40,8 +40,8 @@ export default function App() {
             <Thinking />
             <Lenses />
             <Ways />
-            <StartEasy />
             <Method />
+            <StartEasy />
             <Faq />
             <Record />
             <Papers />
