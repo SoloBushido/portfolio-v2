@@ -4,6 +4,7 @@ import { MotionConfig } from 'motion/react';
 import Lenis from 'lenis';
 import 'lenis/dist/lenis.css';
 import './index.css';
+import './theme.css';
 import App from './App.jsx';
 
 // Inertial scrolling, switched off for reduced motion and for ?still captures.

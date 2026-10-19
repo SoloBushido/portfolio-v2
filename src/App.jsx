@@ -1,7 +1,8 @@
 import { useCallback, useState } from 'react';
 import { AnimatePresence, motion, useScroll } from 'motion/react';
 import { Cursor } from './ui.jsx';
-import { Nav, Hero, Fit, Proof, Hold } from './sections1.jsx';
+import { Nav, Fit, Proof, Hold } from './sections1.jsx';
+import { OutlierHero } from './outlier.jsx';
 import { Work, Sheet, Pipeline, Positions, Craft } from './sections2.jsx';
 import { Ways, Method, Faq, Record, Contact } from './sections3.jsx';
 import { Demos, Library, Papers } from './sections4.jsx';
@@ -35,7 +36,7 @@ export default function App() {
           </>
         ) : (
           <>
-            <Hero />
+            <OutlierHero />
             <Play />
             <Fit />
             <Proof />

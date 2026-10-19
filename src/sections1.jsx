@@ -227,7 +227,6 @@ export function Hold() {
         <ol className="hold" role="list">
           {hold.map((h, i) => (
             <Reveal as="li" key={h.n} className="hold__item" delay={(i % 3) * 0.07}>
-              <Stamp kanji="承" title="Agreed" className="hold__stamp" size={46} rotate={i % 2 ? 5 : -6} delay={0.25 + (i % 3) * 0.12} />
               <span className="hold__n" aria-hidden="true">{h.n}</span>
               <h3 className="hold__t">{h.t}</h3>
               <p className="hold__p">{h.p}</p>
