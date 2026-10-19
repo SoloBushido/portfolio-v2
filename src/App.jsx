@@ -2,7 +2,8 @@ import { useCallback, useState } from 'react';
 import { AnimatePresence, motion, useScroll } from 'motion/react';
 import { Cursor } from './ui.jsx';
 import { Nav, Fit, Proof, Hold } from './sections1.jsx';
-import { ControlRoom } from './controlroom.jsx';
+import { Poster } from './poster.jsx';
+import { Marquee } from './ui.jsx';
 import { Work, Sheet, Pipeline, Positions, Craft } from './sections2.jsx';
 import { Ways, Method, Faq, Record, Contact } from './sections3.jsx';
 import { Demos, Library, Papers } from './sections4.jsx';
@@ -36,13 +37,15 @@ export default function App() {
           </>
         ) : (
           <>
-            <ControlRoom />
+            <Poster />
             <Play />
             <Fit />
             <Proof />
             <Hold />
+            <div className="tapewrap"><Marquee className="tape tape--div" items={['Numbers in writing', 'Kill it early', 'One person answerable', 'Verdict, even when it is no']} speed={34} /></div>
             <Work onOpen={open} />
             <Pipeline />
+            <div className="tapewrap tapewrap--b"><Marquee className="tape tape--uv tape--div" items={['Ten workflows', 'One human in the loop', 'Night shift: no one at the desk']} speed={36} /></div>
             <Thinking />
             <Lenses />
             <Ways />

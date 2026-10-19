@@ -1,0 +1,91 @@
+/* ---------- rebel: a poster, not an interface ----------
+   Loaded last. It breaks the product-page furniture (glass nav, pills, rounded cards, tidy hairlines) and puts
+   poster habits in its place: huge cropped type, hard offset shadows, tape, inverted text, a screenprint portrait. */
+
+/* the nav is a raw strip of text that inverts against whatever is under it */
+.nav { top: 0; padding: 16px var(--pad); mix-blend-mode: difference; }
+.nav:has(.menu) { mix-blend-mode: normal; }
+.island { width: 100%; max-width: none; justify-content: space-between; gap: 24px; padding: 0; border: 0; border-radius: 0; background: none; box-shadow: none; -webkit-backdrop-filter: none; backdrop-filter: none; color: #fff; transform: none !important; }
+.island__mark { width: 40px; height: 40px; border-radius: 0; background: #fff; color: #000; font: 800 0.95rem / 1 var(--display); }
+.island__links { margin: 0 auto; gap: 18px; }
+.island__links a { padding: 10px 2px; font: 700 0.72rem / 1 var(--mono); letter-spacing: 0.14em; text-transform: uppercase; opacity: 1; }
+.island__line { left: 0; right: 0; bottom: 2px; height: 3px; border-radius: 0; background: #fff; }
+.island__cta { padding: 12px 16px; border-radius: 0; background: none; color: #fff; border: 2px solid #fff; font: 700 0.72rem / 1 var(--mono); letter-spacing: 0.1em; text-transform: uppercase; }
+.island__cta:hover { background: #fff; color: #000; }
+.island__burger { border-radius: 0; }
+
+/* buttons: flat blocks with a hard shadow that you press into the page */
+.pill { gap: 12px; padding: 13px 14px 13px 20px; border: 3px solid var(--ink); border-radius: 0; box-shadow: 6px 6px 0 var(--violet); font: 800 0.8rem / 1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; transition: transform 0.14s var(--ease), box-shadow 0.14s var(--ease), background-color 0.2s, color 0.2s; }
+.pill:hover { transform: translate(4px, 4px); box-shadow: 2px 2px 0 var(--violet); }
+.pill:active { transform: translate(6px, 6px); box-shadow: 0 0 0 var(--violet); }
+.pill--seal, .pill--seal:hover { background: var(--green); color: var(--ink); }
+.pill--ink { background: var(--ink); color: #fff; border-color: #fff; box-shadow: 6px 6px 0 var(--green); }
+.pill--ink:hover { background: var(--ink); color: #fff; box-shadow: 2px 2px 0 var(--green); }
+.pill__ico, .pill:hover .pill__ico, .pill--seal:hover .pill__ico, .pill--ink:hover .pill__ico { width: 26px; height: 26px; border-radius: 0; background: transparent; transform: none; font-size: 1.1rem; }
+.chip { border-radius: 0; padding: 12px 14px; font: 700 0.72rem / 1 var(--mono); letter-spacing: 0.06em; text-transform: uppercase; box-shadow: inset 0 0 0 2px currentColor; }
+.chip:not(.chip--dark)[aria-pressed='true'], .chip--dark[aria-pressed='true'] { background: var(--green); color: var(--ink); box-shadow: inset 0 0 0 2px var(--green); }
+.chip--solid { background: var(--green); color: var(--ink); box-shadow: none; }
+.tags li, .tags--lg li { border-radius: 0; }
+.bezel, .bezel__in, .ticket, .desk__doc, .play__btn, .play__btnk, .play__manifest, .store__side { border-radius: 0; }
+.play__btn { box-shadow: inset 0 0 0 2px var(--paper); }
+.play__btn--ship { background: var(--green); color: var(--ink); }
+.play__btn--ship:hover { background: var(--paper); color: var(--ink); }
+.play__btnk { background: rgba(6, 5, 13, 0.18); }
+
+/* headings are poster type; the section number is a huge outlined figure behind them */
+.h2 { text-transform: uppercase; font-weight: 800; font-size: clamp(2.4rem, 7vw, 7.4rem); line-height: 0.88; letter-spacing: -0.045em; max-width: 13em; }
+.h2--sm { font-size: clamp(2rem, 4.6vw, 4.6rem); }
+.sec > .wrap { position: relative; }
+.sec > .wrap::before { border-top-width: 4px; opacity: 1; }
+.sec > .wrap > * { position: relative; z-index: 1; }
+.sec > .wrap::after {
+  content: counter(sec, decimal-leading-zero); position: absolute; right: -1vw; top: 0.12em; z-index: 0; display: block; width: auto; aspect-ratio: auto; padding: 0; background: none;
+  font: 800 clamp(8rem, 24vw, 22rem) / 0.78 var(--display); letter-spacing: -0.06em; color: transparent; -webkit-text-stroke: 2px rgba(61, 255, 162, 0.5); pointer-events: none;
+}
+.sec--paper > .wrap::after { background: none; }
+
+/* tape: diagonal bands of slogans between sections */
+.tape { background: var(--green); color: var(--ink); border-block: 3px solid var(--ink); padding: 12px 0; font: 800 1.1rem / 1 var(--display); text-transform: uppercase; letter-spacing: 0; }
+.tape .marquee__item { gap: 22px; padding-right: 22px; }
+.tape .marquee__dot { width: 9px; height: 9px; border-radius: 0; background: var(--ink); transform: rotate(45deg); }
+.tape .marquee__pause { border-radius: 0; background: var(--ink); color: var(--green); box-shadow: none; }
+.tape--uv { background: var(--uv); color: #fff; border-color: var(--ink); }
+.tape--uv .marquee__dot { background: var(--green); }
+.tape--uv .marquee__pause { background: var(--ink); color: #fff; }
+.tapewrap { position: relative; z-index: 8; margin: -24px 0; }
+.tape--div { width: 108%; margin-left: -4%; transform: rotate(-1.8deg); }
+.tapewrap--b .tape--div { transform: rotate(1.6deg); }
+
+/* ---------- the poster ---------- */
+.poster { position: relative; height: 100vh; height: 100svh; min-height: 720px; background: var(--ink); color: #fff; overflow: hidden; --ring: var(--green); }
+.poster__panel { position: absolute; top: 0; right: 0; bottom: 0; width: 60vw; background: var(--uv); clip-path: polygon(16% 0, 100% 0, 100% 100%, 0 100%); }
+.poster__ht { position: absolute; inset: 0; display: block; }
+.poster__bar { position: absolute; z-index: 6; margin: 0; padding: 0.2em 0.5em; font: 800 clamp(1.1rem, 2.4vw, 2.5rem) / 1 var(--display); text-transform: uppercase; letter-spacing: -0.01em; white-space: nowrap; pointer-events: none; }
+.poster__bar--a { left: 52vw; top: 56vh; background: var(--ink); color: #fff; transform: rotate(-5deg); }
+.poster__bar--b { right: 4vw; top: 22vh; background: var(--green); color: var(--ink); transform: rotate(3deg); }
+.poster__sticker { position: absolute; z-index: 6; left: 36vw; top: 13vh; width: clamp(110px, 12vw, 190px); transform: rotate(-12deg); filter: drop-shadow(5px 5px 0 var(--ink)); }
+.poster__spin { transform-origin: 100px 100px; animation: poster-spin 24s linear infinite; }
+@keyframes poster-spin { to { transform: rotate(360deg); } }
+.poster__name { position: absolute; z-index: 4; left: var(--pad); top: 92px; display: grid; gap: 8px; font: 700 0.75rem / 1 var(--mono); letter-spacing: 0.14em; text-transform: uppercase; }
+.poster__name span { color: rgba(255, 255, 255, 0.65); font-weight: 400; }
+.poster__man { position: absolute; z-index: 4; left: var(--pad); top: 148px; max-width: 24em; font: 500 0.8125rem / 1.55 var(--mono); color: rgba(255, 255, 255, 0.78); }
+.poster__h { position: absolute; z-index: 4; left: var(--pad); bottom: 88px; display: flex; flex-direction: column; font: 800 12.4vw / 0.84 var(--display); letter-spacing: -0.05em; text-transform: uppercase; }
+.poster__l1 { color: #fff; }
+.poster__l2 { color: var(--violet); }
+.poster__l3 { align-self: flex-start; margin-top: 0.22em; padding: 0.08em 0.3em; font-size: 4.1vw; letter-spacing: -0.02em; line-height: 1; background: var(--green); color: var(--ink); transform: rotate(-2deg); }
+.poster__act { position: absolute; z-index: 7; right: var(--pad); bottom: 96px; display: flex; flex-direction: column; align-items: flex-end; gap: 16px; }
+.tape--hero { position: absolute; z-index: 7; left: -3%; right: -3%; bottom: 14px; width: auto; margin: 0; transform: rotate(-1.2deg); }
+
+@media (max-width: 900px) {
+  .poster { height: auto; min-height: 0; padding-top: 60vh; }
+  .poster__panel { width: 100%; height: 66vh; bottom: auto; clip-path: polygon(0 0, 100% 0, 100% 86%, 0 100%); }
+  .poster__bar--a { left: 6vw; top: 24vh; font-size: 1.1rem; }
+  .poster__bar--b { right: 4vw; top: 40vh; font-size: 1.1rem; }
+  .poster__sticker { left: auto; right: 6vw; top: 8vh; width: 100px; }
+  .poster__name, .poster__man { display: none; }
+  .poster__h { position: relative; left: auto; bottom: auto; padding: 0 var(--pad); font-size: 17vw; margin-top: -8vh; }
+  .poster__l3 { font-size: 7vw; }
+  .poster__act { position: relative; right: auto; bottom: auto; align-items: flex-start; padding: 28px var(--pad) 96px; }
+  .tape--hero { position: relative; left: auto; right: auto; bottom: auto; width: 106%; margin-left: -3%; }
+}
+@media (prefers-reduced-motion: reduce) { .poster__spin { animation: none; } }
