@@ -11,7 +11,7 @@ export function Lenses() {
   return (
     <section id="lenses" className="sec sec--dark" aria-labelledby="lens-h">
       <div className="wrap">
-        <SplitWords as="h2" id="lens-h" className="h2" data-store="Compatibility" text="Pick your function. See what carries over." />
+        <SplitWords as="h2" id="lens-h" className="h2" text="Pick your function. See what carries over." />
         <Reveal as="p" className="lede" delay={0.15}>
           The record is built in studios and AI workflows. Here is what each part proves for other work, what would be new, and how the first 90 days would run.
         </Reveal>
@@ -77,7 +77,7 @@ export function StartEasy() {
   return (
     <section id="start" className="sec sec--dark" aria-labelledby="start-h">
       <div className="wrap">
-        <SplitWords as="h2" id="start-h" className="h2" data-store="Installation" text="Start in a week, not a quarter." />
+        <SplitWords as="h2" id="start-h" className="h2" text="Start in a week, not a quarter." />
         <Reveal as="p" className="lede" delay={0.15}>
           Hiring across borders means paperwork, so the first stage avoids it. You see the work before anyone files anything.
         </Reveal>

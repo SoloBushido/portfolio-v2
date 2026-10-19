@@ -374,30 +374,3 @@ export const hold = [
   { n: '5', t: 'A verdict, even when it is no', p: 'Every pilot ends with a written verdict on whether the number moved: yes, no, or not enough.' },
   { n: '6', t: 'A post-mortem after every release', p: 'What worked, what did not, and what changes next time, shared with the whole team.' },
 ];
-
-// The store-page frame. Facts only; no reviews, ratings or prices are invented.
-export const store = {
-  about: 'Leads cross-functional teams of 50+ from concept and prototype to launch and live operations, and rebuilds the workflows around AI. Every project starts with a number agreed in writing.',
-  tags: ['Producer', 'AI-first', 'Live operations', 'User acquisition', 'Gamification', 'Workflow automation', 'Remote-friendly'],
-  stamp: 'Current build',
-  facts: [
-    ['Developer', 'Karthik Bindumon'],
-    ['Currently published by', 'BooBoo Games'],
-    ['Active since', '2019'],
-    ['Based in', 'Mumbai, India'],
-    ['Platforms', 'Remote, or on-site'],
-    ['Reviews', 'None yet. The numbers are below.'],
-  ],
-};
-
-export const requirements = {
-  cols: [
-    { k: 'Minimum', items: ['A number to hit', 'A date it matters by', 'One person who answers for the result'] },
-    { k: 'Recommended', items: ['A team that wants the problem fixed', 'Access to real data', 'A written verdict at the end, whichever way it goes'] },
-  ],
-  notes: [
-    ['Platforms.', 'Remote or on-site. Based in Mumbai, India.'],
-    ['Installation.', 'The first stage is a paid 4 to 8 week pilot, with no immigration process.'],
-    ['Compatibility.', 'Games, apps and any product where a behaviour has to change and a number can measure it.'],
-  ],
-};

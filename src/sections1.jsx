@@ -7,10 +7,11 @@ import { EASE, STILL, SplitWords, Reveal, Pill, Marquee, Count, useSpot, useFine
 /* ---------- navigation island ---------- */
 
 const mainLinks = [
-  ['play', 'Demo'],
-  ['work', 'Screenshots'],
-  ['requirements', 'Requirements'],
-  ['record', 'Patch notes'],
+  ['play', 'Play'],
+  ['work', 'Work'],
+  ['method', 'Method'],
+  ['ways', 'Ways to work'],
+  ['record', 'Record'],
 ];
 const workshopLinks = [
   ['demos', 'Demos'],
@@ -30,7 +31,7 @@ export function Nav({ workshop = false }) {
 
   useEffect(() => {
     const map = { pipeline: 'work', positions: 'method', craft: 'method', demos: 'work', library: 'work', diagnostic: 'ways', faq: 'ways', papers: 'record', contact: '' };
-    const ids = ['play', 'requirements', 'work', 'pipeline', 'positions', 'craft', 'demos', 'library', 'diagnostic', 'method', 'ways', 'faq', 'record', 'papers', 'contact'];
+    const ids = ['play', 'work', 'pipeline', 'positions', 'craft', 'demos', 'library', 'diagnostic', 'method', 'ways', 'faq', 'record', 'papers', 'contact'];
     const io = new IntersectionObserver(
       (es) => es.forEach((e) => e.isIntersecting && setActive(map[e.target.id] ?? e.target.id)),
       { rootMargin: '-45% 0px -50% 0px' }
@@ -136,8 +137,8 @@ export function Hero() {
       <div className="hero__marks marks" aria-hidden="true" />
       <Stamp kanji="出" title="Shipped" rotate={-9} size={112} delay={1.7} className="hero__stamp" />
       <div className="hero__id">
-        <span className="crumbs">Store › Producers</span>
         <span translate="no">Karthik Bindumon</span>
+        <span>Mumbai</span>
       </div>
 
       <motion.div className="hero__stage" style={reduce ? undefined : { y: lift }}>
@@ -190,7 +191,7 @@ export function Fit() {
   return (
     <section id="fit" className="sec sec--paper" aria-labelledby="fit-h">
       <div className="wrap">
-        <SplitWords as="h2" id="fit-h" className="h2" data-store="Key features" text="Role and strengths." />
+        <SplitWords as="h2" id="fit-h" className="h2" text="Role and strengths." />
         <Reveal as="p" className="lede" delay={0.15}>
           One role and three strengths, one line each, so the fit is clear in a minute.
         </Reveal>
@@ -219,7 +220,7 @@ export function Hold() {
   return (
     <section id="hold" className="sec sec--paper" aria-labelledby="hold-h">
       <div className="wrap">
-        <SplitWords as="h2" id="hold-h" className="h2" data-store="Terms of service" text="Held to a number, in writing." />
+        <SplitWords as="h2" id="hold-h" className="h2" text="Held to a number, in writing." />
         <Reveal as="p" className="lede" delay={0.15}>
           Six commitments written down on every project, so where things stand against the number is never a matter of opinion.
         </Reveal>
@@ -320,7 +321,7 @@ export function Proof() {
   return (
     <section id="proof" className="sec sec--dark" aria-labelledby="proof-h">
       <div className="wrap">
-        <SplitWords as="h2" id="proof-h" className="h2" data-store="By the numbers" text="Here is what shipped looks like." />
+        <SplitWords as="h2" id="proof-h" className="h2" text="Here is what shipped looks like." />
         <div className="proof-grid">
           {proof.map((p, i) => (
             <ProofCard key={p.id} item={p} i={i} />

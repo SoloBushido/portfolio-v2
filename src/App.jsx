@@ -9,7 +9,6 @@ import { Lenses, StartEasy, ShareButton } from './sections5.jsx';
 import { Thinking } from './sections6.jsx';
 import { InkFilter, Colophon } from './stamp.jsx';
 import { Play } from './play.jsx';
-import { StoreStrip, Requirements } from './store.jsx';
 
 /* The portfolio says each thing once. Material that backs it up, and does not need to be read first, lives on the workshop page (?more). */
 const WORKSHOP = typeof window !== 'undefined' && /[?&]more/.test(window.location.search);
@@ -37,7 +36,6 @@ export default function App() {
         ) : (
           <>
             <Hero />
-            <StoreStrip />
             <Play />
             <Fit />
             <Proof />
@@ -47,7 +45,6 @@ export default function App() {
             <Thinking />
             <Lenses />
             <Ways />
-            <Requirements />
             <Method />
             <StartEasy />
             <Faq />

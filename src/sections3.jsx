@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Stamp } from './stamp.jsx';
 import { hurts, projects, ways, method, faq, roles, school, EMAIL, FINALE } from './content.js';
 import { EASE, SplitWords, Reveal, Pill, useSpot, Hanko } from './ui.jsx';
 
@@ -93,7 +92,7 @@ export function Ways() {
   return (
     <section id="ways" className="sec sec--paper" aria-labelledby="ways-h">
       <div className="wrap">
-        <SplitWords as="h2" id="ways-h" className="h2" data-store="Editions" text="Four ways to work together." />
+        <SplitWords as="h2" id="ways-h" className="h2" text="Four ways to work together." />
         <Reveal as="p" className="lede" delay={0.15}>
           The role is a starting point, not a box. Most engagements begin as a pilot of 4 to 8 weeks, with the target number written down before anything is built.
         </Reveal>
@@ -113,7 +112,7 @@ export function Method() {
   return (
     <section id="method" className="sec sec--paper sec--flush" aria-labelledby="method-h">
       <div className="wrap">
-        <SplitWords as="h2" id="method-h" data-store="Release process" className="h2 h2--sm" text="How a pilot runs, from first look to verdict." />
+        <SplitWords as="h2" id="method-h" className="h2 h2--sm" text="How a pilot runs, from first look to verdict." />
         <ol className="method" role="list">
           {method.map((m, i) => (
             <Reveal as="li" key={m.name} className="method__step" delay={(i % 3) * 0.08}>
@@ -135,7 +134,7 @@ export function Faq() {
   return (
     <section id="faq" className="sec sec--paper" aria-labelledby="faq-h">
       <div className="wrap wrap--narrow wrap--left">
-        <SplitWords as="h2" id="faq-h" className="h2" data-store="Support" text="Questions worth asking first." />
+        <SplitWords as="h2" id="faq-h" className="h2" text="Questions worth asking first." />
         <ul className="faq" role="list">
           {faq.map((f, i) => {
             const on = open === i;
@@ -166,15 +165,11 @@ export function Record() {
   return (
     <section id="record" className="sec sec--paper sec--flush" aria-labelledby="record-h">
       <div className="wrap">
-        <SplitWords as="h2" id="record-h" className="h2" data-store="Patch notes" text="The full record." />
+        <SplitWords as="h2" id="record-h" className="h2" text="The full record." />
         <ul className="roles" role="list">
-          {roles.map((r, idx) => (
+          {roles.map((r) => (
             <Reveal as="li" key={r.org + r.when} className="role">
-              <span className="role__when">
-                <i className="role__ver">v{roles.length - idx}.0</i>
-                {r.when}
-                {idx === 0 && <Stamp label="Current" size={44} rotate={-4} className="role__stamp" />}
-              </span>
+              <span className="role__when">{r.when}</span>
               <span className="role__who">
                 <strong translate="no">{r.org}</strong>
                 <span>{r.role}</span>
