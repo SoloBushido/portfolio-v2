@@ -622,7 +622,6 @@ main > .sec { counter-increment: sec; }
 .fit__row--lead .fit__t { font-size: clamp(2.6rem, 5vw, 5rem); }
 .fit__p { grid-column: 3; grid-row: 1; font: 400 clamp(1.1rem, 1.4vw, 1.3rem) / 1.5 var(--text); text-wrap: pretty; padding-top: 0.3em; }
 .fit__maps { grid-column: 3; grid-row: 2; }
-.fit__not { margin-top: 28px; font: italic 400 clamp(1.05rem, 1.3vw, 1.2rem) / 1.5 var(--text); color: var(--soft-i); max-width: 44em; }
 @media (max-width: 860px) { .fit__row { grid-template-columns: minmax(0, 1fr); } .fit__k, .fit__t, .fit__p, .fit__maps { grid-column: 1; grid-row: auto; } }
 
 .more { padding: clamp(40px, 5vw, 72px) max(var(--pad), calc((100% - 52em) / 2)); font: italic 400 clamp(1.05rem, 1.3vw, 1.2rem) / 1.55 var(--text); background: var(--paper); color: var(--soft-i); text-align: center; }

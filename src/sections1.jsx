@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform, useMotionValue, useSpring, useMotionTemplate, useMotionValueEvent, useReducedMotion } from 'motion/react';
-import { ribbon, mirror, proof, fit, fitNot, HEADLINE } from './content.js';
+import { ribbon, mirror, proof, fit, HEADLINE } from './content.js';
 import { EASE, STILL, SplitWords, Reveal, Pill, Marquee, Count, useSpot, useFine, scrollToId, useSceneProgress } from './ui.jsx';
 
 /* ---------- navigation island ---------- */
@@ -163,7 +163,7 @@ export function Hero() {
       <div className="hero__foot">
         <Reveal delay={1.35} y={16} className="hero__lead">
           <p>
-            Takes a product from idea to live, with the people and the AI workflows to get it there.
+            Leads the team. Builds the workflows. Ships the product.
           </p>
         </Reveal>
         <Reveal delay={1.5} y={16} className="hero__actions">
@@ -189,7 +189,7 @@ export function Fit() {
       <div className="wrap">
         <SplitWords as="h2" id="fit-h" className="h2" text="Where to place him." />
         <Reveal as="p" className="lede" delay={0.15}>
-          One role, three strengths, one limit. So you can file him in a single line.
+          One role and three strengths, so you can file him in a single line.
         </Reveal>
         <ol className="fit" role="list">
           {fit.map((r, i) => (
@@ -205,7 +205,6 @@ export function Fit() {
             </Reveal>
           ))}
         </ol>
-        <Reveal as="p" className="fit__not">{fitNot}</Reveal>
       </div>
     </section>
   );
