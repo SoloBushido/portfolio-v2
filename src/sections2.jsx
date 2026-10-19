@@ -2,6 +2,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence, useTransform, useMotionValueEvent, useReducedMotion } from 'motion/react';
 import { projects, stations, positions, fields, EMAIL } from './content.js';
 import { ProjectVisual, Glyph } from './art.jsx';
+import { Stamp } from './stamp.jsx';
 import { EASE, STILL, SplitWords, Reveal, Pill, useSpot, useWide, useSceneProgress } from './ui.jsx';
 
 /* ---------- the work: eight case files ---------- */
@@ -13,6 +14,7 @@ function Card({ p, onOpen }) {
       <div className="bezel__in" {...spot}>
         <div className="card__art">
           <ProjectVisual p={p} />
+          {p.stamp && <Stamp label={p.stamp} className="card__stamp" size={60} rotate={5} delay={0.2} />}
         </div>
         <div className="card__body">
           <p className="card__meta">

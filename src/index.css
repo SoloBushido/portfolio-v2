@@ -639,3 +639,87 @@ main > .sec { counter-increment: sec; }
 .hold__p { color: var(--soft-i); text-wrap: pretty; max-width: 26em; }
 @media (max-width: 900px) { .hold { grid-template-columns: minmax(0, 1fr); } }
 @media (min-width: 901px) and (max-width: 1200px) { .hold { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* ---------- the design language: a document that gets stamped ---------- */
+@font-face { font-family: 'KB Seal'; font-style: normal; font-weight: 900; font-display: swap; src: url(/fonts/ZenOldMincho-seal-900.woff2) format('woff2'); unicode-range: U+4e03, U+4e5d, U+4efb, U+4f0d, U+516b, U+516d, U+51fa, U+5370, U+53c2, U+56db, U+58f1, U+5f10, U+627f, U+62fe, U+6b62, U+6e08, U+78ba, U+8cac; }
+
+.stamp { display: inline-grid; place-items: center; color: var(--seal); font-size: calc(var(--s, 88px) * 0.5); line-height: 1; filter: url(#stamp-ink); opacity: 0.94; pointer-events: none; will-change: transform; }
+.stamp__in { box-sizing: border-box; display: grid; place-items: center; width: var(--s, 88px); height: var(--s, 88px); border: 0.07em solid currentColor; outline: 0.035em solid currentColor; outline-offset: -0.17em; }
+.stamp__k { font: 900 1.22em / 1 'KB Seal', 'Zen Old Mincho', serif; }
+.stamp--wide { font-size: calc(var(--s, 88px) * 0.27); }
+.stamp--wide .stamp__in { width: auto; height: auto; display: flex; align-items: center; gap: 0.55em; padding: 0.5em 0.85em; outline-offset: -0.3em; }
+.stamp--wide .stamp__k { font-size: 1.9em; }
+.stamp__l { font: 800 1em / 1 var(--sans); letter-spacing: 0.16em; text-transform: uppercase; white-space: nowrap; }
+.stamp--ink { color: var(--ink); }
+.stamp--paper { color: var(--paper); }
+.stamp--ink, .hero .stamp { mix-blend-mode: multiply; }
+
+/* the section index is itself a seal that lands as the section arrives */
+.sec > .wrap::after {
+  content: counter(sec, japanese-formal);
+  top: -30px; width: 58px; border-radius: 3px; background: var(--seal); color: var(--paper);
+  font: 900 1.35rem / 1 'KB Seal', 'Zen Old Mincho', serif;
+  outline: 1.5px solid var(--paper); outline-offset: -6px;
+  transform: rotate(var(--r, -3deg)); filter: url(#stamp-ink);
+}
+main > .sec:nth-of-type(3n + 1) { --r: -3deg; }
+main > .sec:nth-of-type(3n + 2) { --r: 2.5deg; }
+main > .sec:nth-of-type(3n) { --r: -1deg; }
+@supports (animation-timeline: view()) {
+  .sec > .wrap::after { animation: seal-in linear both; animation-timeline: view(); animation-range: entry 0% entry 55%; }
+}
+@keyframes seal-in {
+  0% { transform: scale(2) rotate(calc(var(--r, -3deg) - 14deg)); opacity: 0; }
+  70% { transform: scale(0.93) rotate(var(--r, -3deg)); opacity: 1; }
+  100% { transform: scale(1) rotate(var(--r, -3deg)); opacity: 1; }
+}
+@media (max-width: 640px) { .sec > .wrap::after { width: 46px; top: -24px; font-size: 1.1rem; } }
+@media (prefers-reduced-motion: reduce) { .sec > .wrap::after { animation: none; } }
+
+/* print marks, as on a proof sheet */
+.marks { position: relative; }
+.marks::before {
+  content: ''; position: absolute; inset: 10px; pointer-events: none; color: currentColor; opacity: 0.42;
+  background:
+    linear-gradient(currentColor, currentColor) 0 0 / 14px 1px no-repeat, linear-gradient(currentColor, currentColor) 0 0 / 1px 14px no-repeat,
+    linear-gradient(currentColor, currentColor) 100% 0 / 14px 1px no-repeat, linear-gradient(currentColor, currentColor) 100% 0 / 1px 14px no-repeat,
+    linear-gradient(currentColor, currentColor) 0 100% / 14px 1px no-repeat, linear-gradient(currentColor, currentColor) 0 100% / 1px 14px no-repeat,
+    linear-gradient(currentColor, currentColor) 100% 100% / 14px 1px no-repeat, linear-gradient(currentColor, currentColor) 100% 100% / 1px 14px no-repeat;
+}
+.hero__marks { position: absolute; z-index: 4; inset: 0; pointer-events: none; color: var(--ink); }
+.hero__marks::before { inset: 14px; }
+.hero__stamp { position: absolute; z-index: 6; left: 48vw; top: calc(12.2vw + 92px); }
+@media (max-width: 900px) { .hero__stamp { display: none; } }
+
+/* the status stamp on a case file */
+.card__art { position: relative; }
+.card__stamp { position: absolute; z-index: 3; right: 16px; top: 16px; }
+
+/* a commitment is stamped as it arrives */
+.hold__item { position: relative; }
+.hold__stamp { position: absolute; right: 0; top: clamp(22px, 2.6vw, 38px); }
+
+/* the verdict desk */
+.desk { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 80px); align-items: center; margin-top: clamp(48px, 6vw, 88px); }
+.desk__doc { background: color-mix(in srgb, var(--paper) 55%, #fff); box-shadow: 0 0 0 1px var(--line-i); padding: clamp(28px, 3.4vw, 48px); min-height: 320px; display: grid; align-content: start; gap: 18px; }
+.desk__k { font: 600 0.8125rem / 1.2 var(--sans); letter-spacing: 0.08em; text-transform: uppercase; color: var(--soft-i); }
+.desk__dl { display: grid; gap: 0; }
+.desk__dl > div { display: flex; justify-content: space-between; gap: 20px; padding: 12px 0; border-bottom: 1px solid var(--line-i); }
+.desk__dl dt { font: 600 0.9375rem var(--sans); color: var(--soft-i); }
+.desk__dl dd { margin: 0; font: 400 clamp(1.15rem, 1.6vw, 1.4rem) / 1.2 var(--display); text-align: right; }
+.desk__q { font: 600 0.8125rem / 1.2 var(--sans); letter-spacing: 0.08em; text-transform: uppercase; color: var(--soft-i); margin-top: 6px; }
+.desk__slot { min-height: 104px; display: grid; align-items: center; justify-items: start; padding-left: 6px; }
+.desk__lead { font: 400 clamp(1.8rem, 3vw, 2.8rem) / 1.05 var(--display); letter-spacing: -0.02em; margin-bottom: 20px; }
+.desk__tray { display: flex; flex-wrap: wrap; gap: 12px; }
+.desk__note { margin-top: 20px; min-height: 3.2em; max-width: 26em; color: var(--soft-i); text-wrap: pretty; }
+@media (max-width: 900px) { .desk { grid-template-columns: minmax(0, 1fr); } }
+
+/* the colophon */
+.colophon { background: var(--ink); color: var(--paper); padding: clamp(36px, 4vw, 64px) var(--pad); display: grid; grid-template-columns: auto auto minmax(0, 1fr); gap: 20px clamp(32px, 6vw, 96px); align-items: center; border-top: 1px solid var(--line-p); --ring: var(--paper); }
+.colophon__k { font: 600 0.8125rem / 1.2 var(--sans); letter-spacing: 0.1em; text-transform: uppercase; color: var(--soft-p); }
+.colophon__inks { display: flex; gap: 22px; flex-wrap: wrap; }
+.colophon__inks li { display: flex; align-items: center; gap: 10px; font: 600 0.9375rem / 1.2 var(--sans); }
+.colophon__inks i { width: 34px; aspect-ratio: 1; border-radius: 50%; box-shadow: 0 0 0 1px rgba(239, 238, 233, 0.35); }
+.colophon__inks small { display: block; font: 500 0.75rem var(--sans); color: var(--soft-p); letter-spacing: 0.04em; }
+.colophon__t { color: var(--soft-p); font: 400 0.9375rem / 1.5 var(--text); max-width: 34em; }
+@media (max-width: 900px) { .colophon { grid-template-columns: minmax(0, 1fr); } }

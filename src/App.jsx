@@ -7,6 +7,7 @@ import { Ways, Method, Faq, Record, Contact } from './sections3.jsx';
 import { Demos, Library, Papers } from './sections4.jsx';
 import { Lenses, StartEasy, ShareButton } from './sections5.jsx';
 import { Thinking } from './sections6.jsx';
+import { InkFilter, Colophon } from './stamp.jsx';
 
 /* The portfolio says each thing once. Material that backs it up, and does not need to be read first, lives on the workshop page (?more). */
 const WORKSHOP = typeof window !== 'undefined' && /[?&]more/.test(window.location.search);
@@ -19,6 +20,7 @@ export default function App() {
 
   return (
     <>
+      <InkFilter />
       <a className="skip" href="#main">Skip to the content</a>
       <motion.div className="topbar" style={{ scaleX: scrollYProgress }} aria-hidden="true" />
       <Nav workshop={WORKSHOP} />
@@ -54,6 +56,7 @@ export default function App() {
         )}
       </main>
       <Contact />
+      <Colophon />
       <AnimatePresence>{sheet && <Sheet key={sheet.id} id={sheet.id} onClose={close} returnTo={sheet.el} />}</AnimatePresence>
       {!WORKSHOP && <ShareButton />}
       <div className="grain" aria-hidden="true" />

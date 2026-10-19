@@ -53,6 +53,7 @@ export const proof = [
 export const projects = [
   {
     id: 'hybrid',
+    stamp: 'Live-ops',
     art: 'puzzle',
     title: 'Hybrid-puzzle, idle and tycoon titles',
     org: 'BooBoo Games',
@@ -70,6 +71,7 @@ export const projects = [
   },
   {
     id: 'ai-studio',
+    stamp: 'In use',
     art: 'orbit',
     title: 'The AI-first studio',
     org: 'BooBoo Games and Funcell Games',
@@ -88,6 +90,7 @@ export const projects = [
   },
   {
     id: 'ads-ua',
+    stamp: 'Built',
     art: 'ads',
     title: 'Creative, playable-ad and UA engine',
     org: 'BooBoo Games',
@@ -105,6 +108,7 @@ export const projects = [
   },
   {
     id: 'microdrama',
+    stamp: 'Running',
     art: 'drama',
     title: 'Interactive microdrama platform',
     org: 'BooBoo Games',
@@ -118,6 +122,7 @@ export const projects = [
   },
   {
     id: 'clients',
+    stamp: 'Delivered',
     art: 'clients',
     title: 'Rewarded and web games for clients',
     org: 'BooBoo Games',
@@ -135,6 +140,7 @@ export const projects = [
   },
   {
     id: 'dinelift',
+    stamp: 'Validated',
     art: 'table',
     title: 'Dinelift',
     org: 'Co-founder, Product Designer, Project Manager',
@@ -152,6 +158,7 @@ export const projects = [
   },
   {
     id: 'papertoy',
+    stamp: 'Founded',
     art: 'paper',
     title: 'Papertoy Studio',
     org: 'Co-founder, Product Designer, Project Manager',
@@ -169,6 +176,7 @@ export const projects = [
   },
   {
     id: 'nerdy',
+    stamp: 'Published',
     art: 'pixel',
     title: 'Nerdy Quest',
     org: 'Co-founder, Game Designer, Project Manager',

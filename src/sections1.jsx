@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform, useMotionValue, useSpring, useMotionTemplate, useMotionValueEvent, useReducedMotion } from 'motion/react';
 import { ribbon, mirror, proof, fit, hold, HEADLINE } from './content.js';
+import { Stamp, VerdictDesk } from './stamp.jsx';
 import { EASE, STILL, SplitWords, Reveal, Pill, Marquee, Count, useSpot, useFine, scrollToId, useSceneProgress } from './ui.jsx';
 
 /* ---------- navigation island ---------- */
@@ -132,6 +133,8 @@ export function Hero() {
 
   return (
     <section id="top" className="hero" aria-labelledby="hero-h">
+      <div className="hero__marks marks" aria-hidden="true" />
+      <Stamp kanji="出" title="Shipped" rotate={-9} size={112} delay={1.7} className="hero__stamp" />
       <div className="hero__id">
         <span translate="no">Karthik Bindumon</span>
         <span>Mumbai</span>
@@ -223,12 +226,14 @@ export function Hold() {
         <ol className="hold" role="list">
           {hold.map((h, i) => (
             <Reveal as="li" key={h.n} className="hold__item" delay={(i % 3) * 0.07}>
+              <Stamp kanji="承" title="Agreed" className="hold__stamp" size={46} rotate={i % 2 ? 5 : -6} delay={0.25 + (i % 3) * 0.12} />
               <span className="hold__n" aria-hidden="true">{h.n}</span>
               <h3 className="hold__t">{h.t}</h3>
               <p className="hold__p">{h.p}</p>
             </Reveal>
           ))}
         </ol>
+        <VerdictDesk />
       </div>
     </section>
   );
