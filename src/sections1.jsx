@@ -7,6 +7,7 @@ import { EASE, STILL, SplitWords, Reveal, Pill, Marquee, Count, useSpot, useFine
 /* ---------- navigation island ---------- */
 
 const mainLinks = [
+  ['play', 'Play'],
   ['work', 'Work'],
   ['method', 'Method'],
   ['ways', 'Ways to work'],
@@ -30,7 +31,7 @@ export function Nav({ workshop = false }) {
 
   useEffect(() => {
     const map = { pipeline: 'work', positions: 'method', craft: 'method', demos: 'work', library: 'work', diagnostic: 'ways', faq: 'ways', papers: 'record', contact: '' };
-    const ids = ['work', 'pipeline', 'positions', 'craft', 'demos', 'library', 'diagnostic', 'method', 'ways', 'faq', 'record', 'papers', 'contact'];
+    const ids = ['play', 'work', 'pipeline', 'positions', 'craft', 'demos', 'library', 'diagnostic', 'method', 'ways', 'faq', 'record', 'papers', 'contact'];
     const io = new IntersectionObserver(
       (es) => es.forEach((e) => e.isIntersecting && setActive(map[e.target.id] ?? e.target.id)),
       { rootMargin: '-45% 0px -50% 0px' }
@@ -170,11 +171,11 @@ export function Hero() {
           </p>
         </Reveal>
         <Reveal delay={1.5} y={16} className="hero__actions">
-          <Pill href="#fit" onClick={(e) => { e.preventDefault(); scrollToId('fit'); }}>
-            See the fit
+          <Pill href="#play" onClick={(e) => { e.preventDefault(); scrollToId('play'); }}>
+            Play Release Day
           </Pill>
-          <a className="textlink" href="#work" onClick={(e) => { e.preventDefault(); scrollToId('work'); }}>
-            See the work
+          <a className="textlink" href="#fit" onClick={(e) => { e.preventDefault(); scrollToId('fit'); }}>
+            See the fit
           </a>
         </Reveal>
       </div>
