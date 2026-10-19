@@ -5,14 +5,22 @@ import { EASE, STILL, SplitWords, Reveal, Pill, Marquee, Count, useSpot, useFine
 
 /* ---------- navigation island ---------- */
 
-const links = [
+const mainLinks = [
   ['work', 'Work'],
   ['method', 'Method'],
   ['ways', 'Ways to work'],
   ['record', 'Record'],
 ];
+const workshopLinks = [
+  ['demos', 'Demos'],
+  ['library', 'Pilot ideas'],
+  ['positions', 'Positions'],
+  ['./', 'Back to the portfolio'],
+];
+const isPage = (id) => id.startsWith('.');
 
-export function Nav() {
+export function Nav({ workshop = false }) {
+  const links = workshop ? workshopLinks : mainLinks;
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState('');
   const [scrolled, setScrolled] = useState(false);
@@ -42,6 +50,7 @@ export function Nav() {
   }, [open]);
 
   const go = (id) => (e) => {
+    if (isPage(id)) return;
     e.preventDefault();
     setOpen(false);
     setTimeout(() => scrollToId(id), open ? 250 : 0);
@@ -56,7 +65,7 @@ export function Nav() {
         <ul className="island__links" role="list">
           {links.map(([id, label]) => (
             <li key={id}>
-              <a href={`#${id}`} onClick={go(id)} aria-current={active === id ? 'location' : undefined}>
+              <a href={isPage(id) ? id : `#${id}`} onClick={go(id)} aria-current={active === id ? 'location' : undefined}>
                 {label}
                 {active === id && <motion.span className="island__line" layoutId="island-line" transition={{ duration: 0.5, ease: EASE }} />}
               </a>
@@ -78,7 +87,7 @@ export function Nav() {
             <ul role="list">
               {[...links, ['contact', 'Start a conversation']].map(([id, label], i) => (
                 <li key={id} className="menu__li">
-                  <motion.a href={`#${id}`} onClick={go(id)} initial={{ y: 60, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.8, ease: EASE, delay: 0.08 + i * 0.07 }}>
+                  <motion.a href={isPage(id) ? id : `#${id}`} onClick={go(id)} initial={{ y: 60, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.8, ease: EASE, delay: 0.08 + i * 0.07 }}>
                     {label}
                   </motion.a>
                 </li>

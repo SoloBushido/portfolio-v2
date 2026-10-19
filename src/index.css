@@ -623,3 +623,6 @@ main > .sec { counter-increment: sec; }
 .fit__maps { grid-column: 3; grid-row: 2; }
 .fit__not { margin-top: 28px; font: italic 400 clamp(1.05rem, 1.3vw, 1.2rem) / 1.5 var(--text); color: var(--soft-i); max-width: 44em; }
 @media (max-width: 860px) { .fit__row { grid-template-columns: minmax(0, 1fr); } .fit__k, .fit__t, .fit__p, .fit__maps { grid-column: 1; grid-row: auto; } }
+
+.more { padding: clamp(40px, 5vw, 72px) max(var(--pad), calc((100% - 52em) / 2)); font: italic 400 clamp(1.05rem, 1.3vw, 1.2rem) / 1.55 var(--text); background: var(--paper); color: var(--soft-i); text-align: center; }
+.more .textlink { font-style: normal; }

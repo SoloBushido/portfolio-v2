@@ -4,6 +4,8 @@ export const EMAIL = 'karthik.mbindumon@gmail.com';
 
 // The line that opens and closes the page. Change it here and everywhere follows.
 export const HEADLINE = ['Producer, AI-first.', 'Teams of fifty, or one.'];
+// The closing line must not repeat the opening one.
+export const FINALE = ['Send the', 'hard part.'];
 
 // Where a hiring manager files him. One primary role, three strengths, one honest limit.
 export const fit = [

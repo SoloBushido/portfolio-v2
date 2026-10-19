@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { hurts, projects, ways, method, faq, roles, school, EMAIL, HEADLINE } from './content.js';
+import { hurts, projects, ways, method, faq, roles, school, EMAIL, FINALE } from './content.js';
 import { EASE, SplitWords, Reveal, Pill, useSpot, Hanko } from './ui.jsx';
 
 /* ---------- a small commitment: where does it hurt? ---------- */
@@ -232,9 +232,9 @@ export function Contact() {
       <div className="contact__glow" aria-hidden="true" />
       <div className="wrap contact__in">
         <h2 id="contact-h" className="contact__h">
-          <span className="sr">{HEADLINE.join(' ')}</span>
-          <SplitWords aria-hidden="true" as="span" className="contact__l" text={HEADLINE[0]} />
-          <SplitWords aria-hidden="true" as="span" className="contact__l" text={HEADLINE[1]} delay={0.3} />
+          <span className="sr">{FINALE.join(' ')}</span>
+          <SplitWords aria-hidden="true" as="span" className="contact__l" text={FINALE[0]} />
+          <SplitWords aria-hidden="true" as="span" className="contact__l" text={FINALE[1]} delay={0.3} />
         </h2>
         <div className="contact__row">
           <Reveal as="p" className="contact__p" delay={0.2}>
