@@ -130,7 +130,7 @@ export function Play() {
   return (
     <section id="play" className="sec sec--dark play" aria-labelledby="play-h">
       <div className="wrap">
-        <SplitWords as="h2" id="play-h" className="h2" text="Release day." />
+        <SplitWords as="h2" id="play-h" className="h2" data-store="Demo available" text="Release day." />
         <Reveal as="p" className="lede" delay={0.15}>
           Ten days to ship, eight tickets on the board. Stamp each one SHIP or KILL. The risk stays hidden until the stamp lands.
         </Reveal>

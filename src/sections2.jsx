@@ -83,7 +83,7 @@ export function Work({ onOpen }) {
 
   const head = (
     <div className="work__head">
-      <SplitWords as="h2" id="work-h" className="h2" text="Eight case files. Open any of them." />
+      <SplitWords as="h2" id="work-h" className="h2" data-store="Screenshots" text="Eight case files. Open any of them." />
       <Reveal as="p" className="work__sub" delay={0.2}>
         What was in the way, what was done about it, and what came out of it, with the figures as they stand.
       </Reveal>
@@ -253,7 +253,7 @@ export function Pipeline() {
 
   const head = (
     <>
-      <SplitWords as="h2" id="pipeline-h" className="h2" text="Every stage of a game now runs on a workflow." />
+      <SplitWords as="h2" id="pipeline-h" className="h2" data-store="Under the hood" text="Every stage of a game now runs on a workflow." />
       <Reveal as="p" className="pipe__sub" delay={0.2}>
         So one developer can carry a game from first asset to live data, and the standard stays where it was.
       </Reveal>

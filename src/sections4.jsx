@@ -118,7 +118,7 @@ export function Papers() {
   return (
     <section id="papers" className="sec sec--paper sec--flush" aria-labelledby="papers-h">
       <div className="wrap">
-        <SplitWords as="h2" id="papers-h" className="h2 h2--sm" text="Working papers, and more to see." />
+        <SplitWords as="h2" id="papers-h" className="h2 h2--sm" data-store="Downloads" text="Working papers, and more to see." />
         <div className="papers">
           <Reveal>
             <h3 className="record__k">Download</h3>
