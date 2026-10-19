@@ -238,11 +238,11 @@ export function Contact() {
         </h2>
         <div className="contact__row">
           <Reveal as="p" className="contact__p" delay={0.2}>
-            Tell me what is stuck, what it costs now, and the date it matters by. One paragraph is enough.
+            What is stuck, what it costs now, and the date it matters by. One paragraph is enough.
           </Reveal>
           <Reveal className="contact__actions" delay={0.3}>
             <Pill variant="ink" href={`mailto:${EMAIL}?subject=${encodeURIComponent("Let's make it")}`}>
-              Write to me
+              Send a message
             </Pill>
             <a className="mail" href={`mailto:${EMAIL}`}>
               {EMAIL}

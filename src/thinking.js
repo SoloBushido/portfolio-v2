@@ -1,4 +1,4 @@
-// How I think, shown as artifacts. Hypotheses with kill tests: none of these is a result.
+// How the thinking works, shown as artifacts. Hypotheses with kill tests: none of these is a result.
 
 export const moves = [
   'Start from the number someone is blamed for.',

@@ -163,12 +163,12 @@ export function Hero() {
       <div className="hero__foot">
         <Reveal delay={1.35} y={16} className="hero__lead">
           <p>
-            I lead the team, build the workflows and ship the product. Then I put the numbers in writing.
+            Teams led. Workflows built. Products shipped. Numbers in writing.
           </p>
         </Reveal>
         <Reveal delay={1.5} y={16} className="hero__actions">
           <Pill href="#fit" onClick={(e) => { e.preventDefault(); scrollToId('fit'); }}>
-            Where I fit
+            See the fit
           </Pill>
           <a className="textlink" href="#work" onClick={(e) => { e.preventDefault(); scrollToId('work'); }}>
             See the work
@@ -181,15 +181,15 @@ export function Hero() {
   );
 }
 
-/* ---------- where I fit ---------- */
+/* ---------- role and strengths ---------- */
 
 export function Fit() {
   return (
     <section id="fit" className="sec sec--paper" aria-labelledby="fit-h">
       <div className="wrap">
-        <SplitWords as="h2" id="fit-h" className="h2" text="Where I fit." />
+        <SplitWords as="h2" id="fit-h" className="h2" text="Role and strengths." />
         <Reveal as="p" className="lede" delay={0.15}>
-          One role and three strengths, so you can file me in a single line.
+          One role and three strengths, one line each, so the fit is clear in a minute.
         </Reveal>
         <ol className="fit" role="list">
           {fit.map((r, i) => (
@@ -216,9 +216,9 @@ export function Hold() {
   return (
     <section id="hold" className="sec sec--paper" aria-labelledby="hold-h">
       <div className="wrap">
-        <SplitWords as="h2" id="hold-h" className="h2" text="What you can hold me to." />
+        <SplitWords as="h2" id="hold-h" className="h2" text="Held to a number, in writing." />
         <Reveal as="p" className="lede" delay={0.15}>
-          Six commitments I put in writing on every project, so you can see where I stand against the number at any point.
+          Six commitments written down on every project, so where things stand against the number is never a matter of opinion.
         </Reveal>
         <ol className="hold" role="list">
           {hold.map((h, i) => (

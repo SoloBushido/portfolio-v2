@@ -1,4 +1,4 @@
-// All words on the page, written in my own voice. Every figure and claim comes from the résumé or from my earlier portfolio.
+// All words on the page. No pronouns for the author: noun-led lines and plain statements. Every figure and claim comes from the résumé or the earlier portfolio.
 // Role words (delivery, live operations, risk, stakeholders, CPI, creative testing, human-in-the-loop, cycle time) are the ones job descriptions use.
 
 export const EMAIL = 'karthik.mbindumon@gmail.com';
@@ -8,12 +8,12 @@ export const HEADLINE = ['Producer, AI-first.', 'Idea to live.'];
 // The closing line must not repeat the opening one.
 export const FINALE = ['Send the', 'hard part.'];
 
-// Where a hiring manager files me. One primary role and three strengths.
+// Where a hiring manager files the role. One primary role and three strengths.
 export const fit = [
-  { k: 'The role', t: 'Producer', line: 'I own delivery from concept and prototype to launch and live operations: scope, schedule, milestones and risk, and the cross-functional team of designers, engineers, artists and QA that does the work.', maps: ['Game Producer', 'Head of Production', 'Product Lead', 'Programme Manager'] },
-  { k: 'Also strong', t: 'Growth and acquisition', line: 'I run user acquisition on cost per install, retention and creative testing, with a UA tool and dashboard I built on MMP data.', maps: ['Growth Lead', 'UA Manager', 'Performance Marketing'] },
-  { k: 'Also strong', t: 'AI workflow lead', line: 'I rebuild how a team works so AI does the repeated stages and people keep the judgement (human in the loop), and cycle time drops. I also run the adoption, so the team uses it.', maps: ['AI Operations', 'Workflow Automation', 'AI Enablement'] },
-  { k: 'Also strong', t: 'Behaviour and game design', line: 'I design the experience around why people act: onboarding, engagement and retention, grounded in game design and behavioural science.', maps: ['Game Designer', 'Product Designer', 'Gamification'] },
+  { k: 'The role', t: 'Producer', line: 'Delivery from concept and prototype to launch and live operations: scope, schedule, milestones and risk, across a cross-functional team of designers, engineers, artists and QA.', maps: ['Game Producer', 'Head of Production', 'Product Lead', 'Programme Manager'] },
+  { k: 'Also strong', t: 'Growth and acquisition', line: 'User acquisition run on cost per install, retention and creative testing, with a UA tool and dashboard built on MMP data.', maps: ['Growth Lead', 'UA Manager', 'Performance Marketing'] },
+  { k: 'Also strong', t: 'AI workflow lead', line: 'Team workflows rebuilt so AI does the repeated stages and people keep the judgement (human in the loop), with the adoption run alongside, so cycle time falls and the team actually uses it.', maps: ['AI Operations', 'Workflow Automation', 'AI Enablement'] },
+  { k: 'Also strong', t: 'Behaviour and game design', line: 'Experiences designed around why people act: onboarding, engagement and retention, grounded in game design and behavioural science.', maps: ['Game Designer', 'Product Designer', 'Gamification'] },
 ];
 
 export const ribbon = [
@@ -65,7 +65,7 @@ export const projects = [
       'Iterate in short cycles with numeric gates, kill decisions and post-mortems.',
       'Run the portfolio from concept to prototype, soft launch and live-ops.',
     ],
-    outcome: ['Cost per install under $1.50 on hybrid-puzzle titles', '30+ games shipped across formats', '5+ 3D PC games and 10+ mobile games built by me personally'],
+    outcome: ['Cost per install under $1.50 on hybrid-puzzle titles', '30+ games shipped across formats', '5+ 3D PC games and 10+ mobile games built personally'],
     tags: ['Hybrid-puzzle', 'Idle arcade', 'Idle tycoon', 'Rewarded', 'Live-ops'],
   },
   {
@@ -332,10 +332,10 @@ export const method = [
 
 export const faq = [
   { q: 'How does an engagement start?', a: 'With a short conversation about the part that is stuck, then a pilot of 4 to 8 weeks with a target number agreed before anything is built. The verdict is written down, whichever way it goes.' },
-  { q: 'Where am I based, and do I work remotely?', a: 'Mumbai. Remote or on-site, depending on the work.' },
-  { q: 'What do I work in?', a: 'Unity, Unreal Engine, 3D visualisation tools, Android development and AI-based production tools, plus the workflows built around them.' },
-  { q: 'What does hiring an international candidate involve?', a: 'The first stage needs no immigration process: a paid 4 to 8 week pilot on contract, or through an employer-of-record, which legally employs me in my own country on your behalf. If a role later needs me on site, the pathway depends on the country and role; your immigration counsel confirms it, and I prepare the documents in advance.' },
-  { q: 'Which roles do I take?', a: 'Game producer, head of production, product or programme manager, growth or UA lead, AI workflow lead, systems designer, and game design mentor. The role is a starting point, not a box.' },
+  { q: 'Where are you based, and can the work be remote?', a: 'Mumbai. Remote or on-site, depending on the work.' },
+  { q: 'What do you work in?', a: 'Unity, Unreal Engine, 3D visualisation tools, Android development and AI-based production tools, plus the workflows built around them.' },
+  { q: 'What does hiring an international candidate involve?', a: 'The first stage needs no immigration process: a paid 4 to 8 week pilot on contract, or through an employer-of-record, a service that employs a person in their own country on your behalf. If a role later needs a move, the pathway depends on the country and role; your immigration counsel confirms it, and the documents and timeline are ready in advance.' },
+  { q: 'Which roles do you take?', a: 'Game producer, head of production, product or programme manager, growth or UA lead, AI workflow lead, systems designer, and game design mentor. The role is a starting point, not a box.' },
   { q: 'Can a pilot be about something other than games?', a: 'Yes. The same method applies to onboarding, training, fitness and hospitality products: anywhere a behaviour has to change and a number can measure it.' },
   { q: 'What helps most in a first message?', a: 'The part that is stuck, what it costs now, and the date it matters by. One paragraph is enough.' },
 ];
@@ -359,10 +359,10 @@ export const school = [
 
 // What a reader can hold me to. Each one is a practice already stated elsewhere on the page; here it is a commitment.
 export const hold = [
-  { n: '1', t: 'One named owner', p: 'Every project has one person answerable for the result. On mine, that is me.' },
-  { n: '2', t: 'A number agreed first', p: 'I write the objective and the success metric before the backlog exists, and the target before any build starts.' },
-  { n: '3', t: 'A written update every week', p: 'A short written update replaces the status meeting: where we are, what changed, what is at risk.' },
+  { n: '1', t: 'One named owner', p: 'Every project has one person answerable for the result. The producer’s name is on it.' },
+  { n: '2', t: 'A number agreed first', p: 'The objective and the success metric are written before the backlog exists, and the target before any build starts.' },
+  { n: '3', t: 'A written update every week', p: 'A short written update replaces the status meeting: where things stand, what changed, what is at risk.' },
   { n: '4', t: 'Scope and kill decisions on paper', p: 'What is in, what is out and what gets stopped, recorded when it is decided and not recalled later.' },
-  { n: '5', t: 'A verdict, even when it is no', p: 'At the end of every pilot I write down whether the number moved: yes, no, or not enough.' },
+  { n: '5', t: 'A verdict, even when it is no', p: 'Every pilot ends with a written verdict on whether the number moved: yes, no, or not enough.' },
   { n: '6', t: 'A post-mortem after every release', p: 'What worked, what did not, and what changes next time, shared with the whole team.' },
 ];

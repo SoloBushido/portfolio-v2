@@ -16,12 +16,12 @@ function crawlableContent() {
       const body = `
 <main class="seo">
   <h1>Karthik Bindumon: ${esc(c.HEADLINE.join(' '))}</h1>
-  <p>Game producer and AI workflow lead in Mumbai, India. I lead teams of 50+, have shipped 30+ games, and take products from concept and prototype to launch and live operations.</p>
-  <h2>Where I fit</h2>
+  <p>Game producer and AI workflow lead in Mumbai, India. Leads teams of 50+, has shipped 30+ games, and takes products from concept and prototype to launch and live operations.</p>
+  <h2>Role and strengths</h2>
   ${c.fit.map((f) => `<h3>${esc(f.t)}</h3><p>${esc(f.line)}</p><p>Roles: ${esc(f.maps.join(', '))}</p>`).join('')}
   <h2>Results</h2>
   ${li(c.proof.map(figure))}
-  <h2>What you can hold me to</h2>
+  <h2>Held to a number, in writing</h2>
   <ol>${c.hold.map((h) => `<li><strong>${esc(h.t)}.</strong> ${esc(h.p)}</li>`).join('')}</ol>
   <h2>Work</h2>
   ${c.projects
