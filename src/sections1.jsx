@@ -123,6 +123,7 @@ export function Hero() {
 
   return (
     <section id="top" className="hero" aria-labelledby="hero-h">
+      <p className="hero__vert" aria-hidden="true">Producer · Behaviour-change designer · Mumbai</p>
       <div className="hero__id">
         <span translate="no">Karthik Bindumon</span>
         <span>Producer and behaviour-change designer, Mumbai</span>
@@ -154,7 +155,7 @@ export function Hero() {
       <div className="hero__foot">
         <Reveal delay={1.35} y={16} className="hero__lead">
           <p>
-            The change you picture, running: 50+ people led, 30+ products shipped, and whole workflows rebuilt around AI.
+            50+ people led, 30+ products shipped, and whole workflows rebuilt around AI.
           </p>
         </Reveal>
         <Reveal delay={1.5} y={16} className="hero__actions">
@@ -194,7 +195,7 @@ export function Mirror() {
   const ref = useRef(null);
   const reduce = useReducedMotion();
   const scrollYProgress = useSceneProgress(ref);
-  const lines = [...mirror, 'Now picture it shipped.'];
+  const lines = [...mirror, 'Here is what shipped looks like.'];
   const n = lines.length;
   const ring = useTransform(scrollYProgress, [0, 1], [0.6, 2.4]);
 
@@ -238,6 +239,7 @@ function ProofCard({ item, i }) {
   return (
     <Reveal className={`bezel proof proof--${item.id}`} delay={(i % 4) * 0.07}>
       <div className="bezel__in" {...spot}>
+        {item.id === 'a' && <span className="beam" aria-hidden="true" />}
         <p className="proof__fig">
           <Count value={item.value} prefix={item.prefix} suffix={item.suffix} decimals={item.decimals} label={item.sr} />
         </p>

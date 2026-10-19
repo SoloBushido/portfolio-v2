@@ -3,7 +3,7 @@
 export const EMAIL = 'karthik.mbindumon@gmail.com';
 
 // The line that opens and closes the page. Change it here and everywhere follows.
-export const HEADLINE = ['Picture it.', 'Then run it.'];
+export const HEADLINE = ['Products shipped.', 'Behaviour changed.'];
 
 export const ribbon = [
   'BooBoo Games',
