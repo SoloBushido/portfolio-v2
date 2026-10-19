@@ -813,7 +813,7 @@ main > .sec:nth-of-type(3n) { --r: -1deg; }
 
 .role__ver { display: block; font: 700 0.8125rem / 1.2 var(--sans); font-style: normal; letter-spacing: 0.06em; color: var(--seal); margin-bottom: 2px; }
 .role__when { position: relative; }
-.role__stamp { position: absolute; left: 3.6rem; top: -6px; }
+.role__stamp { position: absolute; left: 0; top: 2.6em; }
 
 .reqs__cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(20px, 3vw, 48px); border-top: 1px solid currentColor; }
 .reqs__col { padding: clamp(22px, 2.6vw, 36px) 0; }
