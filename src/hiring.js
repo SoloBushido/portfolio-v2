@@ -127,7 +127,7 @@ export const brief = {
   ],
   start: 'Starts remotely as a paid 4 to 8 week pilot, with the target number agreed first, so no immigration process is needed for the first stage.',
   contact: 'karthik.mbindumon@gmail.com',
-  url: 'https://solobushido.github.io/portfolio/',
+  url: 'https://solobushido.github.io/portfolio-v2/',
 };
 
 export const summaryText = () =>

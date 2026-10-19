@@ -9,7 +9,7 @@ import { EMAIL } from './content.js';
    The game and its numbers are fictional; the judgement behind them is the work. */
 
 const CAP = 10;
-const URL = 'https://solobushido.github.io/portfolio/';
+const URL = 'https://solobushido.github.io/portfolio-v2/';
 
 const tickets = [
   { id: 'crash', t: 'Fix the crash on low-end Android', p: 'Players on older phones quit at the loading screen.', cost: 1, value: 3, risk: -1, call: 'ship', note: 'A crash costs installs before anything else does. One day, and the risk on the whole release drops.' },
