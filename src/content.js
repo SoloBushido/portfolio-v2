@@ -374,3 +374,11 @@ export const hold = [
   { n: '5', t: 'A verdict, even when it is no', p: 'Every pilot ends with a written verdict on whether the number moved: yes, no, or not enough.' },
   { n: '6', t: 'A post-mortem after every release', p: 'What worked, what did not, and what changes next time, shared with the whole team.' },
 ];
+
+// What the work runs on. Every item comes from the resume or portfolio; no years or levels are claimed.
+export const toolbox = [
+  { t: 'Production and delivery', items: ['Release management', 'Soft-launch gates and kill decisions', 'Resource planning', 'Live operations', 'Stakeholder and client management', 'Product roadmapping', 'Leading 50+ people'] },
+  { t: 'Growth and data', items: ['Mobile acquisition strategy', 'MMP data analysis', 'Dashboards and reporting', 'Monetisation and game economy', 'Playable ads and creatives', 'CPI under $1.50 on hybrid-puzzle titles'] },
+  { t: 'AI workflows', items: ['Generative AI in production', 'Prompt engineering', 'Workflow automation', 'Release gates for AI output', '3D assets, rigging and animation', 'Sound and QA'] },
+  { t: 'Engines and platforms', items: ['Unity', 'Unreal Engine', 'Android, 12+ games published', 'Steam to mobile, 6 games in 5 days', 'Web games', 'Rewarded games'] },
+];

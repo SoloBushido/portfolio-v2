@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform, useMotionValue, useSpring, useMotionTemplate, useMotionValueEvent, useReducedMotion } from 'motion/react';
-import { ribbon, mirror, proof, fit, hold, HEADLINE } from './content.js';
+import { ribbon, mirror, proof, fit, hold, toolbox, HEADLINE } from './content.js';
 import { Stamp, VerdictDesk } from './stamp.jsx';
 import { EASE, STILL, SplitWords, Reveal, Pill, Marquee, Count, useSpot, useFine, scrollToId, useSceneProgress } from './ui.jsx';
 
@@ -324,6 +324,33 @@ export function Proof() {
         <div className="proof-grid">
           {proof.map((p, i) => (
             <ProofCard key={p.id} item={p} i={i} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- what the work runs on ---------- */
+
+export function Toolbox() {
+  return (
+    <section id="toolbox" className="sec sec--paper" aria-labelledby="toolbox-h">
+      <div className="wrap">
+        <SplitWords as="h2" id="toolbox-h" className="h2" text="What the work runs on." />
+        <Reveal as="p" className="lede" delay={0.15}>
+          The practical skills and tools behind the record above, grouped by the job they do.
+        </Reveal>
+        <div className="tbx">
+          {toolbox.map((g, i) => (
+            <Reveal key={g.t} className="tbx__g" delay={(i % 2) * 0.07}>
+              <h3 className="tbx__t">{g.t}</h3>
+              <ul className="tbx__l" role="list">
+                {g.items.map((x) => (
+                  <li key={x} className="tbx__i">{x}</li>
+                ))}
+              </ul>
+            </Reveal>
           ))}
         </div>
       </div>
