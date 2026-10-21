@@ -109,7 +109,7 @@ const basePapers = [
   /* ---------------------------------------------------------------- 1 */
   {
     n: 1,
-    title: 'Attention: what a game actually teaches',
+    title: 'Why mental-health apps change scores, not lives',
     tags: ['Mental health'],
     read: 8,
     problem: {
@@ -166,7 +166,7 @@ const basePapers = [
   /* ---------------------------------------------------------------- 2 */
   {
     n: 2,
-    title: 'Habits: teaching what cannot be said',
+    title: 'Can a game stop a trauma memory before it forms?',
     tags: ['Mental health'],
     read: 8,
     problem: {
@@ -223,7 +223,7 @@ const basePapers = [
   /* ---------------------------------------------------------------- 3 */
   {
     n: 3,
-    title: 'The turning point: building the impasse',
+    title: 'What happens in the moment a belief lets go',
     tags: ['Mental health'],
     read: 7,
     problem: {
@@ -280,7 +280,7 @@ const basePapers = [
   /* ---------------------------------------------------------------- 4 */
   {
     n: 4,
-    title: 'Forensic psychology: where games and AI belong, and where they do not',
+    title: 'Should AI judge people? Where it helps, and where it must not',
     tags: ['Forensic psychology'],
     read: 10,
     problem: {
@@ -341,7 +341,7 @@ const basePapers = [
   /* ---------------------------------------------------------------- 5 */
   {
     n: 5,
-    title: 'Biotech: the interface is the instrument',
+    title: 'Players cracked a protein structure that stumped scientists',
     tags: ['Biotech'],
     read: 8,
     problem: {
@@ -397,7 +397,7 @@ const basePapers = [
   /* ---------------------------------------------------------------- 6 */
   {
     n: 6,
-    title: 'Dose, not engagement: a bar for therapeutic play',
+    title: 'The best therapy game is the one you stop needing',
     tags: ['Mental health'],
     read: 8,
     problem: {
@@ -452,7 +452,7 @@ const basePapers = [
   /* ---------------------------------------------------------------- 7 */
   {
     n: 7,
-    title: 'Defense I: strategic warning, and the judgement behind it',
+    title: 'Why surprise attacks keep happening, even with all the data',
     tags: ['Defense'],
     read: 10,
     problem: {
@@ -509,7 +509,7 @@ const basePapers = [
   /* ---------------------------------------------------------------- 8 */
   {
     n: 8,
-    title: 'Defense II: cognitive security, immunity as a skill',
+    title: 'Can people be vaccinated against manipulation?',
     tags: ['Defense'],
     read: 9,
     problem: {
@@ -563,13 +563,16 @@ const basePapers = [
   },
 ];
 
+export const featured = [9, 7, 12];
+
 export const fields = [
-  { id: 'all', name: 'All papers' },
+  { id: 'start', name: 'Start here' },
   { id: 'mind', name: 'Mind and health' },
   { id: 'justice', name: 'Justice' },
   { id: 'science', name: 'Science' },
   { id: 'defense', name: 'Defense and security' },
   { id: 'edu', name: 'Education' },
+  { id: 'all', name: 'Everything' },
 ];
 
 const fieldOf = { 1: 'mind', 2: 'mind', 3: 'mind', 4: 'justice', 5: 'science', 6: 'mind', 7: 'defense', 8: 'defense', 9: 'mind', 10: 'mind', 11: 'mind', 12: 'mind', 13: 'mind', 14: 'edu', 15: 'defense', 16: 'defense', 17: 'defense', 18: 'mind' };

@@ -6,7 +6,7 @@ export const morePapers = [
   /* ---------------------------------------------------------------- 9 */
   {
     n: 9,
-    title: 'Alzheimer’s: a navigation game years before memory fails',
+    title: 'Spotting Alzheimer’s years early, with a game',
     tags: ['Neurodegeneration'],
     read: 9,
     problem: {
@@ -60,7 +60,7 @@ export const morePapers = [
   /* ---------------------------------------------------------------- 10 */
   {
     n: 10,
-    title: 'Addiction: retraining the reflex that understanding cannot reach',
+    title: 'Why knowing better does not stop a relapse',
     tags: ['Addiction'],
     read: 8,
     problem: {
@@ -114,7 +114,7 @@ export const morePapers = [
   /* ---------------------------------------------------------------- 11 */
   {
     n: 11,
-    title: 'Adult plasticity: the game that did not beat the patch',
+    title: 'The lazy-eye game that lost to an eye patch',
     tags: ['Neuroplasticity'],
     read: 7,
     problem: {
@@ -175,7 +175,7 @@ export const morePapers = [
   /* ---------------------------------------------------------------- 12 */
   {
     n: 12,
-    title: 'Diagnostic error: the crowd inside every case',
+    title: 'Why 1 in 20 patients is misdiagnosed, and why a crowd does better',
     tags: ['Medicine'],
     read: 8,
     problem: {
@@ -238,7 +238,7 @@ export const morePapers = [
   /* ---------------------------------------------------------------- 13 */
   {
     n: 13,
-    title: 'Adherence: the half of every prescription that is never taken',
+    title: 'Why half of prescribed medicine goes untaken',
     tags: ['Chronic disease'],
     read: 7,
     problem: {
@@ -288,7 +288,7 @@ export const morePapers = [
   /* ---------------------------------------------------------------- 14 */
   {
     n: 14,
-    title: 'Two sigma at scale: a tutor for every child',
+    title: 'A tutor for every child: how close can a game get?',
     tags: ['Education'],
     read: 8,
     problem: {
@@ -350,7 +350,7 @@ export const morePapers = [
   /* ---------------------------------------------------------------- 15 */
   {
     n: 15,
-    title: 'The rare signal: what matters most is missed most',
+    title: 'The rare thing that matters most is the one experts miss',
     tags: ['Screening and security'],
     read: 8,
     problem: {
@@ -410,7 +410,7 @@ export const morePapers = [
   /* ---------------------------------------------------------------- 16 */
   {
     n: 16,
-    title: 'Trust calibration: keeping a human able to disagree with the machine',
+    title: 'When the machine is good, people stop checking it',
     tags: ['Defense and medicine'],
     read: 9,
     problem: {
@@ -463,7 +463,7 @@ export const morePapers = [
   /* ---------------------------------------------------------------- 17 */
   {
     n: 17,
-    title: 'Escalation: rehearsing crisis judgement before machines speed it up',
+    title: 'Do AI advisers make a crisis more dangerous?',
     tags: ['Defense'],
     read: 9,
     problem: {
@@ -517,7 +517,7 @@ export const morePapers = [
   /* ---------------------------------------------------------------- 18 */
   {
     n: 18,
-    title: 'Suicide: when prediction fails, rehearse the plan',
+    title: 'If nobody can predict suicide risk, what helps?',
     tags: ['Crisis care'],
     read: 8,
     problem: {

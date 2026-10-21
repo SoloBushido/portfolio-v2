@@ -1,30 +1,38 @@
-import { useState } from 'react';
-import { fields, groups, papers, rungs, placed, stages } from './research.js';
+import { useEffect, useState } from 'react';
+import { featured, fields, papers, rungs, placed, stages } from './research.js';
 import { SplitWords, Reveal } from './ui.jsx';
 
 /* ---------- pick a field, see the problems ---------- */
 
-export function Matrix() {
-  const [f, setF] = useState('all');
-  const list = papers.filter((p) => f === 'all' || p.field === f);
+const go = (e, n, set) => {
+  e.preventDefault();
+  window.history.pushState(null, "", `${window.location.search}#paper-${n}`);
+  set(n);
+};
+
+const FIELD_NAME = Object.fromEntries(fields.map((x) => [x.id, x.name]));
+
+export function Matrix({ onPick }) {
+  const [f, setF] = useState('start');
+  const list = papers.filter((p) => (f === 'start' ? featured.includes(p.n) : f === 'all' || p.field === f));
+  const count = (id) => (id === 'start' ? featured.length : id === 'all' ? papers.length : papers.filter((p) => p.field === id).length);
   return (
     <div className="rs-pick">
       <div className="rs-chips" role="group" aria-label="Choose a field">
         {fields.map((x) => (
           <button key={x.id} type="button" className="rs-chip" aria-pressed={f === x.id} onClick={() => setF(x.id)} data-cursor="Open">
             {x.name}
-            <span>{x.id === 'all' ? papers.length : papers.filter((p) => p.field === x.id).length}</span>
+            <span>{count(x.id)}</span>
           </button>
         ))}
       </div>
       <ul className="rs-cards" role="list">
         {list.map((p) => (
           <li key={p.n}>
-            <a href={`?research#paper-${p.n}`}>
-              <span className="rs-cards__k">The problem</span>
-              <span className="rs-cards__p">{p.problem.line}</span>
-              <span className="rs-cards__t">Paper {p.n}: {p.title}</span>
-              <span className="rs-cards__m">{p.read} min read</span>
+            <a href={`?research#paper-${p.n}`} onClick={onPick ? (e) => go(e, p.n, onPick) : undefined}>
+              <span className="rs-cards__k">{FIELD_NAME[p.field]} · {p.read} min</span>
+              <span className="rs-cards__p">{p.title}</span>
+              <span className="rs-cards__t">{p.problem.line}</span>
             </a>
           </li>
         ))}
@@ -674,7 +682,7 @@ export function ResearchTeaser() {
       <div className="wrap">
         <SplitWords as="h2" id="research-h" className="h2" text="Play, minds and machines." />
         <Reveal as="p" className="lede" delay={0.15}>
-          {papers.length} working papers on how game design and AI can attack critical problems in mental health, forensic psychology, biotech, medicine, education and defense. Each paper is built the way it argues: notice what matters, absorb the pattern, then restructure the problem. Every study cited is published and checked, and every proposal carries a way to be proved wrong.
+          {papers.length} working papers on how game design and AI can attack problems that cost lives, trust and years. Start with three, or pick a field. Every study cited is published and checked, and none of the papers claims to have solved its problem.
         </Reveal>
         <Reveal>
           <Matrix />
@@ -685,63 +693,61 @@ export function ResearchTeaser() {
   );
 }
 
-/* ---------- the reading room (?research) ---------- */
+/* ---------- the reading room (?research): one paper at a time ---------- */
+
+const fromHash = () => {
+  const m = typeof window !== 'undefined' && window.location.hash.match(/^#paper-(\d+)/);
+  return m ? +m[1] : null;
+};
 
 export function ResearchPage() {
+  const [open, setOpen] = useState(fromHash);
+  useEffect(() => {
+    const on = () => {
+      const n = fromHash();
+      if (n) setOpen(n);
+    };
+    window.addEventListener('hashchange', on);
+    return () => window.removeEventListener('hashchange', on);
+  }, []);
+  useEffect(() => {
+    if (open) setTimeout(() => document.getElementById(`paper-${open}`)?.scrollIntoView({ block: 'start' }), 60);
+  }, [open]);
+  const paper = papers.find((p) => p.n === open);
+  const next = papers.find((p) => p.n === (open % papers.length) + 1);
   return (
     <>
       <section className="sec sec--paper rs-hero" aria-labelledby="rs-h">
         <div className="wrap">
           <SplitWords as="h1" id="rs-h" className="h2" text="Play, minds and machines." immediate />
           <Reveal as="p" className="lede" delay={0.15}>
-            Game design and AI applied to problems that cost lives, trust and years: mental health, forensic psychology, biotech, medicine, education and defense.
+            Game design and AI aimed at problems that cost lives, trust and years. Pick a field, pick a problem, and read one paper at a time. None of them claims to have solved its problem.
           </Reveal>
           <Reveal>
-            <Matrix />
-          </Reveal>
-          <Reveal as="ol" className="rs-format rs-format--wide" role="list">
-            {stages.map((s) => (
-              <li key={s.id} data-ch={s.id}>
-                <span>
-                  <b>{s.n}</b> {s.name}
-                  </span>
-                <em>{s.ask}</em>
-              </li>
-            ))}
+            <Matrix onPick={setOpen} />
           </Reveal>
         </div>
       </section>
-      <section className="sec sec--paper rs-read" aria-label="The papers">
-        <div className="wrap rs-read__wrap">
-          <nav className="rs-toc" aria-label="Papers">
-            {groups.map((g) => (
-              <div key={g.id}>
-                <p>{g.title}</p>
-                <ol role="list">
-                  {papers
-                    .filter((p) => p.group === g.id)
-                    .map((p) => (
-                      <li key={p.n}>
-                        <a href={`#paper-${p.n}`}>
-                          <span>{String(p.n).padStart(2, '0')}</span>
-                          {p.title}
-                        </a>
-                      </li>
-                    ))}
-                </ol>
-              </div>
-            ))}
-          </nav>
-          <div className="rs-stack">
-            <p className="rs-howto">
-              How to read these. Every paper runs the same three stages: notice what matters, absorb the cases and the figure, then restructure the problem. The pattern and the reframe stay closed until requested, so the reader can try to see them first. Papers synthesise published research and report no results of the author’s own. Proposals are hypotheses.
-            </p>
-            {papers.map((p) => (
-              <Paper key={p.n} p={p} />
-            ))}
+      {paper && (
+        <section className="sec sec--paper rs-read" aria-label="The paper">
+          <div className="wrap wrap--narrow">
+            <div className="rs-stack">
+              <p className="rs-howto">
+                Read in three steps: notice what matters, absorb the cases, then restructure the problem. Papers synthesise published research and report no results of the author’s own. Proposals are hypotheses.
+              </p>
+              <Paper key={paper.n} p={paper} />
+              <nav className="rs-next" aria-label="More papers">
+                <a href="?research" onClick={(e) => { e.preventDefault(); window.history.pushState(null, "", window.location.search); setOpen(null); window.scrollTo(0, 0); }}>
+                  Back to all papers
+                </a>
+                <a href={`?research#paper-${next.n}`} onClick={(e) => go(e, next.n, setOpen)}>
+                  Next: {next.title}
+                </a>
+              </nav>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
     </>
   );
 }
