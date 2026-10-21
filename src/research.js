@@ -563,6 +563,17 @@ const basePapers = [
   },
 ];
 
+export const fields = [
+  { id: 'all', name: 'All papers' },
+  { id: 'mind', name: 'Mind and health' },
+  { id: 'justice', name: 'Justice' },
+  { id: 'science', name: 'Science' },
+  { id: 'defense', name: 'Defense and security' },
+  { id: 'edu', name: 'Education' },
+];
+
+const fieldOf = { 1: 'mind', 2: 'mind', 3: 'mind', 4: 'justice', 5: 'science', 6: 'mind', 7: 'defense', 8: 'defense', 9: 'mind', 10: 'mind', 11: 'mind', 12: 'mind', 13: 'mind', 14: 'edu', 15: 'defense', 16: 'defense', 17: 'defense', 18: 'mind' };
+
 export const groups = [
   { id: "foundations", title: "Foundations", note: "The method, applied to mental health, forensic psychology, biotech and defense." },
   { id: "unsolved", title: "Ten problems still open", note: "None is solved here. Each paper proposes a way to attack the problem, and says how that attempt would fail." },
@@ -571,7 +582,7 @@ export const groups = [
 export const papers = [
   ...basePapers.map((p) => ({ ...p, group: "foundations" })),
   ...morePapers.map((p) => ({ ...p, group: "unsolved" })),
-];
+].map((p) => ({ ...p, field: fieldOf[p.n] }));
 
 export const rungs = [
   { n: 1, t: 'People play it', note: 'Engagement' },

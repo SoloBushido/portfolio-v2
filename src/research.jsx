@@ -1,73 +1,34 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { channels, domains, cells, papers, groups, rungs, placed, stages } from './research.js';
-import { EASE, SplitWords, Reveal } from './ui.jsx';
+import { fields, groups, papers, rungs, placed, stages } from './research.js';
+import { SplitWords, Reveal } from './ui.jsx';
 
-/* ---------- the map: three ways the mind changes, four places to apply them ---------- */
+/* ---------- pick a field, see the problems ---------- */
 
 export function Matrix() {
-  const [sel, setSel] = useState({ c: 'rr', d: 'mh' });
-  const cell = cells[sel.c][sel.d];
-  const ch = channels.find((x) => x.id === sel.c);
-  const dm = domains.find((x) => x.id === sel.d);
+  const [f, setF] = useState('all');
+  const list = papers.filter((p) => f === 'all' || p.field === f);
   return (
-    <div className="rs-map">
-      <div className="rs-grid" role="group" aria-label="Choose a way the mind changes and a place to apply it">
-        <span className="rs-grid__corner" aria-hidden="true" />
-        {domains.map((d) => (
-          <span key={d.id} className="rs-grid__col">
-            {d.name}
-          </span>
-        ))}
-        {channels.map((c) => (
-          <div key={c.id} className="rs-grid__row" data-ch={c.id}>
-            <p className="rs-grid__head">
-              <b>{c.name}</b>
-              <span>{c.ask}</span>
-            </p>
-            {domains.map((d) => (
-              <button
-                key={d.id}
-                type="button"
-                className="rs-cell"
-                data-ch={c.id}
-                aria-pressed={sel.c === c.id && sel.d === d.id}
-                aria-label={`${c.name} in ${d.name}`}
-                onClick={() => setSel({ c: c.id, d: d.id })}
-                data-cursor="Open"
-              >
-                <span className="rs-cell__dot" />
-              </button>
-            ))}
-          </div>
+    <div className="rs-pick">
+      <div className="rs-chips" role="group" aria-label="Choose a field">
+        {fields.map((x) => (
+          <button key={x.id} type="button" className="rs-chip" aria-pressed={f === x.id} onClick={() => setF(x.id)} data-cursor="Open">
+            {x.name}
+            <span>{x.id === 'all' ? papers.length : papers.filter((p) => p.field === x.id).length}</span>
+          </button>
         ))}
       </div>
-      <div className="rs-card" data-ch={sel.c} aria-live="polite">
-        <AnimatePresence mode="wait">
-          <motion.div key={sel.c + sel.d} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.4, ease: EASE }}>
-            <p className="rs-card__path">
-              <span>{ch.name}</span> · <span>{dm.name}</span>
-            </p>
-            <dl className="rs-card__dl">
-              <div>
-                <dt>The design move</dt>
-                <dd>{cell.move}</dd>
-              </div>
-              <div>
-                <dt>What the evidence says</dt>
-                <dd>{cell.evidence}</dd>
-              </div>
-              <div className="rs-card__guard">
-                <dt>The guardrail</dt>
-                <dd>{cell.guard}</dd>
-              </div>
-            </dl>
-            <a className="textlink" href={`?research#paper-${cell.paper}`}>
-              Read paper {cell.paper}: {papers[cell.paper - 1].title}
+      <ul className="rs-cards" role="list">
+        {list.map((p) => (
+          <li key={p.n}>
+            <a href={`?research#paper-${p.n}`}>
+              <span className="rs-cards__k">The problem</span>
+              <span className="rs-cards__p">{p.problem.line}</span>
+              <span className="rs-cards__t">Paper {p.n}: {p.title}</span>
+              <span className="rs-cards__m">{p.read} min read</span>
             </a>
-          </motion.div>
-        </AnimatePresence>
-      </div>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
@@ -718,27 +679,7 @@ export function ResearchTeaser() {
         <Reveal>
           <Matrix />
         </Reveal>
-        {groups.map((g) => (
-          <Reveal key={g.id} className="rs-group" delay={0.05}>
-            <h3 className="rs-group__t">{g.title}</h3>
-            <p className="rs-group__n">{g.note}</p>
-            <ul className="rs-index" role="list">
-              {papers
-                .filter((p) => p.group === g.id)
-                .map((p) => (
-                  <li key={p.n}>
-                    <a href={`?research#paper-${p.n}`}>
-                      <span className="rs-index__n">{String(p.n).padStart(2, '0')}</span>
-                      <span className="rs-index__t">{p.title}</span>
-                      <span className="rs-index__p">{p.problem.line}</span>
-                      <span className="rs-index__m">{p.tags[p.tags.length - 1]} · {p.read} min</span>
-                    </a>
-                  </li>
-                ))}
-            </ul>
-          </Reveal>
-        ))}
-        <p className="rs-note">Position papers that synthesise published work. They report no results of the author’s own.</p>
+        <p className="rs-note">Position papers that synthesise published work. They report no results of the author’s own, and none claims to have solved its problem. Each proposes a way to attack it and says how it would fail.</p>
       </div>
     </section>
   );
