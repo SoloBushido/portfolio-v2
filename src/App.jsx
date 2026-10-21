@@ -10,9 +10,11 @@ import { Lenses, StartEasy, ShareButton } from './sections5.jsx';
 import { Thinking } from './sections6.jsx';
 import { InkFilter, Colophon } from './stamp.jsx';
 import { Play } from './play.jsx';
+import { ResearchTeaser, ResearchPage } from './research.jsx';
 
 /* The portfolio says each thing once. Material that backs it up, and does not need to be read first, lives on the workshop page (?more). */
 const WORKSHOP = typeof window !== 'undefined' && /[?&]more/.test(window.location.search);
+const RESEARCH = typeof window !== 'undefined' && /[?&]research/.test(window.location.search);
 
 export default function App() {
   const [sheet, setSheet] = useState(null);
@@ -25,9 +27,11 @@ export default function App() {
       <InkFilter />
       <a className="skip" href="#main">Skip to the content</a>
       <motion.div className="topbar" style={{ scaleX: scrollYProgress }} aria-hidden="true" />
-      <Nav workshop={WORKSHOP} />
+      <Nav workshop={WORKSHOP} research={RESEARCH} />
       <main id="main" tabIndex={-1}>
-        {WORKSHOP ? (
+        {RESEARCH ? (
+          <ResearchPage />
+        ) : WORKSHOP ? (
           <>
             <Demos />
             <Library />
@@ -45,6 +49,7 @@ export default function App() {
             <Pipeline />
             <Toolbox />
             <Thinking />
+            <ResearchTeaser />
             <Lenses />
             <Ways />
             <Method />
@@ -62,7 +67,7 @@ export default function App() {
       <Contact />
       <Colophon />
       <AnimatePresence>{sheet && <Sheet key={sheet.id} id={sheet.id} onClose={close} returnTo={sheet.el} />}</AnimatePresence>
-      {!WORKSHOP && <ShareButton />}
+      {!WORKSHOP && !RESEARCH && <ShareButton />}
       <div className="grain" aria-hidden="true" />
       <Cursor />
     </>

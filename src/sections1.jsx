@@ -10,6 +10,7 @@ const mainLinks = [
   ['play', 'Play'],
   ['work', 'Work'],
   ['method', 'Method'],
+  ['research', 'Research'],
   ['ways', 'Ways to work'],
   ['record', 'Record'],
 ];
@@ -19,10 +20,14 @@ const workshopLinks = [
   ['positions', 'Positions'],
   ['./', 'Back to the portfolio'],
 ];
-const isPage = (id) => id.startsWith('.');
+const researchLinks = [
+  ['./', 'Back to the portfolio'],
+  ['?more', 'Workshop'],
+];
+const isPage = (id) => id.startsWith('.') || id.startsWith('?');
 
-export function Nav({ workshop = false }) {
-  const links = workshop ? workshopLinks : mainLinks;
+export function Nav({ workshop = false, research = false }) {
+  const links = research ? researchLinks : workshop ? workshopLinks : mainLinks;
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState('');
   const [scrolled, setScrolled] = useState(false);
@@ -31,7 +36,7 @@ export function Nav({ workshop = false }) {
 
   useEffect(() => {
     const map = { pipeline: 'work', positions: 'method', craft: 'method', demos: 'work', library: 'work', diagnostic: 'ways', faq: 'ways', papers: 'record', contact: '' };
-    const ids = ['play', 'work', 'pipeline', 'positions', 'craft', 'demos', 'library', 'diagnostic', 'method', 'ways', 'faq', 'record', 'papers', 'contact'];
+    const ids = ['play', 'work', 'pipeline', 'positions', 'craft', 'demos', 'library', 'diagnostic', 'method', 'research', 'ways', 'faq', 'record', 'papers', 'contact'];
     const io = new IntersectionObserver(
       (es) => es.forEach((e) => e.isIntersecting && setActive(map[e.target.id] ?? e.target.id)),
       { rootMargin: '-45% 0px -50% 0px' }
