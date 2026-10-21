@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { channels, domains, cells, papers, rungs, placed } from './research.js';
+import { channels, domains, cells, papers, rungs, placed, stages } from './research.js';
 import { EASE, SplitWords, Reveal } from './ui.jsx';
 
-/* ---------- the map: three ways the mind changes, three places to apply them ---------- */
+/* ---------- the map: three ways the mind changes, four places to apply them ---------- */
 
 export function Matrix() {
   const [sel, setSel] = useState({ c: 'rr', d: 'mh' });
@@ -92,7 +92,7 @@ function Dials() {
         : 'Dials moving between ends. This is the band a good level keeps visiting.';
   return (
     <figure className="rs-fig">
-      <figcaption className="rs-fig__t">Figure 1 · Three dials a level can turn</figcaption>
+      <figcaption className="rs-fig__t">Figure · Three dials a level can turn</figcaption>
       <div className="rs-dials">
         {DIAL.map(([a, b], i) => (
           <label key={a} className="rs-dial">
@@ -118,7 +118,7 @@ function Srt() {
   const d = pts.map((y, i) => `${i ? 'L' : 'M'}${x(i)},${y}`).join(' ');
   return (
     <figure className="rs-fig">
-      <figcaption className="rs-fig__t">Figure 2 · The cost of the swap</figcaption>
+      <figcaption className="rs-fig__t">Figure · The cost of the swap</figcaption>
       <svg viewBox="0 0 600 210" role="img" aria-label="Schematic: reaction times fall as a hidden sequence repeats, then jump when a random block replaces it, then fall again.">
         <line x1="50" y1="170" x2="580" y2="170" className="rs-ax" />
         <line x1="50" y1="20" x2="50" y2="170" className="rs-ax" />
@@ -141,7 +141,7 @@ function Srt() {
 function Warmth() {
   return (
     <figure className="rs-fig">
-      <figcaption className="rs-fig__t">Figure 3 · Two shapes of solving</figcaption>
+      <figcaption className="rs-fig__t">Figure · Two shapes of solving</figcaption>
       <svg viewBox="0 0 600 220" role="img" aria-label="Schematic: felt warmth climbs steadily on routine problems and stays low then jumps on insight problems.">
         <line x1="50" y1="190" x2="580" y2="190" className="rs-ax" />
         <line x1="50" y1="20" x2="50" y2="190" className="rs-ax" />
@@ -176,14 +176,14 @@ function Fairness() {
   const t = tpr / 100;
   const need = Math.min(1, (t * (pb / 100) * (1 - A)) / (A * (1 - pb / 100) || 1));
   const rows = [
-    ['Base rate in group A', pa, setPa, 1, 60, '%'],
-    ['Base rate in group B', pb, setPb, 1, 60, '%'],
-    ['Catches true cases (both groups)', tpr, setTpr, 30, 95, '%'],
-    ['Flags non-cases by mistake (both groups)', fpr, setFpr, 1, 60, '%'],
+    ['Base rate in group A', pa, setPa, 1, 60],
+    ['Base rate in group B', pb, setPb, 1, 60],
+    ['Catches true cases (both groups)', tpr, setTpr, 30, 95],
+    ['Flags non-cases by mistake (both groups)', fpr, setFpr, 1, 60],
   ];
   return (
     <figure className="rs-fig">
-      <figcaption className="rs-fig__t">Figure 4 · Whom the score is wrong about</figcaption>
+      <figcaption className="rs-fig__t">Figure · Whom the score is wrong about</figcaption>
       <div className="rs-fair">
         {rows.map(([label, val, set, min, max]) => (
           <label key={label} className="rs-fair__row">
@@ -222,7 +222,7 @@ function Loop() {
   const r = 92;
   return (
     <figure className="rs-fig">
-      <figcaption className="rs-fig__t">Figure 5 · The loop that made the results</figcaption>
+      <figcaption className="rs-fig__t">Figure · The loop that made the results</figcaption>
       <svg viewBox="0 0 600 270" role="img" aria-label="A cycle: machine proposes, player perceives, score tests the claim, bench verifies, model learns, and back.">
         <circle cx={cx} cy={cy} r={r} className="rs-ring" fill="none" />
         {nodes.map((n, i) => {
@@ -250,8 +250,8 @@ function Loop() {
 function Ladder() {
   return (
     <figure className="rs-fig">
-      <figcaption className="rs-fig__t">Figure 6 · The evidence ladder</figcaption>
-      <ol className="rs-ladder" role="list" reversed>
+      <figcaption className="rs-fig__t">Figure · The evidence ladder</figcaption>
+      <ol className="rs-ladder" role="list">
         {[...rungs].reverse().map((r) => {
           const hit = placed.find((p) => p.rung === r.n);
           return (
@@ -271,12 +271,113 @@ function Ladder() {
   );
 }
 
-const FIG = { dials: Dials, srt: Srt, warmth: Warmth, fairness: Fairness, loop: Loop, ladder: Ladder };
+function Flood() {
+  const [n, setN] = useState(2000);
+  const [c, setC] = useState(200);
+  const [s, setS] = useState(3);
+  const share = Math.min(1, c / n);
+  const missed = s * (1 - share);
+  return (
+    <figure className="rs-fig">
+      <figcaption className="rs-fig__t">Figure · What a flood does to attention</figcaption>
+      <div className="rs-fair">
+        <label className="rs-fair__row">
+          <span>Alerts per day</span>
+          <output>{n.toLocaleString('en')}</output>
+          <input type="range" min="100" max="10000" step="100" value={n} onChange={(e) => setN(+e.target.value)} aria-label="Alerts per day" />
+        </label>
+        <label className="rs-fair__row">
+          <span>Items the team can review per day</span>
+          <output>{c}</output>
+          <input type="range" min="50" max="500" step="10" value={c} onChange={(e) => setC(+e.target.value)} aria-label="Items reviewed per day" />
+        </label>
+        <label className="rs-fair__row">
+          <span>Real signals hidden in the flood</span>
+          <output>{s}</output>
+          <input type="range" min="1" max="5" value={s} onChange={(e) => setS(+e.target.value)} aria-label="Real signals hidden" />
+        </label>
+      </div>
+      <div className="rs-bar" role="img" aria-label={`${pc(share)} of items reviewed`}>
+        <span style={{ width: `${share * 100}%` }} />
+      </div>
+      <p className="rs-fig__read" data-edge={share < 0.3} aria-live="polite">
+        {`With unranked review, any one signal has a ${pc(share)} chance of being looked at, and about ${missed.toFixed(1)} of ${s} go unseen. Doubling the alerts halves that chance. The only fix is a better ranking of relevance, which is a judgement skill.`}
+      </p>
+      <p className="rs-fig__note">Arithmetic with illustrative numbers. It assumes review in no particular order.</p>
+    </figure>
+  );
+}
 
-/* ---------- a paper ---------- */
+// Standard normal CDF (Abramowitz and Stegun 7.1.26).
+function phi(z) {
+  const t = 1 / (1 + 0.2316419 * Math.abs(z));
+  const d = 0.3989423 * Math.exp((-z * z) / 2);
+  const p = d * t * (0.3193815 + t * (-0.3565638 + t * (1.781478 + t * (-1.821256 + t * 1.330274))));
+  return z > 0 ? 1 - p : p;
+}
+
+function Discern() {
+  const [d, setD] = useState(0.8);
+  const [s, setS] = useState(0);
+  const fakeCalledFake = phi(d / 2 + s);
+  const realCalledFake = phi(-d / 2 + s);
+  return (
+    <figure className="rs-fig">
+      <figcaption className="rs-fig__t">Figure · Skill, or just suspicion</figcaption>
+      <div className="rs-fair">
+        <label className="rs-fair__row">
+          <span>Discernment: how well true and fake are told apart</span>
+          <output>{d.toFixed(1)}</output>
+          <input type="range" min="0" max="3" step="0.1" value={d} onChange={(e) => setD(+e.target.value)} aria-label="Discernment" />
+        </label>
+        <label className="rs-fair__row">
+          <span>Scepticism: the general lean toward calling things fake</span>
+          <output>{s > 0 ? '+' : ''}{s.toFixed(1)}</output>
+          <input type="range" min="-1" max="1" step="0.1" value={s} onChange={(e) => setS(+e.target.value)} aria-label="Scepticism" />
+        </label>
+      </div>
+      <div className="rs-fair__out" aria-live="polite">
+        <div>
+          <span>Fake items called fake</span>
+          <b>{pc(fakeCalledFake)}</b>
+          <i>looks like success</i>
+        </div>
+        <div data-hot={realCalledFake > 0.35}>
+          <span>True items called fake</span>
+          <b>{pc(realCalledFake)}</b>
+          <i>the hidden cost</i>
+        </div>
+      </div>
+      <p className="rs-fig__read" aria-live="polite">
+        Set discernment to 0 and raise scepticism: fake items are called fake more often, and so are true ones. Only raising discernment lifts the first number without the second.
+      </p>
+      <p className="rs-fig__note">A signal-detection illustration, equal-variance model. It shows the logic of the reanalysis, not its data.</p>
+    </figure>
+  );
+}
+
+const FIG = { dials: Dials, srt: Srt, warmth: Warmth, fairness: Fairness, loop: Loop, ladder: Ladder, flood: Flood, discern: Discern };
+
+/* ---------- a paper: Notice, Absorb, Restructure ---------- */
+
+function StageHead({ s }) {
+  return (
+    <header className="rs-stage__head">
+      <span className="rs-stage__n">{s.n}</span>
+      <div>
+        <p className="rs-stage__name">{s.name}</p>
+        <p className="rs-stage__method">{s.method}</p>
+      </div>
+      <p className="rs-stage__ask">{s.ask}</p>
+    </header>
+  );
+}
 
 function Paper({ p }) {
-  const Fig = FIG[p.figure];
+  const [seePattern, setSeePattern] = useState(false);
+  const [seeReframe, setSeeReframe] = useState(false);
+  const Fig = FIG[p.absorb.figure];
+  const [s1, s2, s3] = stages;
   return (
     <article id={`paper-${p.n}`} className="rs-paper" aria-labelledby={`paper-${p.n}-h`}>
       <header className="rs-paper__head">
@@ -293,30 +394,123 @@ function Paper({ p }) {
           <b>The claim</b>
           {p.claim}
         </p>
+        <ol className="rs-format" role="list" aria-label="How this paper is built">
+          {stages.map((s) => (
+            <li key={s.id} data-ch={s.id}>
+              <a href={`#paper-${p.n}-s${s.n}`}>
+                <b>{s.n}</b> {s.name}
+                <i>{s.method}</i>
+              </a>
+            </li>
+          ))}
+        </ol>
       </header>
-      <div className="rs-paper__body">
-        {p.body.map((s, i) => (
-          <section key={s.h}>
-            <h3>{s.h}</h3>
-            {s.p.map((t, j) => (
-              <p key={j}>{t}</p>
+
+      <section id={`paper-${p.n}-s1`} className="rs-stage" data-ch="rr" aria-label={`${s1.name}: ${s1.method}`}>
+        <StageHead s={s1} />
+        <div className="rs-problem">
+          <b>The problem this solves</b>
+          <p className="rs-problem__line">{p.problem.line}</p>
+          <p className="rs-problem__stakes">{p.problem.stakes}</p>
+        </div>
+        <div className="rs-prose">
+          {p.notice.text.map((t) => (
+            <p key={t}>{t}</p>
+          ))}
+        </div>
+        <div className="rs-keep">
+          <div>
+            <h3>Keep in view</h3>
+            <ul role="list">
+              {p.notice.signal.map((t) => (
+                <li key={t}>{t}</li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h3>Let go</h3>
+            <ul role="list">
+              {p.notice.noise.map((t) => (
+                <li key={t}>{t}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id={`paper-${p.n}-s2`} className="rs-stage" data-ch="impl" aria-label={`${s2.name}: ${s2.method}`}>
+        <StageHead s={s2} />
+        <p className="rs-lead">{p.absorb.lead}</p>
+        <ul className="rs-cases" role="list">
+          {p.absorb.cases.map((c) => (
+            <li key={c.k}>
+              <b>{c.k}</b>
+              <span>{c.t}</span>
+            </li>
+          ))}
+        </ul>
+        <Fig />
+        <div className="rs-prose">
+          {p.absorb.text.map((t) => (
+            <p key={t}>{t}</p>
+          ))}
+        </div>
+        <div className="rs-reveal" data-open={seePattern}>
+          <button type="button" className="rs-reveal__btn" aria-expanded={seePattern} onClick={() => setSeePattern(true)} disabled={seePattern} data-cursor="Open">
+            {seePattern ? 'The pattern' : 'What do the three share?'}
+          </button>
+          <p className="rs-reveal__body" hidden={!seePattern}>{p.absorb.pattern}</p>
+        </div>
+      </section>
+
+      <section id={`paper-${p.n}-s3`} className="rs-stage" data-ch="insight" aria-label={`${s3.name}: ${s3.method}`}>
+        <StageHead s={s3} />
+        <ol className="rs-beats" role="list">
+          <li>
+            <span>Impasse</span>
+            <div>
+              <p className="rs-beats__k">The usual frame</p>
+              <p>{p.restructure.frame}</p>
+            </div>
+          </li>
+          <li>
+            <span>Stall</span>
+            <div>
+              <p className="rs-beats__k">Where it breaks</p>
+              <p>{p.restructure.breaks}</p>
+            </div>
+          </li>
+        </ol>
+        <div className="rs-reveal rs-reveal--big" data-open={seeReframe}>
+          <button type="button" className="rs-reveal__btn" aria-expanded={seeReframe} onClick={() => setSeeReframe(true)} disabled={seeReframe} data-cursor="Open">
+            {seeReframe ? 'The reframe' : 'Reframe it'}
+          </button>
+          <div className="rs-reveal__body" hidden={!seeReframe}>
+            {p.restructure.reframe.map((t) => (
+              <p key={t}>{t}</p>
             ))}
-            {i === 1 && <Fig />}
-          </section>
-        ))}
-        <aside className="rs-wrong">
-          <b>What would prove this wrong</b>
-          <p>{p.wrong}</p>
-        </aside>
-        <details className="rs-refs">
-          <summary>References ({p.refs.length})</summary>
-          <ol>
-            {p.refs.map((r) => (
-              <li key={r}>{r}</li>
-            ))}
-          </ol>
-        </details>
-      </div>
+          </div>
+        </div>
+        <div className="rs-after" hidden={!seeReframe}>
+          <aside className="rs-wrong">
+            <b>Verify: what would prove this wrong</b>
+            <p>{p.wrong}</p>
+          </aside>
+          <aside className="rs-limits">
+            <b>Limits and boundary</b>
+            <p>{p.restructure.limits}</p>
+          </aside>
+        </div>
+      </section>
+
+      <details className="rs-refs">
+        <summary>References ({p.refs.length})</summary>
+        <ol>
+          {p.refs.map((r) => (
+            <li key={r}>{r}</li>
+          ))}
+        </ol>
+      </details>
     </article>
   );
 }
@@ -329,7 +523,7 @@ export function ResearchTeaser() {
       <div className="wrap">
         <SplitWords as="h2" id="research-h" className="h2" text="Play, minds and machines." />
         <Reveal as="p" className="lede" delay={0.15}>
-          Six working papers on how game design and AI can support mental health, forensic psychology and biotech, through three ways a mind changes. Every study cited is published and checked. Every proposal carries a way to be proved wrong.
+          Eight working papers on how game design and AI can solve critical problems in mental health, forensic psychology, biotech and defense. Each paper is built the way it argues: notice what matters, absorb the pattern, then restructure the problem. Every study cited is published and checked, and every proposal carries a way to be proved wrong.
         </Reveal>
         <Reveal>
           <Matrix />
@@ -340,6 +534,7 @@ export function ResearchTeaser() {
               <a href={`?research#paper-${p.n}`}>
                 <span className="rs-index__n">{String(p.n).padStart(2, '0')}</span>
                 <span className="rs-index__t">{p.title}</span>
+                <span className="rs-index__p">{p.problem.line}</span>
                 <span className="rs-index__m">{p.tags[p.tags.length - 1]} · {p.read} min</span>
               </a>
             </li>
@@ -360,17 +555,28 @@ export function ResearchPage() {
         <div className="wrap">
           <SplitWords as="h1" id="rs-h" className="h2" text="Play, minds and machines." immediate />
           <Reveal as="p" className="lede" delay={0.15}>
-            How game design and AI can support mental health, forensic psychology and biotech, argued through three ways a mind changes: what it notices, what it absorbs unspoken, and what it restructures all at once.
+            Game design and AI applied to problems that cost lives, trust and years: mental health, forensic psychology, biotech and defense. Three ways a mind changes carry the argument: what it notices, what it absorbs unspoken, and what it restructures all at once.
           </Reveal>
           <Reveal>
             <Matrix />
           </Reveal>
+          <Reveal as="ol" className="rs-format rs-format--wide" role="list">
+            {stages.map((s) => (
+              <li key={s.id} data-ch={s.id}>
+                <span>
+                  <b>{s.n}</b> {s.name}
+                  <i>{s.method}</i>
+                </span>
+                <em>{s.ask}</em>
+              </li>
+            ))}
+          </Reveal>
         </div>
       </section>
-      <section className="sec sec--paper rs-read" aria-label="The six papers">
+      <section className="sec sec--paper rs-read" aria-label="The eight papers">
         <div className="wrap rs-read__wrap">
           <nav className="rs-toc" aria-label="Papers">
-            <p>Six papers</p>
+            <p>Eight papers</p>
             <ol role="list">
               {papers.map((p) => (
                 <li key={p.n}>
@@ -384,7 +590,7 @@ export function ResearchPage() {
           </nav>
           <div className="rs-stack">
             <p className="rs-howto">
-              How to read these. Each paper states one claim, shows one figure, and ends with what would prove it wrong. They synthesise published research and report no results of the author’s own. Proposals are hypotheses.
+              How to read these. Every paper runs the same three stages: notice what matters, absorb the cases and the figure, then restructure the problem. The pattern and the reframe stay closed until requested, so the reader can try to see them first. Papers synthesise published research and report no results of the author’s own. Proposals are hypotheses.
             </p>
             {papers.map((p) => (
               <Paper key={p.n} p={p} />
