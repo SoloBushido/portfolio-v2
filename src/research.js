@@ -1,3 +1,5 @@
+import { morePapers } from "./research-more.js";
+
 // Research programme: how game design and AI can support mental health, forensic psychology, biotech and defense.
 // Position papers that synthesise published work. Every cited study is real and was checked against its record.
 // Design proposals inside them are hypotheses with a stated way to be proved wrong, not results.
@@ -102,7 +104,7 @@ export const cells = {
   },
 };
 
-export const papers = [
+const basePapers = [
   /* ---------------------------------------------------------------- 1 */
   {
     n: 1,
@@ -558,6 +560,16 @@ export const papers = [
       'Modirrousta-Galian, A. and Higham, P. A. (2023). Gamified inoculation interventions do not improve discrimination between true and fake news: reanalyzing existing research with receiver operating characteristic analysis. Journal of Experimental Psychology: General 152(9), 2411–2437.',
     ],
   },
+];
+
+export const groups = [
+  { id: "foundations", title: "Foundations", note: "The method, applied to mental health, forensic psychology, biotech and defense." },
+  { id: "unsolved", title: "Ten problems still open", note: "None is solved here. Each paper proposes a way to attack the problem, and says how that attempt would fail." },
+];
+
+export const papers = [
+  ...basePapers.map((p) => ({ ...p, group: "foundations" })),
+  ...morePapers.map((p) => ({ ...p, group: "unsolved" })),
 ];
 
 export const rungs = [

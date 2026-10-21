@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { channels, domains, cells, papers, rungs, placed, stages } from './research.js';
+import { channels, domains, cells, papers, groups, rungs, placed, stages } from './research.js';
 import { EASE, SplitWords, Reveal } from './ui.jsx';
 
 /* ---------- the map: three ways the mind changes, four places to apply them ---------- */
@@ -356,7 +356,199 @@ function Discern() {
   );
 }
 
-const FIG = { dials: Dials, srt: Srt, warmth: Warmth, fairness: Fairness, loop: Loop, ladder: Ladder, flood: Flood, discern: Discern };
+function Bars({ data }) {
+  return (
+    <figure className="rs-fig">
+      <figcaption className="rs-fig__t">Figure · {data.title}</figcaption>
+      <ul className="rs-bars" role="list">
+        {data.rows.map((r) => (
+          <li key={r.label}>
+            <span className="rs-bars__l">{r.label}</span>
+            <span className="rs-bars__track">
+              <span style={{ width: `${Math.min(100, (r.v / r.max) * 100)}%` }} />
+            </span>
+            <b>{r.fmt(r.v)}</b>
+          </li>
+        ))}
+      </ul>
+      <p className="rs-fig__note">{data.note}</p>
+    </figure>
+  );
+}
+
+function Decades() {
+  return (
+    <figure className="rs-fig">
+      <figcaption className="rs-fig__t">Figure · The window before memory fails</figcaption>
+      <svg viewBox="0 0 600 230" role="img" aria-label="Schematic: brain changes begin early, a navigation game could detect disturbance in a middle window, and memory tests only rise near the time symptoms show.">
+        <line x1="50" y1="190" x2="580" y2="190" className="rs-ax" />
+        <line x1="50" y1="20" x2="50" y2="190" className="rs-ax" />
+        <rect x="190" y="20" width="200" height="170" className="rs-band" />
+        <line x1="420" y1="20" x2="420" y2="190" className="rs-ax" strokeDasharray="5 6" />
+        <path d="M60,184 C150,182 200,170 270,128 S400,52 570,34" className="rs-line rs-line--blue" fill="none" />
+        <path d="M60,184 L400,182 C440,160 500,100 570,70" className="rs-line rs-line--green" fill="none" />
+        <text x="290" y="14" textAnchor="middle" className="rs-tx rs-tx--green">Window for a navigation game</text>
+        <text x="425" y="206" className="rs-tx rs-tx--dim">Memory visibly fails</text>
+        <text x="300" y="100" className="rs-tx rs-tx--blue">Brain change</text>
+        <text x="460" y="146" className="rs-tx rs-tx--green">Memory tests</text>
+        <text x="315" y="224" textAnchor="middle" className="rs-tx rs-tx--dim">Years →</text>
+      </svg>
+      <p className="rs-fig__note">Schematic after the hypothetical biomarker model of Jack et al. (2013). Not data.</p>
+    </figure>
+  );
+}
+
+function Ci() {
+  const X = (v) => 300 + v * 330;
+  const rows = [
+    ['Effect on the targeted bias', 0.23, 0.06, 0.41, 62],
+    ['Effect on relapse rate', -0.27, -0.68, 0.22, 138],
+  ];
+  return (
+    <figure className="rs-fig">
+      <figcaption className="rs-fig__t">Figure · What the pooled evidence can and cannot exclude</figcaption>
+      <svg viewBox="0 0 600 200" role="img" aria-label="Two intervals: the effect on bias is above zero, and the effect on relapse has an interval that spans zero.">
+        <line x1={X(0)} y1="20" x2={X(0)} y2="170" className="rs-ax" />
+        {rows.map(([label, est, lo, hi, y]) => (
+          <g key={label}>
+            <text x="40" y={y - 20} className="rs-tx">{label}</text>
+            <line x1={X(lo)} y1={y} x2={X(hi)} y2={y} className="rs-line rs-line--green" />
+            <circle cx={X(est)} cy={y} r="6" className="rs-pt rs-pt--hot" />
+            <text x={X(lo)} y={y + 24} textAnchor="middle" className="rs-tx rs-tx--dim">{lo.toFixed(2)}</text>
+            <text x={X(hi)} y={y + 24} textAnchor="middle" className="rs-tx rs-tx--dim">{hi.toFixed(2)}</text>
+          </g>
+        ))}
+        <text x={X(0)} y="190" textAnchor="middle" className="rs-tx rs-tx--dim">0 = no effect</text>
+      </svg>
+      <p className="rs-fig__note">Estimate and 95% credible interval, as reported by Boffo et al. (2019). The two rows use the authors’ own units.</p>
+    </figure>
+  );
+}
+
+function Doses() {
+  const [a, setA] = useState(50);
+  return (
+    <figure className="rs-fig">
+      <figcaption className="rs-fig__t">Figure · One hundred prescribed doses</figcaption>
+      <label className="rs-fair__row">
+        <span>Share of doses actually taken</span>
+        <output>{a}%</output>
+        <input type="range" min="10" max="100" value={a} onChange={(e) => setA(+e.target.value)} aria-label="Share of doses taken" />
+      </label>
+      <ol className="rs-dots" role="img" aria-label={`${a} of 100 doses taken`}>
+        {Array.from({ length: 100 }, (_, i) => (
+          <li key={i} data-on={i < a} />
+        ))}
+      </ol>
+      <p className="rs-fig__read" aria-live="polite">{`${a} doses taken, ${100 - a} not. At about half, which is what people prescribed self-administered medicines typically take, the treatment is given in half measure and its full benefit cannot be realised.`}</p>
+      <p className="rs-fig__note">Illustration of the scale of the problem described by Nieuwlaat et al. (2014).</p>
+    </figure>
+  );
+}
+
+function Trust() {
+  const [a, setA] = useState(92);
+  const [h, setH] = useState(95);
+  const [c, setC] = useState(30);
+  const aided = a + ((100 - a) * c) / 100;
+  const need = a >= h ? 0 : ((h - a) / (100 - a)) * 100;
+  const worse = aided < h;
+  return (
+    <figure className="rs-fig">
+      <figcaption className="rs-fig__t">Figure · When a good aid hides a poor overseer</figcaption>
+      <div className="rs-fair">
+        <label className="rs-fair__row">
+          <span>Aid accuracy</span>
+          <output>{a}%</output>
+          <input type="range" min="80" max="99" value={a} onChange={(e) => setA(+e.target.value)} aria-label="Aid accuracy" />
+        </label>
+        <label className="rs-fair__row">
+          <span>Person alone, same task</span>
+          <output>{h}%</output>
+          <input type="range" min="70" max="99" value={h} onChange={(e) => setH(+e.target.value)} aria-label="Person alone accuracy" />
+        </label>
+        <label className="rs-fair__row">
+          <span>Chance the person catches an aid error</span>
+          <output>{c}%</output>
+          <input type="range" min="0" max="100" value={c} onChange={(e) => setC(+e.target.value)} aria-label="Catch rate" />
+        </label>
+      </div>
+      <div className="rs-fair__out" aria-live="polite">
+        <div>
+          <span>Person alone</span>
+          <b>{h}%</b>
+          <i>no aid</i>
+        </div>
+        <div data-hot={worse}>
+          <span>Person with the aid</span>
+          <b>{aided.toFixed(1)}%</b>
+          <i>{worse ? 'worse than no aid' : 'better than no aid'}</i>
+        </div>
+      </div>
+      <p className="rs-fig__read" data-edge={worse} aria-live="polite">
+        {need > 0
+          ? `Accepting the aid’s answer and catching only some of its errors, the person must catch at least ${need.toFixed(0)}% of them for the pair to beat the person alone.`
+          : 'The aid alone already beats the person alone. The pair can only add to it, and the catch rate sets how much.'}
+      </p>
+      <p className="rs-fig__note">Simple arithmetic with illustrative numbers. It assumes the person follows the aid except when catching an error.</p>
+    </figure>
+  );
+}
+
+function Ratchet() {
+  const [bias, setBias] = useState(1);
+  const [gate, setGate] = useState(0);
+  const rounds = 12;
+  const cap = 10;
+  const pts = [];
+  let a = 1;
+  let b = 1;
+  let hit = 0;
+  for (let t = 1; t <= rounds; t++) {
+    const other = t % 2 ? b : a;
+    let next = other + bias;
+    if (gate > 0 && t % gate === 0) next = other;
+    next = Math.min(cap, next);
+    if (t % 2) a = next;
+    else b = next;
+    pts.push([t, a, b]);
+    if (!hit && next >= cap) hit = t;
+  }
+  const x = (t) => 50 + (t - 1) * 45;
+  const y = (v) => 170 - v * 15;
+  const path = (i) => pts.map((p, k) => `${k ? 'L' : 'M'}${x(p[0])},${y(p[i])}`).join(' ');
+  return (
+    <figure className="rs-fig">
+      <figcaption className="rs-fig__t">Figure · A toy ratchet</figcaption>
+      <div className="rs-fair">
+        <label className="rs-fair__row">
+          <span>Each side reads the other’s move as this many steps larger</span>
+          <output>{bias}</output>
+          <input type="range" min="0" max="2" step="1" value={bias} onChange={(e) => setBias(+e.target.value)} aria-label="Misreading, in steps" />
+        </label>
+        <label className="rs-fair__row">
+          <span>Human pause: every Nth move only matches (0 = none)</span>
+          <output>{gate}</output>
+          <input type="range" min="0" max="4" step="1" value={gate} onChange={(e) => setGate(+e.target.value)} aria-label="Pause every N moves" />
+        </label>
+      </div>
+      <svg viewBox="0 0 600 190" role="img" aria-label="Two lines show each side’s level over twelve moves.">
+        <line x1="40" y1="170" x2="580" y2="170" className="rs-ax" />
+        <line x1="40" y1={y(cap)} x2="580" y2={y(cap)} className="rs-ax" strokeDasharray="5 6" />
+        <text x="580" y={y(cap) - 6} textAnchor="end" className="rs-tx rs-tx--dim">Ceiling</text>
+        <path d={path(1)} className="rs-line rs-line--blue" fill="none" />
+        <path d={path(2)} className="rs-line rs-line--green" fill="none" />
+        <text x="315" y="188" textAnchor="middle" className="rs-tx rs-tx--dim">Moves →</text>
+      </svg>
+      <p className="rs-fig__read" data-edge={hit > 0} aria-live="polite">
+        {hit > 0 ? `Reaches the ceiling at move ${hit}.` : `Does not reach the ceiling in ${rounds} moves.`}
+      </p>
+      <p className="rs-fig__note">A toy model, not a forecast. It shows only that small misreadings compound and that a pause changes the arithmetic.</p>
+    </figure>
+  );
+}
+
+const FIG = { bars: Bars, decades: Decades, ci: Ci, doses: Doses, trust: Trust, ratchet: Ratchet, dials: Dials, srt: Srt, warmth: Warmth, fairness: Fairness, loop: Loop, ladder: Ladder, flood: Flood, discern: Discern };
 
 /* ---------- a paper: Notice, Absorb, Restructure ---------- */
 
@@ -449,7 +641,7 @@ function Paper({ p }) {
             </li>
           ))}
         </ul>
-        <Fig />
+        <Fig data={p.absorb.data} />
         <div className="rs-prose">
           {p.absorb.text.map((t) => (
             <p key={t}>{t}</p>
@@ -523,23 +715,31 @@ export function ResearchTeaser() {
       <div className="wrap">
         <SplitWords as="h2" id="research-h" className="h2" text="Play, minds and machines." />
         <Reveal as="p" className="lede" delay={0.15}>
-          Eight working papers on how game design and AI can solve critical problems in mental health, forensic psychology, biotech and defense. Each paper is built the way it argues: notice what matters, absorb the pattern, then restructure the problem. Every study cited is published and checked, and every proposal carries a way to be proved wrong.
+          {papers.length} working papers on how game design and AI can attack critical problems in mental health, forensic psychology, biotech, medicine, education and defense. Each paper is built the way it argues: notice what matters, absorb the pattern, then restructure the problem. Every study cited is published and checked, and every proposal carries a way to be proved wrong.
         </Reveal>
         <Reveal>
           <Matrix />
         </Reveal>
-        <Reveal as="ul" className="rs-index" role="list" delay={0.05}>
-          {papers.map((p) => (
-            <li key={p.n}>
-              <a href={`?research#paper-${p.n}`}>
-                <span className="rs-index__n">{String(p.n).padStart(2, '0')}</span>
-                <span className="rs-index__t">{p.title}</span>
-                <span className="rs-index__p">{p.problem.line}</span>
-                <span className="rs-index__m">{p.tags[p.tags.length - 1]} · {p.read} min</span>
-              </a>
-            </li>
-          ))}
-        </Reveal>
+        {groups.map((g) => (
+          <Reveal key={g.id} className="rs-group" delay={0.05}>
+            <h3 className="rs-group__t">{g.title}</h3>
+            <p className="rs-group__n">{g.note}</p>
+            <ul className="rs-index" role="list">
+              {papers
+                .filter((p) => p.group === g.id)
+                .map((p) => (
+                  <li key={p.n}>
+                    <a href={`?research#paper-${p.n}`}>
+                      <span className="rs-index__n">{String(p.n).padStart(2, '0')}</span>
+                      <span className="rs-index__t">{p.title}</span>
+                      <span className="rs-index__p">{p.problem.line}</span>
+                      <span className="rs-index__m">{p.tags[p.tags.length - 1]} · {p.read} min</span>
+                    </a>
+                  </li>
+                ))}
+            </ul>
+          </Reveal>
+        ))}
         <p className="rs-note">Position papers that synthesise published work. They report no results of the author’s own.</p>
       </div>
     </section>
@@ -555,7 +755,7 @@ export function ResearchPage() {
         <div className="wrap">
           <SplitWords as="h1" id="rs-h" className="h2" text="Play, minds and machines." immediate />
           <Reveal as="p" className="lede" delay={0.15}>
-            Game design and AI applied to problems that cost lives, trust and years: mental health, forensic psychology, biotech and defense. Three ways a mind changes carry the argument: what it notices, what it absorbs unspoken, and what it restructures all at once.
+            Game design and AI applied to problems that cost lives, trust and years: mental health, forensic psychology, biotech, medicine, education and defense. Three ways a mind changes carry the argument: what it notices, what it absorbs unspoken, and what it restructures all at once.
           </Reveal>
           <Reveal>
             <Matrix />
@@ -573,20 +773,26 @@ export function ResearchPage() {
           </Reveal>
         </div>
       </section>
-      <section className="sec sec--paper rs-read" aria-label="The eight papers">
+      <section className="sec sec--paper rs-read" aria-label="The papers">
         <div className="wrap rs-read__wrap">
           <nav className="rs-toc" aria-label="Papers">
-            <p>Eight papers</p>
-            <ol role="list">
-              {papers.map((p) => (
-                <li key={p.n}>
-                  <a href={`#paper-${p.n}`}>
-                    <span>{String(p.n).padStart(2, '0')}</span>
-                    {p.title}
-                  </a>
-                </li>
-              ))}
-            </ol>
+            {groups.map((g) => (
+              <div key={g.id}>
+                <p>{g.title}</p>
+                <ol role="list">
+                  {papers
+                    .filter((p) => p.group === g.id)
+                    .map((p) => (
+                      <li key={p.n}>
+                        <a href={`#paper-${p.n}`}>
+                          <span>{String(p.n).padStart(2, '0')}</span>
+                          {p.title}
+                        </a>
+                      </li>
+                    ))}
+                </ol>
+              </div>
+            ))}
           </nav>
           <div className="rs-stack">
             <p className="rs-howto">
