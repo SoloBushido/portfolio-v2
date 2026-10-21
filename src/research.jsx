@@ -46,7 +46,7 @@ export function Matrix() {
         <AnimatePresence mode="wait">
           <motion.div key={sel.c + sel.d} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.4, ease: EASE }}>
             <p className="rs-card__path">
-              <span>{ch.name}</span> in <span>{dm.name}</span>
+              <span>{ch.name}</span> · <span>{dm.name}</span>
             </p>
             <dl className="rs-card__dl">
               <div>
@@ -107,7 +107,7 @@ function Dials() {
       <p className="rs-fig__read" data-edge={edge > 0} aria-live="polite">
         {state}
       </p>
-      <p className="rs-fig__note">A design heuristic from the relevance realization literature, not a measurement.</p>
+      <p className="rs-fig__note">A design heuristic from the cognitive science of attention, not a measurement.</p>
     </figure>
   );
 }
@@ -142,13 +142,13 @@ function Warmth() {
   return (
     <figure className="rs-fig">
       <figcaption className="rs-fig__t">Figure · Two shapes of solving</figcaption>
-      <svg viewBox="0 0 600 220" role="img" aria-label="Schematic: felt warmth climbs steadily on routine problems and stays low then jumps on insight problems.">
+      <svg viewBox="0 0 600 220" role="img" aria-label="Schematic: felt warmth climbs steadily on routine problems and stays low then jumps on problems solved in a flash.">
         <line x1="50" y1="190" x2="580" y2="190" className="rs-ax" />
         <line x1="50" y1="20" x2="50" y2="190" className="rs-ax" />
         <path d="M60,176 L560,48" className="rs-line rs-line--blue" fill="none" />
         <path d="M60,176 L120,172 L240,176 L360,170 L470,172 L496,52 L560,48" className="rs-line rs-line--green" fill="none" />
         <text x="300" y="116" className="rs-tx rs-tx--blue">Step by step: warmth climbs</text>
-        <text x="270" y="158" className="rs-tx rs-tx--green">Insight: low, low, low, then a jump</text>
+        <text x="270" y="158" className="rs-tx rs-tx--green">A flash: low, low, low, then a jump</text>
         <text x="46" y="30" textAnchor="end" className="rs-tx rs-tx--dim">Warm</text>
         <text x="46" y="188" textAnchor="end" className="rs-tx rs-tx--dim">Cold</text>
         <text x="315" y="212" textAnchor="middle" className="rs-tx rs-tx--dim">Time on the problem →</text>
@@ -239,10 +239,10 @@ function Loop() {
             </g>
           );
         })}
-        <text x={cx} y={cy + 4} textAnchor="middle" className="rs-tx rs-tx--dim">Human insight</text>
+        <text x={cx} y={cy + 4} textAnchor="middle" className="rs-tx rs-tx--dim">Human judgement</text>
         <text x={cx} y={cy + 22} textAnchor="middle" className="rs-tx rs-tx--dim">+ machine search</text>
       </svg>
-      <p className="rs-fig__note">A reading of the Foldit and EteRNA workflows, drawn to show where each channel acts.</p>
+      <p className="rs-fig__note">A reading of the Foldit and EteRNA workflows, drawn to show where the human and the machine each contribute.</p>
     </figure>
   );
 }
@@ -558,7 +558,6 @@ function StageHead({ s }) {
       <span className="rs-stage__n">{s.n}</span>
       <div>
         <p className="rs-stage__name">{s.name}</p>
-        <p className="rs-stage__method">{s.method}</p>
       </div>
       <p className="rs-stage__ask">{s.ask}</p>
     </header>
@@ -591,14 +590,13 @@ function Paper({ p }) {
             <li key={s.id} data-ch={s.id}>
               <a href={`#paper-${p.n}-s${s.n}`}>
                 <b>{s.n}</b> {s.name}
-                <i>{s.method}</i>
               </a>
             </li>
           ))}
         </ol>
       </header>
 
-      <section id={`paper-${p.n}-s1`} className="rs-stage" data-ch="rr" aria-label={`${s1.name}: ${s1.method}`}>
+      <section id={`paper-${p.n}-s1`} className="rs-stage" data-ch="rr" aria-label={s1.name}>
         <StageHead s={s1} />
         <div className="rs-problem">
           <b>The problem this solves</b>
@@ -630,7 +628,7 @@ function Paper({ p }) {
         </div>
       </section>
 
-      <section id={`paper-${p.n}-s2`} className="rs-stage" data-ch="impl" aria-label={`${s2.name}: ${s2.method}`}>
+      <section id={`paper-${p.n}-s2`} className="rs-stage" data-ch="impl" aria-label={s2.name}>
         <StageHead s={s2} />
         <p className="rs-lead">{p.absorb.lead}</p>
         <ul className="rs-cases" role="list">
@@ -655,7 +653,7 @@ function Paper({ p }) {
         </div>
       </section>
 
-      <section id={`paper-${p.n}-s3`} className="rs-stage" data-ch="insight" aria-label={`${s3.name}: ${s3.method}`}>
+      <section id={`paper-${p.n}-s3`} className="rs-stage" data-ch="insight" aria-label={s3.name}>
         <StageHead s={s3} />
         <ol className="rs-beats" role="list">
           <li>
@@ -755,7 +753,7 @@ export function ResearchPage() {
         <div className="wrap">
           <SplitWords as="h1" id="rs-h" className="h2" text="Play, minds and machines." immediate />
           <Reveal as="p" className="lede" delay={0.15}>
-            Game design and AI applied to problems that cost lives, trust and years: mental health, forensic psychology, biotech, medicine, education and defense. Three ways a mind changes carry the argument: what it notices, what it absorbs unspoken, and what it restructures all at once.
+            Game design and AI applied to problems that cost lives, trust and years: mental health, forensic psychology, biotech, medicine, education and defense.
           </Reveal>
           <Reveal>
             <Matrix />
@@ -765,8 +763,7 @@ export function ResearchPage() {
               <li key={s.id} data-ch={s.id}>
                 <span>
                   <b>{s.n}</b> {s.name}
-                  <i>{s.method}</i>
-                </span>
+                  </span>
                 <em>{s.ask}</em>
               </li>
             ))}

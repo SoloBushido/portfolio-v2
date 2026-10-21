@@ -5,14 +5,15 @@ import { morePapers } from "./research-more.js";
 // Design proposals inside them are hypotheses with a stated way to be proved wrong, not results.
 //
 // Each paper is itself built as the three-stage design it argues for:
-//   1 Notice      (relevance realization): the problem, what to keep in view, what to let go.
-//   2 Absorb      (implicit learning): cases and a figure to experience, then the pattern is revealed on request.
-//   3 Restructure (epiphany design): the usual frame, where it breaks, the reframe, the test, the limits.
+//   1 Notice: the problem, what to keep in view, what to let go.
+//   2 Absorb: cases and a figure to experience, then the pattern is revealed on request.
+//   3 Restructure: the usual frame, where it breaks, the reframe, the test, the limits.
+// The three methods that shape this structure are never named in the reader-facing text.
 
 export const channels = [
-  { id: 'rr', name: 'Relevance realization', ask: 'What gets noticed', line: 'The mind decides what matters among endless candidates. A game can shape that decision.' },
-  { id: 'impl', name: 'Implicit learning', ask: 'What is learned unspoken', line: 'Structure is absorbed through repetition and feedback, without being explained.' },
-  { id: 'insight', name: 'Epiphany design', ask: 'What restructures at once', line: 'A stuck frame is dropped and the problem reorganises. It can be staged, then checked.' },
+  { id: 'rr', name: 'What gets noticed', ask: 'Where attention lands', line: 'The mind decides what matters among endless candidates. A game can shape that decision.' },
+  { id: 'impl', name: 'What sticks unspoken', ask: 'Absorbed through repetition', line: 'Structure is absorbed through repetition and feedback, without being explained.' },
+  { id: 'insight', name: 'What clicks at once', ask: 'A frame drops and the problem reorganises', line: 'A stuck frame is dropped and the problem reorganises. It can be staged, then checked.' },
 ];
 
 export const domains = [
@@ -79,7 +80,7 @@ export const cells = {
   insight: {
     mh: {
       move: 'A designed impasse: a puzzle whose frame must be dropped, followed by a reflection that ties the dropped frame to a belief the player chose.',
-      evidence: 'Insight solutions are remembered better than step-by-step ones, but the Aha feeling also accompanies wrong answers.',
+      evidence: 'Solutions that arrive in a flash are remembered better than step-by-step ones, but the Aha feeling also accompanies wrong answers.',
       guard: 'A puzzle is a rehearsal. Lasting change needs tests against real life.',
       paper: 3,
     },
@@ -108,8 +109,8 @@ const basePapers = [
   /* ---------------------------------------------------------------- 1 */
   {
     n: 1,
-    title: 'Relevance realization: what a game actually teaches',
-    tags: ['Relevance realization', 'Mental health'],
+    title: 'Attention: what a game actually teaches',
+    tags: ['Mental health'],
     read: 8,
     problem: {
       line: 'Attention-training apps move scores, not lives.',
@@ -117,7 +118,7 @@ const basePapers = [
         'About 970 million people were living with a mental disorder in 2019, anxiety and depression the most common (WHO, 2022). Digital tools that retrain attention have been tried at scale, and the best pooled evidence finds small effects on symptoms at most.',
     },
     abstract:
-      'Every game trains what a player notices before it trains what the player does. Relevance realization, the process by which a mind finds the few things that matter among endless candidates, gives game design a target that outlasts any genre and gives mental-health design a mechanism to aim at.',
+      'Every game trains what a player notices before it trains what the player does. The process by which a mind finds the few things that matter among endless candidates gives game design a target that outlasts any genre, and gives mental-health design a mechanism to aim at.',
     claim: 'Aim the design at the flexibility of attention, then measure the symptoms.',
     notice: {
       text: [
@@ -165,8 +166,8 @@ const basePapers = [
   /* ---------------------------------------------------------------- 2 */
   {
     n: 2,
-    title: 'Implicit learning: teaching what cannot be said',
-    tags: ['Implicit learning', 'Mental health'],
+    title: 'Habits: teaching what cannot be said',
+    tags: ['Mental health'],
     read: 8,
     problem: {
       line: 'After trauma, nothing scalable prevents intrusive memories in the first hours.',
@@ -178,7 +179,7 @@ const basePapers = [
     claim: 'Test learning by what it costs to change the structure, not by asking the player.',
     notice: {
       text: [
-        'The first question is what the player is actually absorbing. A game’s rules are explicit, and its regularities are not: where things tend to appear, which rhythm precedes a threat, how a pattern repeats. Those hidden regularities are what implicit learning picks up.',
+        'The first question is what the player is actually absorbing. A game’s rules are explicit, and its regularities are not: where things tend to appear, which rhythm precedes a threat, how a pattern repeats. Those hidden regularities are what a player absorbs without being told.',
         'The design target is therefore a structure, chosen on purpose, delivered by dense repetition with immediate feedback, and a probe that can tell whether it was learned.',
       ],
       signal: ['A hidden structure chosen in advance', 'The cost of changing that structure', 'Transfer to a task outside the game'],
@@ -194,7 +195,7 @@ const basePapers = [
       figure: 'srt',
       text: [
         'The ingredients are immediate consequence, dense repetition, and input that varies inside a hidden structure. Dopamine neurons signal prediction errors, outcomes better or worse than expected (Schultz, Dayan and Montague, 1997). A game’s feedback is a continuous stream of such errors, so a well-built game teaches a model of its world through hundreds of small surprises.',
-        'Iyadurai and colleagues (2018) ran a randomised proof-of-concept trial in an emergency department: a reminder cue plus about 20 minutes of Tetris within 6 hours of a motor vehicle accident, against an attention-placebo activity log. Intrusive memories were fewer over the following week. A clinical intrusion measure agreed at one week, and not at one month. The authors call it proof of concept. The proposed mechanism is competition for visuospatial resources while a memory consolidates, so this sits under implicit learning only loosely, and it matters here because a game was used as a dosed procedure with a timing window and a placebo-matched control.',
+        'Iyadurai and colleagues (2018) ran a randomised proof-of-concept trial in an emergency department: a reminder cue plus about 20 minutes of Tetris within 6 hours of a motor vehicle accident, against an attention-placebo activity log. Intrusive memories were fewer over the following week. A clinical intrusion measure agreed at one week, and not at one month. The authors call it proof of concept. The proposed mechanism is competition for visuospatial resources while a memory consolidates, so this sits under learning without being told only loosely, and it matters here because a game was used as a dosed procedure with a timing window and a placebo-matched control.',
         'Kollins and colleagues (2020) report a randomised, double-blind trial of a video-game-like digital treatment for ADHD: 348 children aged 8 to 12, 25 minutes a day, 5 days a week, for 4 weeks, against a digital control. Attention performance improved more in the treatment arm (median change 0.88 on the primary index). The sponsor was the developer, and the authors say further research is needed.',
       ],
       pattern: 'In every case performance changed without the person being able to say why, and the proof was found in the cost of changing the structure or the presence of a control, never in self-report.',
@@ -222,8 +223,8 @@ const basePapers = [
   /* ---------------------------------------------------------------- 3 */
   {
     n: 3,
-    title: 'Epiphany design: building the impasse',
-    tags: ['Epiphany design', 'Mental health'],
+    title: 'The turning point: building the impasse',
+    tags: ['Mental health'],
     read: 7,
     problem: {
       line: 'Beliefs outlive their evidence, and the moment of dropping one is left to chance.',
@@ -231,7 +232,7 @@ const basePapers = [
         'Cognitive restructuring is a clinical staple, yet the instant a person abandons a frame is rarely engineered. This is a design observation, offered as one, and the research below says what such an engineered moment would need.',
     },
     abstract:
-      'A solution that arrives whole feels different, is remembered differently, and is wrong more often than its owner believes. Designing for insight means designing the impasse, the release and the verification, in that order.',
+      'A solution that arrives whole feels different, is remembered differently, and is wrong more often than its owner believes. Designing for the turning point means designing the impasse, the release and the verification, in that order.',
     claim: 'The Aha is a flag for attention. It is never evidence that the answer is right.',
     notice: {
       text: [
@@ -244,9 +245,9 @@ const basePapers = [
     absorb: {
       lead: 'Three findings about the same event. Look at the shape of the figure, then at what the brain and memory do.',
       cases: [
-        { k: 'Warmth', t: 'On insight problems, felt closeness to the answer stays low and then jumps. On routine problems it climbs steadily (Metcalfe and Wiebe, 1987).' },
-        { k: 'Brain', t: 'A burst of high-frequency EEG activity over the right anterior temporal region comes about a third of a second before insight solutions (Jung-Beeman et al., 2004).' },
-        { k: 'Memory', t: 'Insight solutions are recalled better than step-by-step ones (Danek et al., 2013), yet Aha feelings also accompany wrong answers (Danek and Wiley, 2017).' },
+        { k: 'Warmth', t: 'On problems solved in a flash, felt closeness to the answer stays low and then jumps. On routine problems it climbs steadily (Metcalfe and Wiebe, 1987).' },
+        { k: 'Brain', t: 'A burst of high-frequency EEG activity over the right anterior temporal region comes about a third of a second before solutions that arrive in a flash (Jung-Beeman et al., 2004).' },
+        { k: 'Memory', t: 'Solutions that arrive whole are recalled better than step-by-step ones (Danek et al., 2013), yet Aha feelings also accompany wrong answers (Danek and Wiley, 2017).' },
       ],
       figure: 'warmth',
       text: [
@@ -256,7 +257,7 @@ const basePapers = [
       pattern: 'Stall, jump, remember, and sometimes be wrong. The jump is real and memorable, and the feeling that comes with it cannot be trusted as proof.',
     },
     restructure: {
-      frame: 'Insight cannot be designed. It happens, or it does not.',
+      frame: 'A breakthrough cannot be designed. It happens, or it does not.',
       breaks: 'The research shows structure around it: a hint that arrives too early removes the impasse, and one that arrives too late is only fatigue. The feeling of rightness also shows up for wrong answers.',
       reframe: [
         'Four beats. Impasse: enough exposure to build a wrong frame. Release: a prompt, an incidental cue, or rest. Restructure: the old frame is dropped. Verify: the new frame is tested against the world.',
@@ -265,7 +266,7 @@ const basePapers = [
       limits: 'A puzzle is a rehearsal, not therapy. Durable change comes from testing a new belief against experience, repeatedly.',
     },
     wrong:
-      'The insight puzzle produces a memorable Aha but no belief change on a validated measure, against an equally engaging non-insight puzzle. Then the experience is a pleasure and not a mechanism.',
+      'The turning-point puzzle produces a memorable Aha but no belief change on a validated measure, against an equally engaging puzzle solved step by step. Then the experience is a pleasure and not a mechanism.',
     refs: [
       'Köhler, W. (1925). The Mentality of Apes. Harcourt, Brace.',
       'Metcalfe, J. and Wiebe, D. (1987). Intuition in insight and noninsight problem solving. Memory and Cognition 15(3), 238–246.',
@@ -280,7 +281,7 @@ const basePapers = [
   {
     n: 4,
     title: 'Forensic psychology: where games and AI belong, and where they do not',
-    tags: ['All three channels', 'Forensic psychology'],
+    tags: ['Forensic psychology'],
     read: 10,
     problem: {
       line: 'Evidence is contaminated before it reaches a court, and scores decide lives with no better accuracy than lay guesses.',
@@ -341,7 +342,7 @@ const basePapers = [
   {
     n: 5,
     title: 'Biotech: the interface is the instrument',
-    tags: ['All three channels', 'Biotech'],
+    tags: ['Biotech'],
     read: 8,
     problem: {
       line: 'Disease research stalls on problems where algorithms fail and experts are too few.',
@@ -369,7 +370,7 @@ const basePapers = [
       figure: 'loop',
       text: [
         'In EteRNA the community controlled a remote experimental pipeline for RNA synthesis and structure mapping. It learned strategies, including several previously unrecognised negative design rules, which were distilled by machine learning into EteRNABot. Over a year of testing, both the community and the algorithm beat earlier methods (Lee et al., 2014).',
-        'The three channels all operate. Relevance realization: the interface fixes what is salient, such as clashes and voids. Implicit learning: players develop a pattern sense they often cannot fully state. Epiphany: moves a scoring algorithm would not try, kept because they were cheap to attempt.',
+        'Three things operate together. The interface fixes what is salient, such as clashes and voids, so a non-expert sees what matters. Players develop a pattern sense they often cannot fully state. And they try moves a scoring algorithm would not, kept because they were cheap to attempt.',
       ],
       pattern: 'Human perception, a hard score and bench verification. The crowd is not free labour. It is a way to explore a space that a machine has no good objective for yet.',
     },
@@ -397,7 +398,7 @@ const basePapers = [
   {
     n: 6,
     title: 'Dose, not engagement: a bar for therapeutic play',
-    tags: ['All three channels', 'Mental health'],
+    tags: ['Mental health'],
     read: 8,
     problem: {
       line: 'The metric that funds a mental-health product is not the metric that helps the patient.',
@@ -434,7 +435,7 @@ const basePapers = [
       breaks: 'Engagement design carries harm in its mechanics, and engagement alone does not climb past the lowest rungs of the ladder.',
       reframe: [
         'Build to the bar. An end in sight: a defined dose and a way to finish. No variable-ratio rewards. No streak shame. A route to a human when risk appears. Data kept to the minimum that the outcome requires. A pre-registered endpoint, and a plan to publish a null result.',
-        'AI has two honest jobs. It can hold difficulty inside the useful band, which is relevance realization put to work, and it can adapt pacing to what a person does. It must not be left unsupervised in a crisis: scope, crisis routing and human oversight are requirements before they are features.',
+        'AI has two honest jobs. It can hold difficulty inside the useful band, which keeps attention moving instead of locked, and it can adapt pacing to what a person does. It must not be left unsupervised in a crisis: scope, crisis routing and human oversight are requirements before they are features.',
       ],
       limits: 'The evidence for open-ended conversational support is still early.',
     },
@@ -452,7 +453,7 @@ const basePapers = [
   {
     n: 7,
     title: 'Defense I: strategic warning, and the judgement behind it',
-    tags: ['All three channels', 'Defense'],
+    tags: ['Defense'],
     read: 10,
     problem: {
       line: 'Strategic surprise keeps recurring, and more sensors have not ended it.',
@@ -509,7 +510,7 @@ const basePapers = [
   {
     n: 8,
     title: 'Defense II: cognitive security, immunity as a skill',
-    tags: ['All three channels', 'Defense'],
+    tags: ['Defense'],
     read: 9,
     problem: {
       line: 'Hostile influence now outruns fact-checking, and AI makes the content cheap.',
@@ -517,11 +518,11 @@ const basePapers = [
         'Debunking handles one falsehood at a time, after the fact. When content is cheap to produce in volume, a defence that answers claims individually cannot keep pace, and public trust in institutions is the asset at risk.',
     },
     abstract:
-      'The number of false claims is unbounded. The number of manipulation techniques is small and reusable. Practising the techniques from the manipulator’s seat is a form of implicit learning with a decades-old theory behind it, and the early evidence is promising and contested in exactly the way it should be.',
+      'The number of false claims is unbounded. The number of manipulation techniques is small and reusable. Practising the techniques from the manipulator’s seat is learning by doing, with a decades-old theory behind it, and the early evidence is promising and contested in exactly the way it should be.',
     claim: 'Train recognition of technique, and measure discernment, never just scepticism.',
     notice: {
       text: [
-        'Relevance realization applies directly. The feature that matters in a piece of manipulation is rarely its topic. It is the technique: emotional language, a false dichotomy, scapegoating, impersonation, an ad hominem attack.',
+        'The first question is what to attend to. The feature that matters in a piece of manipulation is rarely its topic. It is the technique: emotional language, a false dichotomy, scapegoating, impersonation, an ad hominem attack.',
         'McGuire (1964) proposed inoculation theory in persuasion research: expose people to a weakened form of an attack and its technique, and resistance to the stronger form follows.',
       ],
       signal: ['The technique in the message', 'Discernment between true and false', 'Whether the effect lasts and generalises'],
@@ -591,7 +592,7 @@ export const placed = [
 
 // The three stages every paper follows.
 export const stages = [
-  { id: 'rr', n: 1, name: 'Notice', method: 'Relevance realization', ask: 'Find what matters, and what to let go.' },
-  { id: 'impl', n: 2, name: 'Absorb', method: 'Implicit learning', ask: 'Take in the cases and the figure. The pattern comes after.' },
-  { id: 'insight', n: 3, name: 'Restructure', method: 'Epiphany design', ask: 'Hold the usual frame, see it break, then reframe and test.' },
+  { id: 'rr', n: 1, name: 'Notice', method: '', ask: 'Find what matters, and what to let go.' },
+  { id: 'impl', n: 2, name: 'Absorb', method: '', ask: 'Take in the cases and the figure. The pattern comes after.' },
+  { id: 'insight', n: 3, name: 'Restructure', method: '', ask: 'Hold the usual frame, see it break, then reframe and test.' },
 ];

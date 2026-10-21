@@ -7,7 +7,7 @@ export const morePapers = [
   {
     n: 9,
     title: 'Alzheimer’s: a navigation game years before memory fails',
-    tags: ['All three channels', 'Neurodegeneration'],
+    tags: ['Neurodegeneration'],
     read: 9,
     problem: {
       line: 'Alzheimer’s pathology starts long before memory fails, and the tests that could catch it early do not.',
@@ -60,8 +60,8 @@ export const morePapers = [
   /* ---------------------------------------------------------------- 10 */
   {
     n: 10,
-    title: 'Addiction: retraining the reflex that insight cannot reach',
-    tags: ['Implicit learning', 'Addiction'],
+    title: 'Addiction: retraining the reflex that understanding cannot reach',
+    tags: ['Addiction'],
     read: 8,
     problem: {
       line: 'People leave treatment understanding their addiction, and the automatic pull of cues is still there.',
@@ -77,7 +77,7 @@ export const morePapers = [
         'In approach-avoidance training, patients push a joystick away in response to drug pictures. The aim is to turn a tendency to approach into a tendency to avoid, without the patient needing to reason about it.',
       ],
       signal: ['The strength of the automatic approach bias before training', 'Relapse at long follow-up', 'Who benefits most, and why'],
-      noise: ['Stated intention to quit', 'Short-term bias scores alone', 'Insight into the addiction'],
+      noise: ['Stated intention to quit', 'Short-term bias scores alone', 'Understanding of the addiction'],
     },
     absorb: {
       lead: 'Three results that do not agree. Look at the intervals in the figure, then read the trials.',
@@ -95,7 +95,7 @@ export const morePapers = [
     },
     restructure: {
       frame: 'Strengthen motivation and teach the patient why they drink or use.',
-      breaks: 'Insight leaves the reflex untouched, and the one reflex-training approach with promising trials has pooled evidence too uncertain to rest a service on.',
+      breaks: 'Understanding leaves the reflex untouched, and the one reflex-training approach with promising trials has pooled evidence too uncertain to rest a service on.',
       reframe: [
         'Treat the reflex as a measurable target. Measure approach bias first. Train only where it is strong, as an add-on to standard treatment. Use one shared, pre-registered protocol across sites.',
         'This changes the question from whether bias training works to for whom it works, which is the question that the replication’s own moderation finding raises.',
@@ -115,7 +115,7 @@ export const morePapers = [
   {
     n: 11,
     title: 'Adult plasticity: the game that did not beat the patch',
-    tags: ['Implicit learning', 'Neuroplasticity'],
+    tags: ['Neuroplasticity'],
     read: 7,
     problem: {
       line: 'Lazy eye was long thought untreatable after childhood, and the games meant to reopen plasticity have not clearly beaten the oldest treatment.',
@@ -176,7 +176,7 @@ export const morePapers = [
   {
     n: 12,
     title: 'Diagnostic error: the crowd inside every case',
-    tags: ['Relevance realization', 'Medicine'],
+    tags: ['Medicine'],
     read: 8,
     problem: {
       line: 'Diagnostic errors touch at least 1 in 20 US adults a year, and a small set of dangerous diseases causes about half the serious harm.',
@@ -188,7 +188,7 @@ export const morePapers = [
     claim: 'Ask for a ranked list of candidates, and pool independent lists before anyone sees another’s answer.',
     notice: {
       text: [
-        'The decisive act in diagnosis is deciding which of many possibilities deserves attention first. That is relevance realization in a clinic, and it fails in recognisable ways: anchoring on the first idea, closing early, missing the dangerous rare one.',
+        'The decisive act in diagnosis is deciding which of many possibilities deserves attention first. That is the whole skill of a clinic, and it fails in recognisable ways: anchoring on the first idea, closing early, missing the dangerous rare one.',
         'The useful object is the ranked differential, a list, not a single answer. A list can be pooled across people, and a single answer cannot.',
       ],
       signal: ['A ranked differential from each person, made independently', 'The 15 diseases that carry half the harm', 'Accuracy by case, not by clinician reputation'],
@@ -239,7 +239,7 @@ export const morePapers = [
   {
     n: 13,
     title: 'Adherence: the half of every prescription that is never taken',
-    tags: ['Implicit learning', 'Chronic disease'],
+    tags: ['Chronic disease'],
     read: 7,
     problem: {
       line: 'People prescribed self-administered medicines typically take only about half their doses, and no intervention has reliably fixed that.',
@@ -289,7 +289,7 @@ export const morePapers = [
   {
     n: 14,
     title: 'Two sigma at scale: a tutor for every child',
-    tags: ['All three channels', 'Education'],
+    tags: ['Education'],
     read: 8,
     problem: {
       line: 'Seven in ten ten-year-olds in low- and middle-income countries cannot read and understand a simple text, and the tutoring that could close the gap cannot be staffed.',
@@ -297,11 +297,11 @@ export const morePapers = [
         'The 2022 update to the World Bank’s learning poverty estimate put the figure at 70 per cent, up from 57 per cent before the pandemic. Bloom’s 1984 finding that one-to-one tutoring with mastery learning outperformed ordinary classes by about two standard deviations has been a challenge to the field ever since.',
     },
     abstract:
-      'Adaptive practice in India raised scores by a real but fractional share of what a human tutor is thought to deliver. The gap is the tutor’s diagnosis of what a child misunderstands, and the tutor’s hold on a child’s attention. Those are exactly the two things the three channels describe.',
+      'Adaptive practice in India raised scores by a real but fractional share of what a human tutor is thought to deliver. The gap is the tutor’s diagnosis of what a child misunderstands, and the tutor’s hold on a child’s attention. Those two things are what a tutor does that a practice screen does not.',
     claim: 'Rebuild the tutor’s three acts: find the misconception, stage the reframe, keep the child in range.',
     notice: {
       text: [
-        'A tutor’s first act is noticing what is stuck in the child’s picture: which misconception is producing the wrong answer, not which answer is wrong. That is relevance realization applied to another mind.',
+        'A tutor’s first act is noticing what is stuck in the child’s picture: which misconception is producing the wrong answer, not which answer is wrong. That is attention aimed at another mind.',
         'A score on a test says how much is missing. A diagnosis says which idea to repair first.',
       ],
       signal: ['The misconception behind the error', 'Time spent on the right problem for this child', 'Gains for the weakest learners'],
@@ -351,7 +351,7 @@ export const morePapers = [
   {
     n: 15,
     title: 'The rare signal: what matters most is missed most',
-    tags: ['Relevance realization', 'Screening and security'],
+    tags: ['Screening and security'],
     read: 8,
     problem: {
       line: 'When the target is rare, trained experts miss it far more often: cancers in screening, objects in baggage, threats on a watch.',
@@ -411,7 +411,7 @@ export const morePapers = [
   {
     n: 16,
     title: 'Trust calibration: keeping a human able to disagree with the machine',
-    tags: ['Implicit learning', 'Defense and medicine'],
+    tags: ['Defense and medicine'],
     read: 9,
     problem: {
       line: 'As decision aids improve, people stop checking them, and the errors that remain are the ones nobody catches.',
@@ -464,7 +464,7 @@ export const morePapers = [
   {
     n: 17,
     title: 'Escalation: rehearsing crisis judgement before machines speed it up',
-    tags: ['All three channels', 'Defense'],
+    tags: ['Defense'],
     read: 9,
     problem: {
       line: 'Crises can escalate faster than leaders can think, and AI is entering the decision loop with untested behaviour under pressure.',
@@ -501,7 +501,7 @@ export const morePapers = [
       breaks: 'Accuracy is measured one answer at a time. The failure lives in repeated interaction, and the models escalated without anyone intending it.',
       reframe: [
         'Run crisis rehearsals as repeated games that include the machine. Leaders play with and against AI agents in scenario families, with deliberate off-ramp moments. Every adviser model passes an escalation gate, measured over many games, before use. Leaders practise reading the opponent’s move charitably.',
-        'The insight is to treat an AI adviser as a participant in a dynamic and to examine its behaviour there, which is where the documented failures appeared.',
+        'The shift is to treat an AI adviser as a participant in a dynamic and to examine its behaviour there, which is where the documented failures appeared.',
       ],
       limits:
         'Simulations are not reality, and models differ and change. Scope is defensive: rehearsal, adviser testing and leader training. No autonomous decisions over the use of force, no target selection. A named human decides.',
@@ -518,7 +518,7 @@ export const morePapers = [
   {
     n: 18,
     title: 'Suicide: when prediction fails, rehearse the plan',
-    tags: ['All three channels', 'Crisis care'],
+    tags: ['Crisis care'],
     read: 8,
     problem: {
       line: 'More than 700,000 people die by suicide each year, and fifty years of research have not improved the prediction of who will attempt.',
@@ -562,7 +562,7 @@ export const morePapers = [
       breaks: 'Fifty years of prediction research did not get far above chance, so the sorting step has no foundation to stand on.',
       reframe: [
         'Move from prediction to preparation, for everyone who reaches care. Rehearse the plan in calm periods, with a clinician, until its first steps are automatic. Design the first step to need almost no thought. Keep a human in contact throughout.',
-        'The design draws on implicit learning, since a rehearsed step runs without deliberation, and on relevance realization, since the plan hands a narrowed mind one pre-chosen thing to attend to.',
+        'The design draws on rehearsal, since a rehearsed step runs without deliberation, and on attention, since the plan hands a narrowed mind one pre-chosen thing to attend to.',
       ],
       limits:
         'A hypothesis with no trial of its own. The existing evidence is a cohort comparison. Only inside clinical care, co-designed with people with lived experience, with ethics review. Never a stand-alone game, never any content about methods, and always a route to a person. Anyone in distress should reach a person, not a program.',
