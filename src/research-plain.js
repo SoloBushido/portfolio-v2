@@ -1,0 +1,436 @@
+// Plain-language version of every paper. Short sentences, no jargon, numbers up front.
+// Facts are the same verified facts as in the sources list of each paper. Nothing here claims more.
+//
+// Fields per paper:
+//   line     the problem in one sentence
+//   answer   the short answer
+//   stats    big numbers [number, what it means]
+//   matters / ignore   what to look at, what to skip
+//   seen     three or four things already found [title, text]
+//   fig      optional picture: 'bars' or 'doses'
+//   way      { old, fails, idea[], fail, limits }   the usual way, why it falls short, the better idea, how it would fail, limits
+
+export const plain = {
+  1: {
+    line: 'Apps that train attention move scores in the app, not how people feel.',
+    answer: 'Build apps that teach people to let go of one worry and look elsewhere. Then judge them on real symptoms.',
+    stats: [
+      ['970 million', 'people lived with a mental health condition in 2019 (WHO).'],
+      ['49 studies', 'tested attention-training apps. Effects on symptoms were small, and faded after careful checks.'],
+    ],
+    matters: ['Can the person let go of a thought and look elsewhere?', 'Do symptoms really get better?'],
+    ignore: ['Scores inside the app', 'Time spent in the app', 'Streaks and badges'],
+    seen: [
+      ['Anxious minds lock on danger (1986)', 'Anxious people spot threatening words faster than neutral ones.'],
+      ['Apps tried at scale (2015)', 'A review of 49 fair tests found small effects on symptoms. After odd results and unpublished studies were accounted for, the effect was no longer clear.'],
+      ['The pattern', 'Brooding on a mistake, fearing danger, checking again and again. The worry changes. The stuck loop is the same.'],
+    ],
+    way: {
+      old: 'Train people to look away from threatening words.',
+      fails: 'It changes the score on the training task. It does not reliably change how people feel.',
+      idea: ['Build levels where winning means switching: focus hard, look wide, then focus again.', 'Measure how quickly the player switches.', 'Judge success by symptom questionnaires, not game scores.'],
+      fail: 'Players get better at switching, but their symptoms improve no more than a comparison group playing a different game.',
+      limits: 'This is a design idea. It has not been shown to treat any condition.',
+    },
+  },
+  2: {
+    line: 'After a trauma, nothing simple prevents unwanted flashbacks in the first hours.',
+    answer: 'A short game soon after a trauma may reduce flashbacks. The proof so far is small.',
+    stats: [
+      ['6 hours', 'after a car crash is when the short Tetris session was given.'],
+      ['Fewer', 'unwanted memories the next week in a hospital trial.'],
+      ['Not shown', 'a clear benefit at one month.'],
+    ],
+    matters: ['The timing: soon after the event', 'Whether it still works at one month'],
+    ignore: ['What patients say they learned', 'How fun the game is'],
+    seen: [
+      ['Volunteers (2009)', 'People watched a disturbing film, then played Tetris. They had fewer flashbacks that week than people who did nothing.'],
+      ['Hospital trial (2018)', 'Car crash patients got a reminder cue and 20 minutes of Tetris. A comparison group wrote an activity log. The Tetris group had fewer unwanted memories the next week. By one month, no clear difference.'],
+      ['ADHD game (2020)', '348 children played a game-like treatment for 4 weeks. Their attention improved more than a comparison group’s. The company that made it paid for the study.'],
+    ],
+    way: {
+      old: 'Wait to see who develops PTSD, then treat them.',
+      fails: 'Treatment starts months later, after the memory has settled in.',
+      idea: ['Offer a short, timed game in the hours after the event.', 'Keep it simple enough for a hospital waiting room.', 'Test it against a comparison activity and follow patients for months.'],
+      fail: 'The game group has no fewer flashbacks than a comparison group after three months.',
+      limits: 'Only one small trial in real patients, and the one-month result was not shown. Not a treatment yet.',
+    },
+  },
+  3: {
+    line: 'Harmful beliefs outlive the evidence against them, and the moment one drops is left to chance.',
+    answer: 'Some beliefs change in a flash. A game can set up that moment, but lasting change needs real-life proof.',
+    stats: [
+      ['0.3 seconds', 'before a flash solution, the brain shows a burst of activity.'],
+      ['Also wrong', 'the “Aha!” feeling shows up for wrong answers too.'],
+      ['Remembered', 'flash answers stick in memory better.'],
+    ],
+    matters: ['A stuck moment, then the old idea dropping', 'Whether the new idea survives a real test'],
+    ignore: ['The feeling of being certain', 'How clever the puzzle looks', 'How fast the answer came'],
+    seen: [
+      ['Stuck, then a jump (1987)', 'People rated how close they felt to the answer. On ordinary problems the feeling grew steadily. On flash problems it stayed low, then jumped.'],
+      ['A brain burst (2004)', 'Just before people solved word puzzles in a flash, brain recordings showed a burst of activity above the right ear.'],
+      ['Memorable, not always right (2013, 2017)', 'Flash answers were remembered better. But the “Aha!” feeling also came with wrong answers.'],
+    ],
+    way: {
+      old: 'Breakthroughs cannot be designed. They happen or they do not.',
+      fails: 'Research shows a pattern. A hint too early removes the struggle. Too late, people give up. And the feeling of being right is unreliable.',
+      idea: ['Let the player build the wrong idea first. That is the stuck part.', 'Give a nudge or a pause, then let the old idea drop. (Students who struggled before being taught understood better later.)', 'Check the new idea against something real before celebrating.'],
+      fail: 'The puzzle feels great and is remembered, but a belief questionnaire changes no more than after a puzzle solved step by step.',
+      limits: 'A puzzle is practice, not therapy. Lasting change comes from testing a new belief in real life, again and again.',
+    },
+  },
+  4: {
+    line: 'Evidence gets spoiled before court, and risk scores guess about as well as strangers.',
+    answer: 'Use AI to train the people who decide. Never let it decide about a person.',
+    stats: [
+      ['54%', 'of lies are spotted correctly. Guessing gets 50%.'],
+      ['137 features', 'were used by a risk tool that did no better than untrained volunteers.'],
+      ['1 hour', 'of practice with feedback improved how students questioned virtual children.'],
+    ],
+    matters: ['How the interviewer asks questions', 'The order evidence is revealed', 'Who a score is wrong about'],
+    ignore: ['Confidence', 'A single accuracy number', 'A score’s official look'],
+    seen: [
+      ['Questions shape memories (1974)', 'People watched a car crash. Asked how fast the cars “smashed” rather than “hit”, they guessed higher speeds and later “remembered” broken glass that was never there.'],
+      ['Practice with feedback (2015, 2022)', 'Students interviewing virtual children, with feedback, asked better questions after about an hour. A review of nine studies found the same.'],
+      ['Background bends experts (2006)', 'Fingerprint experts changed some earlier decisions when given misleading background information.'],
+      ['Scores are not magic (2018)', 'A widely used risk tool was no more accurate than untrained volunteers.'],
+    ],
+    way: {
+      old: 'Use AI to predict who will reoffend, or who is lying.',
+      fails: 'People catch lies barely above guessing. Risk scores matched untrained volunteers. And when groups differ, no score can be equally fair in every way.',
+      idea: ['First, train interviewers on practice cases where the truth is known.', 'Second, reveal case information in a fixed order, and lock in a judgement before seeing more.', 'Third, check past decisions for patterns, such as groups treated differently.'],
+      fail: 'Interviewers trained on the simulator ask no better questions with real children than untrained ones.',
+      limits: 'Never: automatic verdicts, lie scores, or risk scores a person cannot challenge. Practice must carry over to real interviews, and one study has started testing that with police officers. A named person must own each decision.',
+    },
+  },
+  5: {
+    line: 'Disease research stalls on puzzles computers cannot solve, with too few experts to handle them.',
+    answer: 'Games work best on puzzles where nobody has a good scoring rule yet.',
+    stats: [
+      ['37,000', 'people joined the RNA design game EteRNA.'],
+      ['Many attempts', 'had failed before game players helped solve a virus enzyme’s structure.'],
+      ['2024', 'Nobel Prize in Chemistry recognised AI that predicts protein shapes.'],
+    ],
+    matters: ['A scoring rule that stands for real science', 'The strategies players find', 'Lab tests of what they find'],
+    ignore: ['Player counts', 'Leaderboards', 'Answers without the strategy behind them'],
+    seen: [
+      ['A virus protein (2011)', 'After other methods failed, players of the game Foldit built models good enough for scientists to work out the structure of a virus enzyme.'],
+      ['Brain cells (2014)', 'Volunteers in the game EyeWire helped trace cells in the retina. The work helped explain how the eye detects motion.'],
+      ['RNA (2014)', 'About 37,000 EteRNA players tested designs in a real lab. Their best strategies were turned into a program that beat earlier methods.'],
+    ],
+    way: {
+      old: 'Use games to get free labour for science.',
+      fails: 'AI later learned to predict protein shapes very accurately (2021). Where the scoring rule is known, machines beat crowds.',
+      idea: ['Aim games at problems where nobody has a good scoring rule yet.', 'Save the strategies, not only the answers.', 'Test every finding in a real lab, and credit the players.'],
+      fail: 'Machines copy the best player strategies within a year.',
+      limits: 'A game built where AI already wins is a short-term helper, not a lasting product. Players can also chase points that drift away from the real science.',
+    },
+  },
+  6: {
+    line: 'Apps are rewarded for keeping people coming back, not for making them better.',
+    answer: 'Judge a therapy game by whether people get better and need it less, not by how often they return.',
+    stats: [
+      ['187', 'teenagers: a game-style therapy did as well as usual care for low mood.'],
+      ['70', 'students: a chatbot cut depression symptoms in 2 weeks, in a small test.'],
+      ['7,422', 'gamers surveyed: more loot-box spending went with worse gambling problems.'],
+    ],
+    matters: ['Symptoms against a fair comparison', 'Whether the gain lasts', 'Harm, and why people quit'],
+    ignore: ['Daily returns and streaks', 'Minutes played', '“I liked it” scores on their own'],
+    seen: [
+      ['SPARX (2012)', 'In 187 teenagers seeking help for low mood, a game-style therapy did as well as usual care. More reached remission with the game: 43.7% against 26.4%.'],
+      ['Woebot (2017)', '70 students chatted with a therapy chatbot for two weeks and had less depression than students given a reading. A small test, and people knew which group they were in.'],
+      ['ADHD game (2020)', '348 children: a game-like treatment improved attention more than a comparison. Its maker paid for the study.'],
+      ['Loot boxes (2018)', 'In a survey of 7,422 gamers, spending on loot boxes was linked to more gambling problems.'],
+    ],
+    way: {
+      old: 'Make an engaging game and add therapy content.',
+      fails: 'Engagement tricks can cause harm. Being popular does not show that a product helps.',
+      idea: ['Set a clear dose with an end: so many sessions, then done.', 'No random rewards. No streak penalties.', 'A route to a human when risk shows.', 'Decide the success measure first and publish the results, even poor ones.'],
+      fail: 'Symptoms improve no more than with a fair comparison, or the gain is gone later.',
+      limits: 'Chatbots for open conversation are still early evidence. They need limits, crisis routing and human oversight.',
+    },
+  },
+  7: {
+    line: 'Surprise attacks keep happening, and more sensors have not stopped them.',
+    answer: 'Practise and score judgement: spot the few real signals, avoid blind spots, and imagine how the plan fails.',
+    stats: [
+      ['Pearl Harbor', 'the warning signs were there, buried in noise and expectations.'],
+      ['9/11', 'an official inquiry called imagination the central failure.'],
+      ['199', 'world-affairs questions in a tournament that scored people’s predictions.'],
+    ],
+    matters: ['The few signals that break the pattern', 'The assumption the plan depends on', 'Predictions scored against what happened'],
+    ignore: ['Sheer number of alerts', 'Group agreement', 'Familiar dangers that crowd out new ones'],
+    seen: [
+      ['Pearl Harbor (1962 study)', 'Warning signs existed in quantity. They were buried in noise, and people expected danger elsewhere.'],
+      ['9/11 inquiry (2004)', 'The inquiry said the biggest failure was imagination: nobody had pictured this kind of attack.'],
+      ['Forecasting tournament (2014)', 'In a tournament run for US intelligence, training and teamwork were reported to improve predictions. A later reanalysis disputes this, and the original authors disagree.'],
+      ['A bias-training game (2015)', 'One game built for intelligence analysts reduced common thinking biases more than a video did, and the effect lasted at least two months.'],
+    ],
+    way: {
+      old: 'Buy more sensors and more AI alerts.',
+      fails: 'More alerts means each one is less likely to be looked at. The failures above were not missing data.',
+      idea: ['Run drills with real signals hidden in realistic noise. Score what was ignored too.', 'Use short games that train away common thinking biases, with personal feedback.', 'Require a “how could this plan fail?” round.', 'Score predictions against what really happens.'],
+      fail: 'Trained analysts do not spot planted signals faster, or predict better, than a matched untrained team using the same data.',
+      limits: 'Only for warning, training and decision support. Never targeting, automatic use of force, or watching citizens. A named person owns every judgement, and every AI suggestion is logged.',
+    },
+  },
+  8: {
+    line: 'Fake and manipulative content spreads faster than it can be fact-checked.',
+    answer: 'Teach people the few tricks manipulators use. Then check they can tell true from false, not just distrust everything.',
+    stats: [
+      ['15,000', 'people played “Bad News”, and rated fake headlines as less reliable afterward.'],
+      ['22,632', 'people in a YouTube study of short videos about manipulation tricks.'],
+      ['6', 'tricks taught in the game, such as stirring up emotion and blaming others.'],
+    ],
+    matters: ['The trick being used, not the topic', 'Telling true from false', 'Whether the effect lasts'],
+    ignore: ['Individual claims', 'General distrust', 'Quick score changes on test headlines'],
+    seen: [
+      ['Play the faker (2019)', 'In “Bad News”, players act as a fake-news producer. Afterward, people rated manipulative headlines as less reliable.'],
+      ['Short videos (2022)', 'Videos on tricks like false choices and scapegoating helped people spot them, in experiments and a YouTube field study.'],
+      ['A hard second look (2023)', 'A reanalysis found much of the gain was people calling everything “fake”, with no better skill at telling true from false.'],
+    ],
+    way: {
+      old: 'Debunk each false claim, and make people sceptical.',
+      fails: 'Debunking answers one claim at a time, too slowly. Doubting everything also hurts trust in true news.',
+      idea: ['Teach the tricks by letting people use them in a safe game.', 'Deliver through schools, platforms and community groups people already trust.', 'Measure the skill of telling true from false.', 'Follow up weeks later.'],
+      fail: 'Skill at telling true from false does not improve against a fair comparison when tested weeks later.',
+      limits: 'Defence only. No persuasion tools and no profiling of citizens. Publish what is taught. Keep it independent of government messaging, because trust is the asset.',
+    },
+  },
+  9: {
+    line: 'Alzheimer’s starts years before memory fails, and the usual tests miss it.',
+    answer: 'A short navigation game, played by millions, could flag risk years early. It still needs proof.',
+    stats: [
+      ['40%', 'of dementia worldwide is linked to 12 risk factors that can be changed (2020 Lancet Commission).'],
+      ['2.5 million', 'people in every country played the game, showing how much age, sex and country matter.'],
+      ['27,108', 'players formed the comparison set in the genetic-risk study.'],
+    ],
+    matters: ['How a person finds their way', 'Results compared with similar people (age, sex, schooling, country)', 'Who is diagnosed later'],
+    ignore: ['Memory test scores this early', 'A cut-off with no comparison group', 'Game score alone'],
+    seen: [
+      ['Genetic risk (2019)', 'People carrying a gene linked to Alzheimer’s found their way differently in the game. Standard memory tests did not tell them apart from others.'],
+      ['The whole world (2018)', 'Over 2.5 million players showed navigation skill differs by country, wealth and gender equality. A fair test needs a big comparison set.'],
+      ['The timeline (2013)', 'Brain changes in Alzheimer’s are thought to begin well before symptoms.'],
+    ],
+    way: {
+      old: 'Test memory once people start to complain.',
+      fails: 'By then the disease is old. In the study, memory tests did not separate people at higher risk.',
+      idea: ['Use a game that tests finding your way.', 'Let millions of plays build the comparison, matched for age, sex, schooling and country.', 'Follow willing players for years and record who is later diagnosed.'],
+      fail: 'In a long follow-up, the game’s results predict diagnosis no better than age and schooling alone.',
+      limits: 'A warning sign, not a diagnosis. Wrong alerts would cause worry. Brain data is very private, so clear consent comes first. No long follow-up exists yet.',
+    },
+  },
+  10: {
+    line: 'People leave treatment understanding their addiction, and the automatic pull is still there.',
+    answer: 'Train the automatic pull toward drink and drugs, but only in people who have it, and test it properly.',
+    stats: [
+      ['214', 'patients in the first trial. A year later they did better.'],
+      ['509', 'patients in the repeat trial. Fewer relapsed at one year.'],
+      ['14 studies', 'pooled together. Results too uncertain to rule out no effect.'],
+    ],
+    matters: ['How strong the automatic pull is', 'Relapse a year or more later', 'Who benefits'],
+    ignore: ['Promises to quit', 'Short-term scores', 'Understanding of the addiction'],
+    seen: [
+      ['First trial (2011)', 'Patients pushed a joystick away whenever alcohol pictures appeared, in four short sessions. A year later they did better than comparison groups.'],
+      ['Repeat trial (2013)', 'In 509 patients, the trained group relapsed less after a year. Older patients and those with the strongest pull gained most.'],
+      ['All studies together (2019)', 'Pooling 14 studies (2,435 people): a small change in the pull, and a relapse effect too uncertain to rule out zero. Substance use did not fall.'],
+    ],
+    way: {
+      old: 'Boost motivation and explain why they use.',
+      fails: 'Understanding leaves the reflex untouched. The training that looked promising is too uncertain to build a service on.',
+      idea: ['Measure the automatic pull first.', 'Train only people whose pull is strong, as an add-on to normal treatment.', 'Use one shared, pre-registered method at every site.'],
+      fail: 'In a large pre-registered trial of people with a strong pull, relapse at 12 months is no better than with fake training.',
+      limits: 'Very wide uncertainty. Not a cure. In the pooled data more practice did not mean more benefit, and that needs explaining.',
+    },
+  },
+  11: {
+    line: 'Lazy eye was thought untreatable after childhood, and games have not clearly beaten the old eye patch.',
+    answer: 'A game only works if children play the full dose. Build it so they cannot skip the treatment part.',
+    stats: [
+      ['385', 'children in the main trial.'],
+      ['1.05 vs 1.35', 'lines of eye-chart gain: game against eye patch.'],
+      ['22%', 'of children played more than three-quarters of the prescribed time.'],
+    ],
+    matters: ['Eye-chart gains against the best alternative', 'How much treatment was truly delivered'],
+    ignore: ['Exciting early results from small tests', 'Time the app was installed', 'What families say they played'],
+    seen: [
+      ['A small test (2011)', '20 adults played video games for 40 to 80 hours. Vision improved by about a third, faster than patching works in children.'],
+      ['The big trial (2016)', '385 children, 16 weeks: a game for 1 hour a day against patching 2 hours a day. The game improved vision by 1.05 lines and patching by 1.35. The game was not shown to be as good.'],
+      ['The catch', 'Among children with usable records, only 22.2% played more than 75% of the prescribed time. The median was 46%.'],
+    ],
+    way: {
+      old: 'A fun game will fix the eye.',
+      fails: 'The old patch still did better, and most of the prescribed play never happened.',
+      idea: ['Make correct play the treatment: the picture only appears when both eyes work together.', 'Record real minutes of treatment, not minutes the app was open.', 'Compare against patching at the same real dose.'],
+      fail: 'Even with forced and recorded dose, the game still falls short of patching at the same delivered dose.',
+      limits: 'One trial, one game. A different game could behave differently, and that is what needs testing.',
+    },
+  },
+  12: {
+    line: 'About 1 in 20 US adult patients a year gets a wrong or missed diagnosis. A few dangerous diseases cause half the harm.',
+    answer: 'Ask several doctors for a ranked list of possible causes, separately, then combine the lists.',
+    stats: [
+      ['12 million', 'US adults a year face a diagnostic error in outpatient care (estimate).'],
+      ['795,000', 'Americans a year die or are left disabled by misdiagnosed dangerous diseases (estimate).'],
+      ['15 diseases', 'cause about half of that harm.'],
+    ],
+    matters: ['A ranked list of possibilities, not one answer', 'The short list of dangerous diseases', 'Accuracy case by case'],
+    ignore: ['Confidence', 'Seniority', 'Speed of the first answer'],
+    seen: [
+      ['How common (2014)', 'Combining three large studies: about 5% of US adult outpatients a year, around 12 million people.'],
+      ['How concentrated (2024)', 'An estimated 795,000 Americans a year die or are left disabled. 15 diseases cause about half. Stroke, sepsis, pneumonia, blood clots and lung cancer are the top five.'],
+      ['Crowds beat singles (2019)', 'On practice cases, single doctors had the right answer in their top three 62.5% of the time. Groups of 9 reached 85.6%. Even groups of 2 beat single specialists.'],
+    ],
+    fig: 'bars',
+    way: {
+      old: 'Train each doctor to avoid bias, and run another test.',
+      fails: 'Even specialists got only about two-thirds right on practice cases.',
+      idea: ['Use practice cases from the dangerous list, with instant feedback.', 'Collect ranked lists from several people separately, before anyone sees the others.', 'Add AI as one more independent voice, never the first.'],
+      fail: 'In real clinics, pooling lists does not reduce missed dangerous diagnoses compared with usual care.',
+      limits: 'The practice cases were written descriptions, not real patients. The 5% figure stretches from three studies. A live trial is still missing.',
+    },
+  },
+  13: {
+    line: 'People often take only about half their prescribed doses, and nothing has reliably fixed it.',
+    answer: 'Find out why each person misses doses, then match them to a fix. Test it on real health results.',
+    stats: [
+      ['About half', 'of prescribed doses are typically taken (Cochrane review).'],
+      ['182', 'fair tests were reviewed.'],
+      ['5 of 17', 'of the best-quality tests improved both doses taken and health.'],
+    ],
+    matters: ['The person’s real reason for missing doses', 'Doses measured objectively', 'A health result that improves'],
+    ignore: ['What people say they took', 'How many reminders were sent', 'App opens'],
+    seen: [
+      ['The evidence (2014)', 'A review of 182 fair tests found the methods so different that the results could not be combined.'],
+      ['The best tests', 'Only 17 were high quality. Only 5 of those improved both doses taken and health. They shared no single feature.'],
+      ['What worked looked like', 'Personal, ongoing help from people such as pharmacists. Even the best did not make big improvements.'],
+    ],
+    fig: 'doses',
+    way: {
+      old: 'Send reminders through an app.',
+      fails: 'Reviews say current methods are mostly complicated and not very effective, and the best depend on expensive human time.',
+      idea: ['Use a short first-week check to find each person’s likely reason: forgetting, side effects, beliefs or cost.', 'Match each reason to a simple, cheap fix.', 'Hand harder cases to a person.'],
+      fail: 'Matching people to fixes does not beat plain reminders on both doses taken and a health result.',
+      limits: 'Only an idea. Nobody has tested it. Medicine habits are private data and need clear consent.',
+    },
+  },
+  14: {
+    line: 'Seven in ten ten-year-olds in poorer countries cannot read a simple text, and there are not enough tutors.',
+    answer: 'Build a tutor’s three jobs into the game: find the misunderstanding, let the child struggle first, keep them in the right zone.',
+    stats: [
+      ['70%', 'of 10-year-olds in low and middle-income countries could not read and understand a simple text (2022).'],
+      ['57%', 'was the figure before the pandemic.'],
+      ['2.0 vs 0.37', 'one-to-one tutoring against an adaptive-practice trial in India (gain, in standard deviations).'],
+    ],
+    matters: ['What exactly the child misunderstands', 'Time spent on the right problem', 'Gains for the weakest learners'],
+    ignore: ['Hours in class', 'Syllabus covered', 'The class average'],
+    seen: [
+      ['The target (1984)', 'Children taught one-to-one, with mastery, did about two standard deviations better than a normal class. Those studies were small.'],
+      ['A programme in India (2019)', '619 students used adaptive practice after school for 4.5 months. Maths improved by 0.37, Hindi by 0.23. Weaker students gained most. Cost-effective, but a small test.'],
+      ['The need (2022)', 'Learning poverty rose from 57% to 70% after the pandemic.'],
+    ],
+    fig: 'bars',
+    way: {
+      old: 'Put the curriculum on a screen and let each child go at their own pace.',
+      fails: 'It delivered a fraction of tutoring’s gain, in a small trial, and scaling is unproven.',
+      idea: ['Pick problems that reveal the misunderstanding.', 'Let the child try first, then teach. Students who did this understood better later.', 'Keep the challenge just hard enough to stay hooked.'],
+      fail: 'At scale in real schools, this approach gains no more than standard adaptive practice.',
+      limits: 'Both numbers come from small studies. Devices, teachers and language all decide whether results hold at scale. One small example is the Roti idea, a sharing game that exposes the fraction mistake before any rule is taught.',
+    },
+  },
+  15: {
+    line: 'When the thing you are looking for is rare, even experts miss it far more often.',
+    answer: 'Keep watchers sharp by feeding them honest practice cases, with instant feedback.',
+    stats: [
+      ['30%', 'of cancers missed by radiologists in a real, low-cancer clinic.'],
+      ['12%', 'missed in a test session using the same cases, mixed 50/50.'],
+      ['1948', 'radar and sonar operators were shown to miss rare events as watches wore on.'],
+    ],
+    matters: ['How often the watcher has recently seen a real target', 'Misses on rare targets', 'Detection of planted practice cases'],
+    ignore: ['Overall accuracy, which easy cases flatter', 'Confidence', 'Years of experience'],
+    seen: [
+      ['The lab (2005)', 'If people rarely find what they search for, they often fail to notice it when it does appear.'],
+      ['A real clinic (2013)', 'Fifty cancer cases and 50 normal cases were slipped into a hospital’s screening over nine months. Radiologists missed 30% of the cancers in the clinic and 12% when reviewing the same cases at 50/50.'],
+      ['Long watches (1948)', 'Radar and sonar operators missed rare events more often as their watch went on.'],
+    ],
+    fig: 'bars',
+    way: {
+      old: 'Train harder, add alerts, and rely on professionalism.',
+      fails: 'Experts in a real clinic still missed 30%. More alerts add noise.',
+      idea: ['Mix honest, clearly labelled practice cases into the work at a controlled rate.', 'Give instant feedback and a score.', 'Use short work bursts and rotation to fight tiredness.'],
+      fail: 'Watchers using practice cases catch no more real rare targets, or false alarms rise by more than the gain.',
+      limits: 'Planted cases must be disclosed and honest. Too many could cause false alarms. An idea, not a tested method.',
+    },
+  },
+  16: {
+    line: 'As machines get better, people stop checking them, and the remaining errors go unnoticed.',
+    answer: 'Train people to catch the machine’s mistakes, and measure it before they are allowed to sign off.',
+    stats: [
+      ['74 papers', 'reviewed: over-reliance on machines shows up in many fields.'],
+      ['Worse than none', 'a very reliable but imperfect aid led to worse monitoring in a flight simulation.'],
+      ['Experts too', 'not just beginners. Practice alone did not fix it.'],
+    ],
+    matters: ['How many planted machine errors a person catches', 'Whether information is shown before the machine’s answer', 'Who is accountable, by name'],
+    ignore: ['How often people agree with the machine', 'Reported trust', 'Speed of decisions'],
+    seen: [
+      ['Flight simulator (1999)', 'People with a very reliable but imperfect aid did worse at a monitoring task than people with no aid.'],
+      ['Across studies (2010)', 'Over-reliance appears when people are busy, in beginners and experts alike, and does not go away with simple practice.'],
+      ['Healthcare review (2012)', '74 papers: training, accountability and design helped, such as showing information before advice and showing how sure the machine is.'],
+      ['An old warning (1983)', 'The better the machine, the less practised the person left to supervise it.'],
+    ],
+    way: {
+      old: 'Keep a human in the loop and it is safe.',
+      fails: 'A person who has stopped checking is a signature, not a safeguard.',
+      idea: ['Plant known machine errors at a known rate, with instant feedback.', 'Show information first, then the recommendation.', 'Name an accountable person, and rotate duties.', 'Make the catch rate a requirement to operate the system.'],
+      fail: 'People trained this way catch no more real machine errors than untrained people, or lose the benefit of a good machine.',
+      limits: 'Too many planted errors could make people distrust a good machine. Results from one field do not automatically carry to another.',
+    },
+  },
+  17: {
+    line: 'Crises can escalate faster than leaders can think, and AI is entering the decision loop.',
+    answer: 'Test every AI adviser in repeated crisis games, not one question at a time. Train leaders in the same games.',
+    stats: [
+      ['5 of 5', 'AI models tested in a wargame showed some escalation.'],
+      ['Rare', 'cases ended in nuclear weapons use in the simulation.'],
+      ['2010', 'flash crash: automated trading systems interacting at speed.'],
+    ],
+    matters: ['The moment a human can still slow things', 'How each side reads the other’s last move', 'Ways out that remain open'],
+    ignore: ['Speed', 'The last move taken alone', 'Agreement inside your own team'],
+    seen: [
+      ['AI nations (2024)', 'Eight AI-run nations played a turn-based conflict game. All five AI models escalated, and arms races emerged. The model with no human-feedback tuning escalated most.'],
+      ['Humans against AI (2024)', 'Researchers compared expert humans with AI models in wargames, to see where they differ.'],
+      ['Machines at speed (2010)', 'An investigation of the flash crash described automated trading systems interacting at speed, producing a rapid fall and recovery.'],
+    ],
+    way: {
+      old: 'Keep a human in the loop and check that the AI is accurate.',
+      fails: 'Accuracy is checked one answer at a time. The danger shows up when AIs interact, round after round.',
+      idea: ['Run crisis games that include AI players.', 'Build in moments where a human can slow things down.', 'Test each AI adviser for escalation before it is used.', 'Train leaders to read the other side’s moves fairly.'],
+      fail: 'AI advisers that pass the test still escalate in new scenarios, or trained leaders escalate as much as untrained ones.',
+      limits: 'Simulations are not real life. Defence only: rehearsal, adviser testing and training. No AI deciding on force or choosing targets. A named human decides.',
+    },
+  },
+  18: {
+    line: 'More than 700,000 people die by suicide each year, and 50 years of research has not improved prediction.',
+    answer: 'Rehearse a simple safety plan in calm times, inside clinical care, so the first step is automatic.',
+    stats: [
+      ['700,000+', 'suicide deaths a year worldwide (WHO).'],
+      ['365 studies', 'over 50 years found prediction only slightly better than chance.'],
+      ['3.0% vs 5.3%', 'suicidal behaviour in 6 months after an emergency visit: with a safety plan and follow-up, against usual care.'],
+    ],
+    matters: ['What a person can do in the first minutes of a crisis', 'A first step chosen in advance', 'Reliable contact with a human'],
+    ignore: ['Risk scores that sort people', 'A single warning sign', 'What someone says at one moment'],
+    seen: [
+      ['Prediction fails (2017)', 'A review of 365 studies found prediction only slightly better than chance, with no improvement in 50 years.'],
+      ['A plan helps (2018)', 'In 9 hospital emergency departments (1,640 patients), a short safety plan with follow-up calls was linked to 45% fewer suicidal behaviours over 6 months. This compared sites. It was not a fair test where people are picked by chance.'],
+      ['Why rehearse', 'In a crisis, attention narrows. A plan that needs thinking to start may not start. This is a design idea, not a study result.'],
+    ],
+    fig: 'bars',
+    way: {
+      old: 'Predict who is at risk, then focus on them.',
+      fails: 'Prediction has not worked in 50 years, so the sorting step has no foundation.',
+      idea: ['Rehearse the plan with a clinician in calm periods, until the first steps are automatic.', 'Make the first step need almost no thought.', 'Keep a human in contact.'],
+      fail: 'In a fair trial inside clinical care, rehearsal adds nothing beyond the safety plan with follow-up, or raises distress.',
+      limits: 'An untested idea. Only inside clinical care, designed with people who have lived experience, with ethics review. Never a stand-alone game, never content about methods, always a route to a person. If you or someone you know is in distress, contact a person: local emergency services or a crisis line.',
+    },
+  },
+};

@@ -257,3 +257,27 @@
 .rs-cards__p { font-size: clamp(1.25rem, 1.8vw, 1.55rem); }
 .rs-cards__t { font-size: 1rem; line-height: 1.4; }
 .rs-cards__k { text-transform: none; letter-spacing: 0; font-size: 0.8125rem; color: var(--green); }
+
+/* ---------- plain-language paper ---------- */
+.rs-step { margin-top: clamp(26px, 3vw, 44px); padding: clamp(20px, 3vw, 36px); border-radius: 26px; background: color-mix(in srgb, var(--ink) 5%, transparent); box-shadow: inset 0 0 0 1px var(--line-i); display: grid; gap: clamp(16px, 2vw, 24px); max-width: 52em; }
+.rs-step__h { display: flex; align-items: center; gap: 12px; font: 700 clamp(1.4rem, 2vw, 1.8rem) / 1.1 var(--display); }
+.rs-step__h span { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: var(--green); color: #06050d; font: 800 1.05rem var(--display); }
+.rs-line { font: 600 clamp(1.5rem, 2.8vw, 2.3rem) / 1.15 var(--display); letter-spacing: -0.015em; text-wrap: balance; }
+.rs-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
+.rs-stats li { display: grid; gap: 6px; align-content: start; padding: 16px 18px; border-radius: 18px; background: #06050d; color: #ece9ff; }
+.rs-stats b { font: 800 clamp(1.8rem, 3.4vw, 2.6rem) / 1 var(--display); color: var(--green); letter-spacing: -0.02em; }
+.rs-stats span { font: 400 1rem / 1.4 var(--text); color: color-mix(in srgb, #ece9ff 85%, #06050d); }
+.rs-keep h4 { font: 700 0.8125rem var(--sans); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 8px; color: var(--soft-i); }
+.rs-keep > div:first-child h4 { color: var(--c-rr); }
+.rs-cases { grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
+.rs-cases span { font-size: 1.0625rem; line-height: 1.5; }
+.rs-way { display: grid; gap: 10px; }
+.rs-way > div { padding: 16px 18px; border-radius: 16px; box-shadow: inset 0 0 0 1px var(--line-i); }
+.rs-way dt { font: 700 0.8125rem var(--sans); letter-spacing: 0.06em; text-transform: uppercase; color: var(--soft-i); margin-bottom: 6px; }
+.rs-way dd { margin: 0; font: 400 1.125rem / 1.5 var(--text); }
+.rs-way__new { background: color-mix(in srgb, var(--green) 12%, transparent); box-shadow: inset 0 0 0 1px var(--green) !important; }
+.rs-way__new dt { color: var(--green); }
+.rs-way__new ol { margin: 0; padding-left: 1.3em; display: grid; gap: 8px; }
+.rs-way__new li { font-weight: 600; }
+.rs-way__fail { background: rgba(201, 42, 25, 0.16); box-shadow: inset 0 0 0 1px #ff6b57 !important; }
+.rs-way__fail dt { color: #ff9a8b; }

@@ -1,4 +1,5 @@
 import { morePapers } from "./research-more.js";
+import { plain } from "./research-plain.js";
 
 // Research programme: how game design and AI can support mental health, forensic psychology, biotech and defense.
 // Position papers that synthesise published work. Every cited study is real and was checked against its record.
@@ -585,7 +586,7 @@ export const groups = [
 export const papers = [
   ...basePapers.map((p) => ({ ...p, group: "foundations" })),
   ...morePapers.map((p) => ({ ...p, group: "unsolved" })),
-].map((p) => ({ ...p, field: fieldOf[p.n] }));
+].map((p) => ({ ...p, ...plain[p.n], problem: { ...p.problem, line: plain[p.n].line }, read: 3, field: fieldOf[p.n] }));
 
 export const rungs = [
   { n: 1, t: 'People play it', note: 'Engagement' },
